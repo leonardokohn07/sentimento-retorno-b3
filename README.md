@@ -88,6 +88,37 @@ parte da amostra, a ordem temporal entre notícia e preço não está estabeleci
 horário oficial de protocolo, o que permite separar o que veio antes do que
 veio depois.
 
+### A curva de defasagem: o efeito aparece antes da notícia?
+
+Se a informação vazasse aos poucos antes da publicação, a correlação deveria
+crescer gradualmente de D−5 até D+0. Se fosse cobertura reagindo ao preço,
+apareceria um pico isolado logo antes. O teste foi pré-registrado
+(`docs/pre-registro_2026-09-28_curva-de-defasagem.md`) com essa leitura
+definida de antemão.
+
+![Curva de defasagem](resultados/curva_defasagem_2026-09-28.png)
+
+Com todos os pares ativo-dia empilhados:
+
+| D−5 | D−4 | D−3 | D−2 | D−1 | D+0 | D+1 | D+2 | D+3 | D+5 |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 0,007 | 0,013 | 0,012 | 0,013 | **0,060** | **0,131** | 0,007 | 0,004 | 0,015 | −0,008 |
+
+O padrão é **um pico em D+0 com um ombro em D−1**, e nada em torno: de D−5 a
+D−2 as correlações ficam entre 0,007 e 0,013, e a partir de D+1 voltam a zero.
+
+Pelo critério escrito antes de rodar, isso **não** é o formato de vazamento
+gradual de informação: não há decaimento ao longo de vários dias. É compatível
+com uma janela curta — de horas a um pregão — em que preço e notícia se movem
+juntos, seja porque o mercado se antecipou pouco antes, seja porque a cobertura
+saiu logo depois do movimento. Com dado diário, as duas explicações produzem o
+mesmo desenho.
+
+Dois pontos isolados aparecem significativos longe do centro (BBDC4 em D−3,
+VALE3 em D+5). Com 80 testes a 5%, quatro falsos positivos são o esperado, e
+o pré-registro já dizia que a leitura seria do formato da curva, não de pontos
+soltos.
+
 ---
 
 ## Como o estudo foi feito
