@@ -14,12 +14,17 @@ Por que este arquivo existe
     o resto do projeto importa daqui. Trocar a identidade inteira é mexer
     num arquivo.
 
+Tema escuro
+    O projeto roda em fundo escuro. Cores de dado escolhidas para ESTE fundo
+    (e não convertidas de um tema claro): azul #3987e5 para o resultado que
+    rejeita H0, vermelho #e66767 para o que não rejeita.
+
 A paleta foi validada para daltonismo e contraste
-    Azul #2a78d6 e laranja #eb6834 sobre fundo branco: separação ΔE 24,7 em
-    protanopia e 33,6 em visão normal (mínimos de 8 e 15), e ambos acima de
-    3:1 de contraste com o fundo. O verde escuro do banner (#0c5a4e) serve
-    como cor de MARCA, não como cor de dado: ele reprova nos testes de
-    luminosidade e saturação quando usado para marcar séries.
+    O par azul/vermelho sobre o fundo escuro: separação ΔE 19,2 em
+    protanopia e 29,0 em visão normal (mínimos de 8 e 15), ambos acima de
+    3:1 de contraste com o fundo. O verde escuro do banner (#0c5a4e) não
+    serve como cor de dado — reprova em luminosidade e saturação — e fica
+    reservado para uso de marca.
 """
 
 from pathlib import Path
@@ -29,18 +34,18 @@ RAIZ = Path(__file__).resolve().parent.parent
 # ─────────────────────────────────────────────────────────
 # PALETA
 # ─────────────────────────────────────────────────────────
-TINTA = "#111318"          # texto principal
-TINTA2 = "#42464f"         # texto secundário
-MUDO = "#7a7f89"           # legendas, eixos, notas
-LINHA = "#e6e6e3"          # bordas e réguas
-GRADE = "#ececea"          # grade dos gráficos
-FUNDO = "#ffffff"
-FUNDO2 = "#f7f7f5"         # blocos de apoio
+TINTA = "#e9ecf1"          # texto principal
+TINTA2 = "#b9c0cc"         # texto secundário
+MUDO = "#8c95a3"           # legendas, eixos, notas
+LINHA = "#272d38"          # bordas e réguas
+GRADE = "#222836"          # grade dos gráficos
+FUNDO = "#0f1218"          # fundo da página
+FUNDO2 = "#161b24"         # blocos de apoio
 
-SERIE_1 = "#2a78d6"        # dado principal / resultado significativo
-SERIE_2 = "#eb6834"        # contraste / resultado inconclusivo
-SERIE_3 = "#1baf7a"
-SERIE_4 = "#4a3aa7"
+SERIE_1 = "#3987e5"        # rejeita H0
+SERIE_2 = "#e66767"        # não rejeita / inconclusivo
+SERIE_3 = "#199e70"
+SERIE_4 = "#c98500"
 CATEGORICA = [SERIE_1, SERIE_2, SERIE_3, SERIE_4]
 
 SIGNIFICATIVO = SERIE_1

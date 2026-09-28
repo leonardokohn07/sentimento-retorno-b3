@@ -24,13 +24,13 @@ gatherUsageStats = false
 # ─────────────────────────────────────────────────────────
 # As mesmas cores de modulos/visual.py. Aqui ficam as do chrome do
 # Streamlit (botões, seletores, fundo); lá ficam as dos dados e dos textos.
-# Azul #2a78d6 e laranja #eb6834 foram validados para daltonismo e contraste
-# sobre fundo branco.
+# Azul #3987e5 e vermelho #e66767 foram validados para daltonismo e contraste
+# sobre este fundo escuro.
 
 [theme]
-base = "light"
-primaryColor = "#2a78d6"
-backgroundColor = "#ffffff"
-secondaryBackgroundColor = "#f7f7f5"
-textColor = "#111318"
+base = "dark"
+primaryColor = "#3987e5"
+backgroundColor = "#0f1218"
+secondaryBackgroundColor = "#161b24"
+textColor = "#e9ecf1"
 font = "sans serif"

@@ -44,7 +44,6 @@ from modulos.analise.hipotese import (
 
 st.set_page_config(
     page_title="InvestAI — Sentimento x Retorno (B3)",
-    page_icon="🔬",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
@@ -145,14 +144,14 @@ cache_existe = ARQ_CACHE.exists()
 col_bt1, col_bt2 = st.columns([1, 1])
 with col_bt1:
     rodar_estudo = st.button(
-        "🚀 Coletar histórico e rodar estudo",
+        "Coletar histórico e rodar estudo",
         type="primary",
         use_container_width=True,
         key="btn_estudo",
     )
 with col_bt2:
     usar_cache = st.button(
-        "📂 Usar dados já coletados",
+        "Usar dados já coletados",
         use_container_width=True,
         disabled=not cache_existe,
         key="btn_cache",
@@ -166,7 +165,7 @@ if cache_existe:
         _tem_sent = "score_polaridade" in _prev.columns
 
         with st.container(border=True):
-            st.markdown("**📂 Dados já carregados**")
+            st.markdown("**Dados já carregados**")
             s1, s2, s3, s4 = st.columns(4)
             s1.metric("Notícias", f"{len(_prev):,}".replace(",", "."))
             s2.metric("Ativos", _prev["ticker"].nunique())
@@ -174,12 +173,12 @@ if cache_existe:
                 "Período",
                 f"{_prev['data'].min():%m/%y} – {_prev['data'].max():%m/%y}",
             )
-            s4.metric("Sentimento", "✅ pronto" if _tem_sent else "⏳ falta")
+            s4.metric("Sentimento", "pronto" if _tem_sent else "falta")
             st.caption(
                 f"Coletado em {_mod:%d/%m/%Y às %H:%M} · `dados/{ARQ_CACHE.name}`"
             )
     except Exception:
-        st.caption(f"✅ Cache encontrado: `dados/{ARQ_CACHE.name}`")
+        st.caption(f"Cache encontrado: `dados/{ARQ_CACHE.name}`")
 else:
     st.caption(
         "ℹ️ Nenhum dado histórico coletado ainda. "
@@ -216,7 +215,7 @@ if rodar_estudo:
         # A coleta ocupa 85% da barra; os 15% finais são o sentimento.
         barra.progress(p["fracao"] * 0.85)
         linha_status.markdown(
-            f"📡 Ativo **{p['ticker_atual']}/{p['ticker_total']}** · "
+            f"Ativo **{p['ticker_atual']}/{p['ticker_total']}** · "
             f"`{p['ticker']}` · período **{p['periodo']}**"
         )
         m_etapa.metric("Etapa", f"{p['passo']}/{p['passo_total']}")
@@ -232,7 +231,7 @@ if rodar_estudo:
         """Chamado pelo analisador de sentimento."""
         barra.progress(0.85 + p["fracao"] * 0.15)
         linha_status.markdown(
-            f"🤖 Calculando sentimento · **{p['atual']}/{p['total']}** notícias"
+            f"Calculando sentimento · **{p['atual']}/{p['total']}** notícias"
         )
 
     try:
@@ -263,7 +262,7 @@ if rodar_estudo:
             st.session_state["noticias_historicas"] = noticias_hist
 
         barra.progress(1.0)
-        linha_status.markdown("✅ **Coleta concluída!**")
+        linha_status.markdown("**Coleta concluída.**")
         painel.empty()   # limpa o painel para dar lugar aos resultados
 
     except Exception as e:
@@ -282,7 +281,7 @@ resultados_ativos = {}
 
 if noticias_hist is None:
     st.markdown("---")
-    st.info("👆 Escolha uma das opções acima para começar o estudo.")
+    st.info("Escolha uma das opções acima para começar o estudo.")
 
 elif noticias_hist.empty:
     st.error(
@@ -293,7 +292,7 @@ elif noticias_hist.empty:
 
 else:
     st.success(
-        f"📊 {len(noticias_hist)} notícias históricas | "
+        f"{len(noticias_hist)} notícias históricas | "
         f"{noticias_hist['data'].min():%d/%m/%Y} a "
         f"{noticias_hist['data'].max():%d/%m/%Y}"
     )
@@ -304,7 +303,7 @@ else:
     # sustenta a conclusão estatística do trabalho.
     tickers_estudo = sorted(noticias_hist["ticker"].dropna().unique())
 
-    with st.spinner("📈 Alinhando preços ao período do estudo..."):
+    with st.spinner("Alinhando preços ao período do estudo..."):
         retornos_est, ibov_est, _per = carregar_precos_estudo(
             tuple(tickers_estudo), str(data_ini_est)
         )
@@ -387,7 +386,7 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
             "R²": reg["r2"],
             "% explicado": f"{reg['variancia_explicada_pct']}%",
             "p-valor": reg["p_valor"],
-            "H₀ rejeitada": "✅ SIM" if sig else "❌ não",
+            "H₀ rejeitada": "sim" if sig else "não",
         })
 
     total_ativos = len(linhas_tabela)
@@ -422,14 +421,25 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
             f"Este é um resultado válido e deve ser reportado com honestidade."
         )
 
+    # A coluna do veredito é texto, não ícone: "sim" em azul, "não" em
+    # vermelho. Cor sozinha não carrega significado — a palavra carrega.
+    def _cor_veredito(v):
+        if v == "sim":
+            return f"color: {SIGNIFICATIVO}; font-weight: 700"
+        if v == "não":
+            return f"color: {INCONCLUSIVO}; font-weight: 700"
+        return ""
+
     st.dataframe(
-        pd.DataFrame(linhas_tabela),
+        pd.DataFrame(linhas_tabela).style.map(
+            _cor_veredito, subset=["H₀ rejeitada"]
+        ),
         use_container_width=True,
         hide_index=True,
     )
 
     # ══ Diagnóstico da qualidade dos dados ══
-    with st.expander("🩺 Diagnóstico — a medição está funcionando?", expanded=(significativos == 0)):
+    with st.expander("Diagnóstico — a medição está funcionando?", expanded=(significativos == 0)):
         st.markdown("""
         Antes de concluir qualquer coisa, é preciso verificar se o
         **instrumento de medição** está funcionando. Se o sentimento
@@ -485,7 +495,7 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
                        "\n\n".join(f"- {p}" for p in problemas))
         else:
             st.success(
-                "✅ A medição parece saudável: há variação suficiente no "
+                "A medição parece saudável: há variação suficiente no "
                 "sentimento. Um resultado não-significativo aqui é um "
                 "achado legítimo, não falha do instrumento."
             )
@@ -514,11 +524,11 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
                 continue
             pct_n = float((s_c.abs() < 0.15).mean() * 100)
             if pct_n > 80:
-                sit = "🔴 ruim"
+                sit = "ruim"
             elif pct_n > 70:
-                sit = "🟡 atenção"
+                sit = "atenção"
             else:
-                sit = "🟢 ok"
+                sit = "ok"
             linhas_cob.append({
                 "Ativo": tk_c,
                 "Notícias": len(s_c),
@@ -548,7 +558,7 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
                 )
             else:
                 st.success(
-                    "✅ Cobertura homogênea entre os ativos: o léxico se "
+                    "Cobertura homogênea entre os ativos: o léxico se "
                     "comporta de forma parecida em todos os setores da "
                     "amostra."
                 )
@@ -666,7 +676,7 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
     tm = testar_diferenca_medias(serie_sel, lag=lag_escolhido, limiar=0.2)
 
     if "erro" in tm:
-        st.warning(f"⚠️ {tm['erro']}")
+        st.warning(tm["erro"])
     else:
         t1, t2, t3, t4 = st.columns(4)
         t1.metric(
@@ -691,7 +701,7 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
 
         if tm["significativo_5pct"]:
             st.success(
-                f"✅ Diferença **estatisticamente significativa** "
+                f"Diferença **estatisticamente significativa** "
                 f"(p = {tm['p_valor']:.4f} < 0,05). O efeito é **real**. "
                 f"E o d de Cohen de {tm['d_cohen']:.3f} indica que sua "
                 f"magnitude é **{tm['magnitude_efeito'].lower()}**."
@@ -733,7 +743,7 @@ O p-valor sozinho diria que o efeito existe, sem dizer se ele importa.
                 noticias_hist, retornos_est[ativo_sel], ibov_est, ativo_sel
             )
             if "erro" in ev:
-                st.warning(f"⚠️ {ev['erro']}")
+                st.warning(ev["erro"])
             else:
                 e1, e2, e3 = st.columns(3)
                 e1.metric("Beta estimado", f"{ev['beta_estimado']:.3f}")
@@ -752,7 +762,7 @@ O p-valor sozinho diria que o efeito existe, sem dizer se ele importa.
                             delta=f"p = {ev['p_valor_positivo']:.4f}",
                         )
                         if ev.get("significativo_positivo"):
-                            st.success("✅ Significativo")
+                            st.success("Significativo")
                     else:
                         st.caption("Eventos positivos insuficientes (mín. 5)")
                 with cn:
@@ -763,7 +773,7 @@ O p-valor sozinho diria que o efeito existe, sem dizer se ele importa.
                             delta=f"p = {ev['p_valor_negativo']:.4f}",
                         )
                         if ev.get("significativo_negativo"):
-                            st.success("✅ Significativo")
+                            st.success("Significativo")
                     else:
                         st.caption("Eventos negativos insuficientes (mín. 5)")
         except Exception as e:
@@ -798,15 +808,15 @@ O p-valor sozinho diria que o efeito existe, sem dizer se ele importa.
                 "Sentimento": round(float(r["score_polaridade"]), 3),
                 f"Retorno D+1 (%)": round(ret_seguinte, 2),
                 "Direção": (
-                    "✅ acertou"
+                    "acertou"
                     if np.sign(r["score_polaridade"]) == np.sign(ret_seguinte)
-                    else "❌ errou"
+                    else "errou"
                 ),
             })
 
         if casos:
             df_casos = pd.DataFrame(casos)
-            taxa = (df_casos["Direção"] == "✅ acertou").mean() * 100
+            taxa = (df_casos["Direção"] == "acertou").mean() * 100
 
             st.metric(
                 "Taxa de acerto da direção",
@@ -814,7 +824,7 @@ O p-valor sozinho diria que o efeito existe, sem dizer se ele importa.
                 delta=f"{taxa - 50:+.1f} p.p. vs acaso (50%)",
             )
             st.caption(
-                "⚠️ A tabela mostra **acertos e erros**. Apresentar apenas "
+                "A tabela mostra **acertos e erros**. Apresentar apenas "
                 "os acertos seria seleção enviesada — a banca vai perguntar "
                 "pelos erros."
             )
