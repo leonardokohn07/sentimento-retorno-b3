@@ -48,6 +48,16 @@ MIN_OBSERVACOES = 60
 
 
 # ─────────────────────────────────────────────────────────
+# DEFASAGENS PRÉ-CALCULADAS
+# ─────────────────────────────────────────────────────────
+# Cada uma vira uma coluna retorno_lag_<n> na série diária, alinhada pelo
+# calendário de pregões. O lag -1 é o CONTROLE DE CAUSALIDADE REVERSA: se o
+# sentimento de hoje se associa ao retorno de ONTEM, parte da relação é o
+# jornal comentando o que já aconteceu, e não o contrário.
+LAGS_PRE_CALCULADOS = (-1, 0, 1, 2, 3, 5)
+
+
+# ─────────────────────────────────────────────────────────
 # 1. PREPARAÇÃO: JUNTAR SENTIMENTO COM RETORNO
 # ─────────────────────────────────────────────────────────
 
@@ -90,6 +100,27 @@ def montar_serie_diaria(
     # --- junção: só ficam os dias que têm notícia E pregão ---
     df = agg.join(ret, how="inner")
     df.index.name = "data"
+
+    # --- defasagens medidas em PREGÕES, não em linhas da tabela ---
+    # Até 28/09/2026 as defasagens eram calculadas com df["retorno"].shift(),
+    # que anda uma LINHA. Como a tabela só tem os dias que têm notícia, "D+1"
+    # virava o próximo dia COM NOTÍCIA — três pregões depois, se fosse o caso.
+    # Medido no dado do estudo: 16,6% dos pares estavam errados, e o erro era
+    # maior justamente nos ativos de cobertura esparsa (SUZB3, 44%).
+    #
+    # Agora cada defasagem é buscada no calendário completo de pregões do
+    # ativo: a posição do dia é localizada no índice de retornos e somada ao
+    # lag. Um dia sem pregão correspondente (fim da série) fica NaN.
+    calendario = ret.index
+    posicoes = calendario.searchsorted(df.index)
+    valores = ret.to_numpy()
+    for lag in LAGS_PRE_CALCULADOS:
+        alvo = posicoes + lag
+        coluna = np.full(len(df), np.nan)
+        dentro = (alvo >= 0) & (alvo < len(valores))
+        coluna[dentro] = valores[alvo[dentro]]
+        df[f"retorno_lag_{lag}"] = coluna
+
     return df.reset_index()
 
 
@@ -110,13 +141,32 @@ def montar_serie_completa(
     return pd.concat(partes, ignore_index=True)
 
 
+def _retorno_defasado(serie: pd.DataFrame, lag: int) -> pd.Series:
+    """Devolve o retorno em D+lag, alinhado por pregão.
+
+    Usa a coluna pré-calculada por montar_serie_diaria. Se ela não existir
+    (série montada por código antigo), cai no shift por linha e avisa — assim
+    nada quebra, mas o resultado impreciso não passa em silêncio.
+    """
+    coluna = f"retorno_lag_{lag}"
+    if coluna in serie.columns:
+        return serie[coluna]
+    import warnings
+    warnings.warn(
+        f"Série sem a coluna {coluna}: usando shift por linha, que mede a "
+        f"defasagem em dias COM NOTÍCIA e não em pregões.",
+        RuntimeWarning, stacklevel=2,
+    )
+    return serie["retorno"].shift(-lag)
+
+
 # ─────────────────────────────────────────────────────────
 # 2. TESTE 1 — CORRELAÇÃO COM DEFASAGEM (LAG)
 # ─────────────────────────────────────────────────────────
 
 def testar_correlacao_defasada(
     serie: pd.DataFrame,
-    lags: List[int] = [0, 1, 2, 3, 5],
+    lags: List[int] = [-1, 0, 1, 2, 3, 5],
 ) -> pd.DataFrame:
     """
     Mede a correlação entre o sentimento do dia D e o retorno em D+lag.
@@ -138,8 +188,7 @@ def testar_correlacao_defasada(
 
     for lag in lags:
         s = serie.copy().sort_values("data")
-        # Desloca o retorno para trás: linha do dia D passa a ter o retorno de D+lag
-        s["retorno_lag"] = s["retorno"].shift(-lag)
+        s["retorno_lag"] = _retorno_defasado(s, lag)
         s = s.dropna(subset=["sentimento", "retorno_lag"])
 
         if len(s) < 10:
@@ -190,7 +239,7 @@ def testar_diferenca_medias(
         > 0,8     -> efeito grande
     """
     s = serie.copy().sort_values("data")
-    s["retorno_lag"] = s["retorno"].shift(-lag)
+    s["retorno_lag"] = _retorno_defasado(s, lag)
     s = s.dropna(subset=["sentimento", "retorno_lag"])
 
     pos = s.loc[s["sentimento"] > limiar, "retorno_lag"]
@@ -384,7 +433,7 @@ def regressao_sentimento_retorno(serie: pd.DataFrame, lag: int = 1) -> Dict:
         hipótese. O que importa é o p-valor do coeficiente.
     """
     s = serie.copy().sort_values("data")
-    s["retorno_lag"] = s["retorno"].shift(-lag)
+    s["retorno_lag"] = _retorno_defasado(s, lag)
     s = s.dropna(subset=["sentimento", "retorno_lag"])
 
     if len(s) < MIN_OBSERVACOES:

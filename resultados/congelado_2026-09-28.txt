@@ -7,16 +7,16 @@
 ==============================================================================
 ativo          n    r D+0     p D+0   H0 D+0    r D+1     p D+1   H0 D+1
 ------------------------------------------------------------------------------
-ABEV3.SA     462   0.0641    0.1689      nao   0.0404    0.3867      nao
-BBDC4.SA     657   0.1006    0.0099  rejeita  -0.0048    0.9023      nao
+ABEV3.SA     462   0.0641    0.1689      nao   0.0787    0.0913      nao
+BBDC4.SA     657   0.1006    0.0099  rejeita  -0.0021    0.9571      nao
 ELET3.SA       0   FORA — sem serie de precos
-ITUB4.SA     551   0.0541    0.2048      nao   0.0012    0.9784      nao
-MGLU3.SA     512   0.1607    0.0003  rejeita  -0.0268    0.5462      nao
-PETR4.SA     650   0.1442    0.0002  rejeita  -0.0384    0.3284      nao
+ITUB4.SA     551   0.0541    0.2048      nao   0.0127    0.7663      nao
+MGLU3.SA     512   0.1607    0.0003  rejeita  -0.0303    0.4935      nao
+PETR4.SA     650   0.1442    0.0002  rejeita  -0.0233    0.5532      nao
 RENT3.SA      33   FORA — menos de 60 dias
-SUZB3.SA     349   0.1421    0.0078  rejeita  -0.0613    0.2540      nao
-VALE3.SA     583   0.1965    0.0000  rejeita   0.0376    0.3649      nao
-WEGE3.SA     367   0.1961    0.0002  rejeita   0.0765    0.1440      nao
+SUZB3.SA     349   0.1421    0.0078  rejeita  -0.0152    0.7769      nao
+VALE3.SA     583   0.1965    0.0000  rejeita   0.0356    0.3906      nao
+WEGE3.SA     367   0.1961    0.0002  rejeita   0.0494    0.3457      nao
 ------------------------------------------------------------------------------
   D+0: 6 de 8 rejeitam H0 (p medio dos significativos = 0.0031)
   D+1: 0 de 8 rejeitam H0
