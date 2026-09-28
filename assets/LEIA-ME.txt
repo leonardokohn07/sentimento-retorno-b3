@@ -1,0 +1,11 @@
+PASTA: assets/
+==============
+
+Espaço reservado para a identidade visual.
+
+    logo.png (ou .svg)   Se este arquivo existir, a logo aparece
+                         automaticamente no cabeçalho do dashboard.
+                         Enquanto não existir, o cabeçalho usa só
+                         tipografia — nada quebra.
+
+Tamanho sugerido: 256 x 256 px, fundo transparente.

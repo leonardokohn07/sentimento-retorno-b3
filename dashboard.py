@@ -33,6 +33,9 @@ from modulos.coleta.precos import (
 )
 from modulos.coleta.noticias import coletar_historico, ajustar_data_pregao
 from modulos.analise.sentimento import AnalisadorV2
+from modulos.visual import (
+    aplicar_estilo, cabecalho, SIGNIFICATIVO, INCONCLUSIVO, MUDO, LINHA,
+)
 from modulos.analise.hipotese import (
     montar_serie_diaria, testar_correlacao_defasada,
     testar_diferenca_medias, regressao_sentimento_retorno,
@@ -45,6 +48,9 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed",
 )
+
+# Paleta, tipografia e tema dos gráficos — tudo em modulos/visual.py
+aplicar_estilo()
 
 # ─── Modelo NLP: implementado, porem desativado ───
 # A classe AnalisadorV2 suporta combinar o lexico com um DistilBERT
@@ -80,27 +86,32 @@ def carregar_precos_estudo(tickers, data_inicio_txt):
     )
 
 
-st.title("🔬 InvestAI — sentimento de notícias × retorno de ações")
-st.caption("Estudo estatístico · B3 · trabalho acadêmico, não é recomendação de investimento.")
+cabecalho(
+    "Sentimento de notícias e retorno de ações na B3",
+    "InvestAI · estudo estatístico · 2024–2026 · trabalho acadêmico, não é recomendação de investimento",
+)
 
-st.markdown("""
-Este estudo testa a **hipótese central do trabalho** com dados históricos:
+st.markdown(
+    "O estudo mede o tom das notícias de cada empresa e testa, por ativo, "
+    "se ele se relaciona com o retorno da ação — no mesmo pregão e no dia "
+    "seguinte."
+)
 
+with st.expander("O que está sendo testado, em termos estatísticos"):
+    st.markdown("""
 | | |
 |---|---|
 | **H₀** (nula) | O sentimento das notícias **não** influencia o retorno das ações |
 | **H₁** (alternativa) | O sentimento das notícias **influencia** o retorno das ações |
 
 Em estatística não se "prova" H₁ diretamente — tenta-se **rejeitar H₀**.
-Se a chance de o resultado ter surgido por acaso (*p-valor*) for menor
-que 0,05, rejeitamos H₀.
-""")
+Se a probabilidade de o resultado ter surgido por acaso (*p-valor*) for
+menor que 0,05, rejeitamos H₀. O nível de 0,05 foi fixado em 06/08/2026,
+antes da coleta de qualquer dado.
 
-st.info(
-    "⏱️ **Atenção:** o estudo coleta **meses ou anos** de notícias "
-    "históricas. A primeira execução leva de 10 a 20 minutos; depois "
-    "disso os dados ficam em cache e a análise é instantânea."
-)
+A primeira execução coleta meses de notícias e leva de 10 a 20 minutos;
+depois disso os dados ficam em cache e a análise é instantânea.
+""")
 
 from modulos.caminhos import ARQ_NOTICIAS as ARQ_CACHE
 
@@ -185,7 +196,7 @@ if rodar_estudo:
     # ── Painel de progresso ao vivo ──
     painel = st.container()
     with painel:
-        st.markdown("##### ⏳ Coleta em andamento")
+        st.markdown("##### Coleta em andamento")
         barra = st.progress(0.0)
         linha_status = st.empty()   # ex: "Ativo 2/5 · PETR4.SA · 03/2024"
         col_m1, col_m2, col_m3 = st.columns(3)
@@ -356,7 +367,7 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
 
     # ══ Painel consolidado ══
     st.markdown("---")
-    st.markdown("### 📌 Resultado Consolidado")
+    st.markdown("### Resultado consolidado")
 
     significativos, p_valores, linhas_tabela = 0, [], []
 
@@ -481,7 +492,7 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
 
         # Histograma da distribuição
         fig_hist = go.Figure(go.Histogram(
-            x=sc, nbinsx=40, marker_color="#2E75B6",
+            x=sc, nbinsx=40, marker_color=SIGNIFICATIVO,
         ))
         fig_hist.update_layout(
             height=260,
@@ -559,7 +570,7 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
 
     # ══ Análise por ativo ══
     st.markdown("---")
-    st.markdown("### 🔍 Análise Detalhada por Ativo")
+    st.markdown("### Análise por ativo")
 
     ativo_sel = st.selectbox(
         "Escolha o ativo",
@@ -569,7 +580,7 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
     serie_sel = resultados_ativos[ativo_sel]
 
     # --- Correlação por defasagem ---
-    st.markdown("#### 1️⃣ Correlação por Defasagem")
+    st.markdown("#### Correlação por defasagem")
     st.caption(
         "Mede a relação entre o sentimento do dia D e o retorno em D+lag. "
         "Barras verdes indicam correlação estatisticamente significativa."
@@ -579,7 +590,7 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
 
     if not corr.empty:
         cores = [
-            "#1D9E75" if s else "#94A3B8"
+            SIGNIFICATIVO if s else INCONCLUSIVO
             for s in corr["significativo_5pct"]
         ]
         fig_lag = go.Figure(go.Bar(
@@ -595,11 +606,11 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
             height=340,
             showlegend=False,
         )
-        fig_lag.add_hline(y=0, line_dash="dot", line_color="gray")
+        fig_lag.add_hline(y=0, line_dash="dot", line_color=MUDO)
         st.plotly_chart(fig_lag, use_container_width=True)
 
     # --- Dispersão ---
-    st.markdown("#### 2️⃣ Dispersão: Sentimento × Retorno")
+    st.markdown("#### Dispersão: sentimento × retorno")
 
     s_plot = serie_sel.sort_values("data").copy()
     s_plot["retorno_lag"] = s_plot["retorno"].shift(-lag_escolhido)
@@ -622,7 +633,7 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
             x=s_plot["sentimento"],
             y=s_plot["retorno_lag"] * 100,
             mode="markers",
-            marker=dict(size=7, color="#2E75B6", opacity=0.55),
+            marker=dict(size=7, color=SIGNIFICATIVO, opacity=0.5),
             name="Dias observados",
             hovertemplate=(
                 "Sentimento: %{x:.3f}<br>"
@@ -632,7 +643,7 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
         fig_disp.add_trace(go.Scatter(
             x=x_linha, y=y_linha,
             mode="lines",
-            line=dict(color="#E87722", width=2.5),
+            line=dict(color=INCONCLUSIVO, width=2.5),
             name=f"Tendência (b = {b_lin:+.3f})",
         ))
         fig_disp.update_layout(
@@ -641,12 +652,12 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
             yaxis_title=f"Retorno em D+{lag_escolhido} (%)",
             legend=dict(orientation="h", y=1.1),
         )
-        fig_disp.add_hline(y=0, line_dash="dot", line_color="gray")
-        fig_disp.add_vline(x=0, line_dash="dot", line_color="gray")
+        fig_disp.add_hline(y=0, line_dash="dot", line_color=MUDO)
+        fig_disp.add_vline(x=0, line_dash="dot", line_color=MUDO)
         st.plotly_chart(fig_disp, use_container_width=True)
 
     # --- Teste t ---
-    st.markdown("#### 3️⃣ Teste t — Notícia Boa vs Notícia Ruim")
+    st.markdown("#### Teste t: notícia boa contra notícia ruim")
     st.caption(
         "Compara o retorno médio após notícias positivas com o retorno "
         "após notícias negativas."
@@ -709,7 +720,7 @@ O p-valor sozinho diria que o efeito existe, sem dizer se ele importa.
             """)
 
     # --- Event Study ---
-    st.markdown("#### 4️⃣ Event Study — Retorno Anormal (CAR)")
+    st.markdown("#### Event study: retorno anormal (CAR)")
     st.caption(
         "Desconta o movimento do Ibovespa para isolar o efeito da notícia. "
         "Se a ação subiu porque o mercado inteiro subiu, isso **não** é "
@@ -760,7 +771,7 @@ O p-valor sozinho diria que o efeito existe, sem dizer se ele importa.
 
     # --- Casos concretos ---
     st.markdown("---")
-    st.markdown("#### 📰 Casos Concretos — Notícia × Movimento do Preço")
+    st.markdown("#### Casos concretos: notícia × movimento do preço")
 
     noti_ativo = noticias_hist[
         (noticias_hist["ticker"] == ativo_sel)
@@ -823,7 +834,7 @@ O p-valor sozinho diria que o efeito existe, sem dizer se ele importa.
 
     st.markdown("---")
     st.caption(
-        "📌 **Nota metodológica:** valores de R² entre 0,01 e 0,10 são o "
+        "**Nota metodológica:** valores de R² entre 0,01 e 0,10 são o "
         "esperado nesta literatura. O preço de uma ação depende de dezenas "
         "de fatores — o sentimento é apenas um deles. O que valida a "
         "hipótese é o **p-valor**, não a magnitude do R²."

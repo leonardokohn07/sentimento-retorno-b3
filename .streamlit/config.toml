@@ -17,3 +17,20 @@ fileWatcherType = "none"
 
 [browser]
 gatherUsageStats = false
+
+
+# ─────────────────────────────────────────────────────────
+# TEMA
+# ─────────────────────────────────────────────────────────
+# As mesmas cores de modulos/visual.py. Aqui ficam as do chrome do
+# Streamlit (botões, seletores, fundo); lá ficam as dos dados e dos textos.
+# Azul #2a78d6 e laranja #eb6834 foram validados para daltonismo e contraste
+# sobre fundo branco.
+
+[theme]
+base = "light"
+primaryColor = "#2a78d6"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f7f7f5"
+textColor = "#111318"
+font = "sans serif"
