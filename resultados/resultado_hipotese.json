@@ -1,0 +1,1640 @@
+{
+  "lag_0": {
+    "por_ativo": {
+      "PETR4.SA": {
+        "n_dias_com_noticia": 650,
+        "correlacao_defasada": [
+          {
+            "lag_dias": 0,
+            "n_observacoes": 650,
+            "pearson_r": 0.1442,
+            "pearson_p": 0.0002,
+            "spearman_r": 0.1364,
+            "spearman_p": 0.0005,
+            "significativo_5pct": true
+          },
+          {
+            "lag_dias": 1,
+            "n_observacoes": 649,
+            "pearson_r": -0.0384,
+            "pearson_p": 0.3284,
+            "spearman_r": -0.0176,
+            "spearman_p": 0.6545,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 2,
+            "n_observacoes": 648,
+            "pearson_r": 0.072,
+            "pearson_p": 0.0671,
+            "spearman_r": 0.0186,
+            "spearman_p": 0.6366,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 3,
+            "n_observacoes": 647,
+            "pearson_r": 0.0285,
+            "pearson_p": 0.47,
+            "spearman_r": -0.013,
+            "spearman_p": 0.7418,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 5,
+            "n_observacoes": 645,
+            "pearson_r": -0.0104,
+            "pearson_p": 0.7916,
+            "spearman_r": 0.0041,
+            "spearman_p": 0.9182,
+            "significativo_5pct": false
+          }
+        ],
+        "teste_medias": {
+          "lag_dias": 0,
+          "n_positivo": 64,
+          "n_negativo": 34,
+          "retorno_medio_apos_noticia_positiva_pct": 0.56,
+          "retorno_medio_apos_noticia_negativa_pct": -0.2253,
+          "diferenca_pct": 0.7853,
+          "estatistica_t": 2.3618,
+          "p_valor": 0.0211,
+          "significativo_5pct": true,
+          "d_cohen": 0.4993,
+          "magnitude_efeito": "Pequeno"
+        },
+        "regressao": {
+          "lag_dias": 0,
+          "n_observacoes": 650,
+          "coeficiente_angular_b": 0.015904,
+          "intercepto_a": 0.000416,
+          "r": 0.1442,
+          "r2": 0.0208,
+          "variancia_explicada_pct": 2.08,
+          "p_valor": 0.0002,
+          "erro_padrao": 0.004287,
+          "significativo_5pct": true,
+          "interpretacao": "Cada +1 ponto de sentimento associa-se a +1.590% de retorno em D+0"
+        },
+        "event_study": {
+          "ticker": "PETR4.SA",
+          "beta_estimado": 0.8165,
+          "alfa_estimado": -1.7e-05,
+          "r2_modelo_mercado": 0.1377,
+          "janela_dias": 3,
+          "n_eventos_positivos": 36,
+          "n_eventos_negativos": 14,
+          "car_medio_positivo_pct": 0.7389,
+          "p_valor_positivo": 0.1956,
+          "significativo_positivo": false,
+          "car_medio_negativo_pct": 0.3392,
+          "p_valor_negativo": 0.6479,
+          "significativo_negativo": false
+        }
+      },
+      "VALE3.SA": {
+        "n_dias_com_noticia": 583,
+        "correlacao_defasada": [
+          {
+            "lag_dias": 0,
+            "n_observacoes": 583,
+            "pearson_r": 0.1965,
+            "pearson_p": 0.0,
+            "spearman_r": 0.176,
+            "spearman_p": 0.0,
+            "significativo_5pct": true
+          },
+          {
+            "lag_dias": 1,
+            "n_observacoes": 582,
+            "pearson_r": 0.0376,
+            "pearson_p": 0.3649,
+            "spearman_r": 0.0537,
+            "spearman_p": 0.1959,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 2,
+            "n_observacoes": 581,
+            "pearson_r": 0.0089,
+            "pearson_p": 0.8302,
+            "spearman_r": 0.0081,
+            "spearman_p": 0.8464,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 3,
+            "n_observacoes": 580,
+            "pearson_r": 0.0173,
+            "pearson_p": 0.6783,
+            "spearman_r": 0.0281,
+            "spearman_p": 0.4997,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 5,
+            "n_observacoes": 578,
+            "pearson_r": 0.0928,
+            "pearson_p": 0.0256,
+            "spearman_r": 0.0704,
+            "spearman_p": 0.0908,
+            "significativo_5pct": true
+          }
+        ],
+        "teste_medias": {
+          "lag_dias": 0,
+          "n_positivo": 70,
+          "n_negativo": 73,
+          "retorno_medio_apos_noticia_positiva_pct": 0.5109,
+          "retorno_medio_apos_noticia_negativa_pct": -0.5238,
+          "diferenca_pct": 1.0347,
+          "estatistica_t": 3.6182,
+          "p_valor": 0.0004,
+          "significativo_5pct": true,
+          "d_cohen": 0.6044,
+          "magnitude_efeito": "Médio"
+        },
+        "regressao": {
+          "lag_dias": 0,
+          "n_observacoes": 583,
+          "coeficiente_angular_b": 0.014278,
+          "intercepto_a": 0.000506,
+          "r": 0.1965,
+          "r2": 0.0386,
+          "variancia_explicada_pct": 3.86,
+          "p_valor": 0.0,
+          "erro_padrao": 0.002956,
+          "significativo_5pct": true,
+          "interpretacao": "Cada +1 ponto de sentimento associa-se a +1.428% de retorno em D+0"
+        },
+        "event_study": {
+          "ticker": "VALE3.SA",
+          "beta_estimado": 0.7914,
+          "alfa_estimado": -0.000686,
+          "r2_modelo_mercado": 0.2601,
+          "janela_dias": 3,
+          "n_eventos_positivos": 38,
+          "n_eventos_negativos": 52,
+          "car_medio_positivo_pct": 0.3381,
+          "p_valor_positivo": 0.415,
+          "significativo_positivo": false,
+          "car_medio_negativo_pct": -0.3386,
+          "p_valor_negativo": 0.3079,
+          "significativo_negativo": false
+        }
+      },
+      "ITUB4.SA": {
+        "n_dias_com_noticia": 551,
+        "correlacao_defasada": [
+          {
+            "lag_dias": 0,
+            "n_observacoes": 551,
+            "pearson_r": 0.0541,
+            "pearson_p": 0.2048,
+            "spearman_r": 0.0445,
+            "spearman_p": 0.2973,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 1,
+            "n_observacoes": 550,
+            "pearson_r": 0.0012,
+            "pearson_p": 0.9784,
+            "spearman_r": -0.003,
+            "spearman_p": 0.9433,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 2,
+            "n_observacoes": 549,
+            "pearson_r": 0.0274,
+            "pearson_p": 0.5218,
+            "spearman_r": 0.0328,
+            "spearman_p": 0.443,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 3,
+            "n_observacoes": 548,
+            "pearson_r": 0.0109,
+            "pearson_p": 0.7987,
+            "spearman_r": -0.0118,
+            "spearman_p": 0.782,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 5,
+            "n_observacoes": 546,
+            "pearson_r": -0.0559,
+            "pearson_p": 0.1921,
+            "spearman_r": -0.0642,
+            "spearman_p": 0.1341,
+            "significativo_5pct": false
+          }
+        ],
+        "teste_medias": {
+          "lag_dias": 0,
+          "n_positivo": 108,
+          "n_negativo": 29,
+          "retorno_medio_apos_noticia_positiva_pct": 0.1768,
+          "retorno_medio_apos_noticia_negativa_pct": -0.0088,
+          "diferenca_pct": 0.1857,
+          "estatistica_t": 0.6741,
+          "p_valor": 0.5031,
+          "significativo_5pct": false,
+          "d_cohen": 0.1233,
+          "magnitude_efeito": "Desprezível"
+        },
+        "regressao": {
+          "lag_dias": 0,
+          "n_observacoes": 551,
+          "coeficiente_angular_b": 0.00353,
+          "intercepto_a": 0.000927,
+          "r": 0.0541,
+          "r2": 0.0029,
+          "variancia_explicada_pct": 0.29,
+          "p_valor": 0.2048,
+          "erro_padrao": 0.002781,
+          "significativo_5pct": false,
+          "interpretacao": "Cada +1 ponto de sentimento associa-se a +0.353% de retorno em D+0"
+        },
+        "event_study": {
+          "ticker": "ITUB4.SA",
+          "beta_estimado": 0.9054,
+          "alfa_estimado": 0.001634,
+          "r2_modelo_mercado": 0.4963,
+          "janela_dias": 3,
+          "n_eventos_positivos": 75,
+          "n_eventos_negativos": 17,
+          "car_medio_positivo_pct": -0.2993,
+          "p_valor_positivo": 0.1496,
+          "significativo_positivo": false,
+          "car_medio_negativo_pct": -0.1863,
+          "p_valor_negativo": 0.5961,
+          "significativo_negativo": false
+        }
+      },
+      "BBDC4.SA": {
+        "n_dias_com_noticia": 657,
+        "correlacao_defasada": [
+          {
+            "lag_dias": 0,
+            "n_observacoes": 657,
+            "pearson_r": 0.1006,
+            "pearson_p": 0.0099,
+            "spearman_r": 0.0678,
+            "spearman_p": 0.0824,
+            "significativo_5pct": true
+          },
+          {
+            "lag_dias": 1,
+            "n_observacoes": 656,
+            "pearson_r": -0.0048,
+            "pearson_p": 0.9023,
+            "spearman_r": -0.0183,
+            "spearman_p": 0.6398,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 2,
+            "n_observacoes": 655,
+            "pearson_r": -0.0332,
+            "pearson_p": 0.397,
+            "spearman_r": -0.0095,
+            "spearman_p": 0.8085,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 3,
+            "n_observacoes": 654,
+            "pearson_r": -0.0186,
+            "pearson_p": 0.6345,
+            "spearman_r": -0.0254,
+            "spearman_p": 0.5162,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 5,
+            "n_observacoes": 652,
+            "pearson_r": -0.0353,
+            "pearson_p": 0.3682,
+            "spearman_r": -0.0635,
+            "spearman_p": 0.1055,
+            "significativo_5pct": false
+          }
+        ],
+        "teste_medias": {
+          "lag_dias": 0,
+          "n_positivo": 64,
+          "n_negativo": 41,
+          "retorno_medio_apos_noticia_positiva_pct": 0.4945,
+          "retorno_medio_apos_noticia_negativa_pct": -0.1926,
+          "diferenca_pct": 0.6871,
+          "estatistica_t": 1.778,
+          "p_valor": 0.0784,
+          "significativo_5pct": false,
+          "d_cohen": 0.317,
+          "magnitude_efeito": "Pequeno"
+        },
+        "regressao": {
+          "lag_dias": 0,
+          "n_observacoes": 657,
+          "coeficiente_angular_b": 0.012171,
+          "intercepto_a": 0.000156,
+          "r": 0.1006,
+          "r2": 0.0101,
+          "variancia_explicada_pct": 1.01,
+          "p_valor": 0.0099,
+          "erro_padrao": 0.004702,
+          "significativo_5pct": true,
+          "interpretacao": "Cada +1 ponto de sentimento associa-se a +1.217% de retorno em D+0"
+        },
+        "event_study": {
+          "ticker": "BBDC4.SA",
+          "beta_estimado": 1.2637,
+          "alfa_estimado": -0.000637,
+          "r2_modelo_mercado": 0.2717,
+          "janela_dias": 3,
+          "n_eventos_positivos": 31,
+          "n_eventos_negativos": 14,
+          "car_medio_positivo_pct": 0.279,
+          "p_valor_positivo": 0.6415,
+          "significativo_positivo": false,
+          "car_medio_negativo_pct": -0.0611,
+          "p_valor_negativo": 0.9126,
+          "significativo_negativo": false
+        }
+      },
+      "WEGE3.SA": {
+        "n_dias_com_noticia": 367,
+        "correlacao_defasada": [
+          {
+            "lag_dias": 0,
+            "n_observacoes": 367,
+            "pearson_r": 0.1961,
+            "pearson_p": 0.0002,
+            "spearman_r": 0.1503,
+            "spearman_p": 0.0039,
+            "significativo_5pct": true
+          },
+          {
+            "lag_dias": 1,
+            "n_observacoes": 366,
+            "pearson_r": 0.0765,
+            "pearson_p": 0.144,
+            "spearman_r": 0.0708,
+            "spearman_p": 0.1765,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 2,
+            "n_observacoes": 365,
+            "pearson_r": 0.0775,
+            "pearson_p": 0.1392,
+            "spearman_r": 0.0456,
+            "spearman_p": 0.3846,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 3,
+            "n_observacoes": 364,
+            "pearson_r": 0.0485,
+            "pearson_p": 0.3557,
+            "spearman_r": 0.0728,
+            "spearman_p": 0.1659,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 5,
+            "n_observacoes": 362,
+            "pearson_r": 0.0344,
+            "pearson_p": 0.5144,
+            "spearman_r": 0.0487,
+            "spearman_p": 0.3558,
+            "significativo_5pct": false
+          }
+        ],
+        "teste_medias": {
+          "lag_dias": 0,
+          "n_positivo": 88,
+          "n_negativo": 20,
+          "retorno_medio_apos_noticia_positiva_pct": 0.547,
+          "retorno_medio_apos_noticia_negativa_pct": -0.8452,
+          "diferenca_pct": 1.3922,
+          "estatistica_t": 1.8709,
+          "p_valor": 0.0739,
+          "significativo_5pct": false,
+          "d_cohen": 0.5755,
+          "magnitude_efeito": "Médio"
+        },
+        "regressao": {
+          "lag_dias": 0,
+          "n_observacoes": 367,
+          "coeficiente_angular_b": 0.017739,
+          "intercepto_a": -0.001681,
+          "r": 0.1961,
+          "r2": 0.0385,
+          "variancia_explicada_pct": 3.85,
+          "p_valor": 0.0002,
+          "erro_padrao": 0.004643,
+          "significativo_5pct": true,
+          "interpretacao": "Cada +1 ponto de sentimento associa-se a +1.774% de retorno em D+0"
+        },
+        "event_study": {
+          "ticker": "WEGE3.SA",
+          "beta_estimado": 0.7388,
+          "alfa_estimado": 0.000197,
+          "r2_modelo_mercado": 0.1496,
+          "janela_dias": 3,
+          "n_eventos_positivos": 60,
+          "n_eventos_negativos": 15,
+          "car_medio_positivo_pct": 1.0021,
+          "p_valor_positivo": 0.0131,
+          "significativo_positivo": true,
+          "car_medio_negativo_pct": -1.5809,
+          "p_valor_negativo": 0.2209,
+          "significativo_negativo": false
+        }
+      },
+      "MGLU3.SA": {
+        "n_dias_com_noticia": 512,
+        "correlacao_defasada": [
+          {
+            "lag_dias": 0,
+            "n_observacoes": 512,
+            "pearson_r": 0.1607,
+            "pearson_p": 0.0003,
+            "spearman_r": 0.1196,
+            "spearman_p": 0.0068,
+            "significativo_5pct": true
+          },
+          {
+            "lag_dias": 1,
+            "n_observacoes": 511,
+            "pearson_r": -0.0268,
+            "pearson_p": 0.5462,
+            "spearman_r": -0.0252,
+            "spearman_p": 0.57,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 2,
+            "n_observacoes": 510,
+            "pearson_r": 0.0266,
+            "pearson_p": 0.5491,
+            "spearman_r": -0.0162,
+            "spearman_p": 0.715,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 3,
+            "n_observacoes": 509,
+            "pearson_r": -0.0195,
+            "pearson_p": 0.66,
+            "spearman_r": -0.0424,
+            "spearman_p": 0.3398,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 5,
+            "n_observacoes": 507,
+            "pearson_r": 0.0272,
+            "pearson_p": 0.5417,
+            "spearman_r": 0.0088,
+            "spearman_p": 0.8432,
+            "significativo_5pct": false
+          }
+        ],
+        "teste_medias": {
+          "lag_dias": 0,
+          "n_positivo": 63,
+          "n_negativo": 60,
+          "retorno_medio_apos_noticia_positiva_pct": 1.3202,
+          "retorno_medio_apos_noticia_negativa_pct": -1.787,
+          "diferenca_pct": 3.1072,
+          "estatistica_t": 3.8981,
+          "p_valor": 0.0002,
+          "significativo_5pct": true,
+          "d_cohen": 0.697,
+          "magnitude_efeito": "Médio"
+        },
+        "regressao": {
+          "lag_dias": 0,
+          "n_observacoes": 512,
+          "coeficiente_angular_b": 0.029488,
+          "intercepto_a": -0.001815,
+          "r": 0.1607,
+          "r2": 0.0258,
+          "variancia_explicada_pct": 2.58,
+          "p_valor": 0.0003,
+          "erro_padrao": 0.008018,
+          "significativo_5pct": true,
+          "interpretacao": "Cada +1 ponto de sentimento associa-se a +2.949% de retorno em D+0"
+        },
+        "event_study": {
+          "ticker": "MGLU3.SA",
+          "beta_estimado": 2.7263,
+          "alfa_estimado": -0.002367,
+          "r2_modelo_mercado": 0.2259,
+          "janela_dias": 3,
+          "n_eventos_positivos": 44,
+          "n_eventos_negativos": 40,
+          "car_medio_positivo_pct": 0.6585,
+          "p_valor_positivo": 0.4394,
+          "significativo_positivo": false,
+          "car_medio_negativo_pct": 0.6264,
+          "p_valor_negativo": 0.5363,
+          "significativo_negativo": false
+        }
+      },
+      "ABEV3.SA": {
+        "n_dias_com_noticia": 462,
+        "correlacao_defasada": [
+          {
+            "lag_dias": 0,
+            "n_observacoes": 462,
+            "pearson_r": 0.0641,
+            "pearson_p": 0.1689,
+            "spearman_r": 0.0535,
+            "spearman_p": 0.251,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 1,
+            "n_observacoes": 461,
+            "pearson_r": 0.0404,
+            "pearson_p": 0.3867,
+            "spearman_r": 0.0471,
+            "spearman_p": 0.3134,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 2,
+            "n_observacoes": 460,
+            "pearson_r": -0.0047,
+            "pearson_p": 0.9199,
+            "spearman_r": -0.034,
+            "spearman_p": 0.467,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 3,
+            "n_observacoes": 459,
+            "pearson_r": -0.0064,
+            "pearson_p": 0.8913,
+            "spearman_r": -0.0333,
+            "spearman_p": 0.4772,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 5,
+            "n_observacoes": 457,
+            "pearson_r": -0.0023,
+            "pearson_p": 0.9601,
+            "spearman_r": -0.0191,
+            "spearman_p": 0.6844,
+            "significativo_5pct": false
+          }
+        ],
+        "teste_medias": {
+          "lag_dias": 0,
+          "n_positivo": 64,
+          "n_negativo": 31,
+          "retorno_medio_apos_noticia_positiva_pct": 0.2406,
+          "retorno_medio_apos_noticia_negativa_pct": -0.0147,
+          "diferenca_pct": 0.2553,
+          "estatistica_t": 0.6683,
+          "p_valor": 0.5057,
+          "significativo_5pct": false,
+          "d_cohen": 0.1248,
+          "magnitude_efeito": "Desprezível"
+        },
+        "regressao": {
+          "lag_dias": 0,
+          "n_observacoes": 462,
+          "coeficiente_angular_b": 0.005016,
+          "intercepto_a": 0.000512,
+          "r": 0.0641,
+          "r2": 0.0041,
+          "variancia_explicada_pct": 0.41,
+          "p_valor": 0.1689,
+          "erro_padrao": 0.003641,
+          "significativo_5pct": false,
+          "interpretacao": "Cada +1 ponto de sentimento associa-se a +0.502% de retorno em D+0"
+        },
+        "event_study": {
+          "ticker": "ABEV3.SA",
+          "beta_estimado": 0.7536,
+          "alfa_estimado": -0.000599,
+          "r2_modelo_mercado": 0.2555,
+          "janela_dias": 3,
+          "n_eventos_positivos": 32,
+          "n_eventos_negativos": 20,
+          "car_medio_positivo_pct": 0.7821,
+          "p_valor_positivo": 0.1458,
+          "significativo_positivo": false,
+          "car_medio_negativo_pct": 0.2708,
+          "p_valor_negativo": 0.6341,
+          "significativo_negativo": false
+        }
+      },
+      "RENT3.SA": {
+        "n_dias_com_noticia": 33,
+        "correlacao_defasada": [
+          {
+            "lag_dias": 0,
+            "n_observacoes": 33,
+            "pearson_r": 0.4088,
+            "pearson_p": 0.0182,
+            "spearman_r": 0.3212,
+            "spearman_p": 0.0684,
+            "significativo_5pct": true
+          },
+          {
+            "lag_dias": 1,
+            "n_observacoes": 32,
+            "pearson_r": -0.1742,
+            "pearson_p": 0.3404,
+            "spearman_r": -0.0165,
+            "spearman_p": 0.9287,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 2,
+            "n_observacoes": 31,
+            "pearson_r": -0.3164,
+            "pearson_p": 0.0829,
+            "spearman_r": -0.2843,
+            "spearman_p": 0.1212,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 3,
+            "n_observacoes": 30,
+            "pearson_r": -0.1294,
+            "pearson_p": 0.4957,
+            "spearman_r": 0.0079,
+            "spearman_p": 0.967,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 5,
+            "n_observacoes": 28,
+            "pearson_r": -0.3809,
+            "pearson_p": 0.0455,
+            "spearman_r": -0.3308,
+            "spearman_p": 0.0855,
+            "significativo_5pct": true
+          }
+        ],
+        "teste_medias": {
+          "lag_dias": 0,
+          "n_positivo": 10,
+          "n_negativo": 10,
+          "retorno_medio_apos_noticia_positiva_pct": 1.3297,
+          "retorno_medio_apos_noticia_negativa_pct": -2.6129,
+          "diferenca_pct": 3.9426,
+          "estatistica_t": 1.7657,
+          "p_valor": 0.1029,
+          "significativo_5pct": false,
+          "d_cohen": 0.7896,
+          "magnitude_efeito": "Médio"
+        },
+        "regressao": {
+          "erro": "Amostra insuficiente (33 obs., mínimo 60). Abaixo disso o teste tem menos de 80% de poder."
+        },
+        "event_study": {
+          "ticker": "RENT3.SA",
+          "beta_estimado": 1.5068,
+          "alfa_estimado": -0.001734,
+          "r2_modelo_mercado": 0.4792,
+          "janela_dias": 3,
+          "n_eventos_positivos": 10,
+          "n_eventos_negativos": 10,
+          "car_medio_positivo_pct": 0.4775,
+          "p_valor_positivo": 0.7188,
+          "significativo_positivo": false,
+          "car_medio_negativo_pct": -1.0618,
+          "p_valor_negativo": 0.5314,
+          "significativo_negativo": false
+        }
+      },
+      "SUZB3.SA": {
+        "n_dias_com_noticia": 349,
+        "correlacao_defasada": [
+          {
+            "lag_dias": 0,
+            "n_observacoes": 349,
+            "pearson_r": 0.1421,
+            "pearson_p": 0.0078,
+            "spearman_r": 0.1488,
+            "spearman_p": 0.0053,
+            "significativo_5pct": true
+          },
+          {
+            "lag_dias": 1,
+            "n_observacoes": 348,
+            "pearson_r": -0.0613,
+            "pearson_p": 0.254,
+            "spearman_r": 0.0142,
+            "spearman_p": 0.7922,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 2,
+            "n_observacoes": 347,
+            "pearson_r": 0.0758,
+            "pearson_p": 0.1591,
+            "spearman_r": 0.017,
+            "spearman_p": 0.7523,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 3,
+            "n_observacoes": 346,
+            "pearson_r": 0.022,
+            "pearson_p": 0.6833,
+            "spearman_r": -0.0134,
+            "spearman_p": 0.8045,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 5,
+            "n_observacoes": 344,
+            "pearson_r": 0.0171,
+            "pearson_p": 0.7514,
+            "spearman_r": 0.0687,
+            "spearman_p": 0.2039,
+            "significativo_5pct": false
+          }
+        ],
+        "teste_medias": {
+          "lag_dias": 0,
+          "n_positivo": 69,
+          "n_negativo": 27,
+          "retorno_medio_apos_noticia_positiva_pct": 0.3449,
+          "retorno_medio_apos_noticia_negativa_pct": -0.6303,
+          "diferenca_pct": 0.9751,
+          "estatistica_t": 2.2493,
+          "p_valor": 0.0304,
+          "significativo_5pct": true,
+          "d_cohen": 0.5815,
+          "magnitude_efeito": "Médio"
+        },
+        "regressao": {
+          "lag_dias": 0,
+          "n_observacoes": 349,
+          "coeficiente_angular_b": 0.011328,
+          "intercepto_a": -0.000545,
+          "r": 0.1421,
+          "r2": 0.0202,
+          "variancia_explicada_pct": 2.02,
+          "p_valor": 0.0078,
+          "erro_padrao": 0.004236,
+          "significativo_5pct": true,
+          "interpretacao": "Cada +1 ponto de sentimento associa-se a +1.133% de retorno em D+0"
+        },
+        "event_study": {
+          "ticker": "SUZB3.SA",
+          "beta_estimado": 0.2588,
+          "alfa_estimado": 0.000948,
+          "r2_modelo_mercado": 0.0273,
+          "janela_dias": 3,
+          "n_eventos_positivos": 38,
+          "n_eventos_negativos": 22,
+          "car_medio_positivo_pct": -0.1221,
+          "p_valor_positivo": 0.8079,
+          "significativo_positivo": false,
+          "car_medio_negativo_pct": -1.1623,
+          "p_valor_negativo": 0.1035,
+          "significativo_negativo": false
+        }
+      }
+    },
+    "consolidado": {
+      "ativos_analisados": 9,
+      "ativos_com_relacao_significativa": 6,
+      "p_valor_medio": 0.0031,
+      "veredito": "H0 REJEITADA em 6 de 9 ativos (p < 0,05). Há evidência estatística consistente de que o sentimento das notícias influencia o retorno das ações analisadas."
+    }
+  },
+  "lag_1": {
+    "por_ativo": {
+      "PETR4.SA": {
+        "n_dias_com_noticia": 650,
+        "correlacao_defasada": [
+          {
+            "lag_dias": 0,
+            "n_observacoes": 650,
+            "pearson_r": 0.1442,
+            "pearson_p": 0.0002,
+            "spearman_r": 0.1364,
+            "spearman_p": 0.0005,
+            "significativo_5pct": true
+          },
+          {
+            "lag_dias": 1,
+            "n_observacoes": 649,
+            "pearson_r": -0.0384,
+            "pearson_p": 0.3284,
+            "spearman_r": -0.0176,
+            "spearman_p": 0.6545,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 2,
+            "n_observacoes": 648,
+            "pearson_r": 0.072,
+            "pearson_p": 0.0671,
+            "spearman_r": 0.0186,
+            "spearman_p": 0.6366,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 3,
+            "n_observacoes": 647,
+            "pearson_r": 0.0285,
+            "pearson_p": 0.47,
+            "spearman_r": -0.013,
+            "spearman_p": 0.7418,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 5,
+            "n_observacoes": 645,
+            "pearson_r": -0.0104,
+            "pearson_p": 0.7916,
+            "spearman_r": 0.0041,
+            "spearman_p": 0.9182,
+            "significativo_5pct": false
+          }
+        ],
+        "teste_medias": {
+          "lag_dias": 1,
+          "n_positivo": 64,
+          "n_negativo": 34,
+          "retorno_medio_apos_noticia_positiva_pct": -0.0788,
+          "retorno_medio_apos_noticia_negativa_pct": 0.193,
+          "diferenca_pct": -0.2718,
+          "estatistica_t": -0.742,
+          "p_valor": 0.4603,
+          "significativo_5pct": false,
+          "d_cohen": -0.1494,
+          "magnitude_efeito": "Desprezível"
+        },
+        "regressao": {
+          "lag_dias": 1,
+          "n_observacoes": 649,
+          "coeficiente_angular_b": -0.004236,
+          "intercepto_a": 0.001155,
+          "r": -0.0384,
+          "r2": 0.0015,
+          "variancia_explicada_pct": 0.15,
+          "p_valor": 0.3284,
+          "erro_padrao": 0.004331,
+          "significativo_5pct": false,
+          "interpretacao": "Cada +1 ponto de sentimento associa-se a -0.424% de retorno em D+1"
+        },
+        "event_study": {
+          "ticker": "PETR4.SA",
+          "beta_estimado": 0.8165,
+          "alfa_estimado": -1.7e-05,
+          "r2_modelo_mercado": 0.1377,
+          "janela_dias": 3,
+          "n_eventos_positivos": 36,
+          "n_eventos_negativos": 14,
+          "car_medio_positivo_pct": 0.7389,
+          "p_valor_positivo": 0.1956,
+          "significativo_positivo": false,
+          "car_medio_negativo_pct": 0.3392,
+          "p_valor_negativo": 0.6479,
+          "significativo_negativo": false
+        }
+      },
+      "VALE3.SA": {
+        "n_dias_com_noticia": 583,
+        "correlacao_defasada": [
+          {
+            "lag_dias": 0,
+            "n_observacoes": 583,
+            "pearson_r": 0.1965,
+            "pearson_p": 0.0,
+            "spearman_r": 0.176,
+            "spearman_p": 0.0,
+            "significativo_5pct": true
+          },
+          {
+            "lag_dias": 1,
+            "n_observacoes": 582,
+            "pearson_r": 0.0376,
+            "pearson_p": 0.3649,
+            "spearman_r": 0.0537,
+            "spearman_p": 0.1959,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 2,
+            "n_observacoes": 581,
+            "pearson_r": 0.0089,
+            "pearson_p": 0.8302,
+            "spearman_r": 0.0081,
+            "spearman_p": 0.8464,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 3,
+            "n_observacoes": 580,
+            "pearson_r": 0.0173,
+            "pearson_p": 0.6783,
+            "spearman_r": 0.0281,
+            "spearman_p": 0.4997,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 5,
+            "n_observacoes": 578,
+            "pearson_r": 0.0928,
+            "pearson_p": 0.0256,
+            "spearman_r": 0.0704,
+            "spearman_p": 0.0908,
+            "significativo_5pct": true
+          }
+        ],
+        "teste_medias": {
+          "lag_dias": 1,
+          "n_positivo": 70,
+          "n_negativo": 72,
+          "retorno_medio_apos_noticia_positiva_pct": 0.257,
+          "retorno_medio_apos_noticia_negativa_pct": -0.0478,
+          "diferenca_pct": 0.3048,
+          "estatistica_t": 1.1407,
+          "p_valor": 0.256,
+          "significativo_5pct": false,
+          "d_cohen": 0.1917,
+          "magnitude_efeito": "Desprezível"
+        },
+        "regressao": {
+          "lag_dias": 1,
+          "n_observacoes": 582,
+          "coeficiente_angular_b": 0.002736,
+          "intercepto_a": 0.000486,
+          "r": 0.0376,
+          "r2": 0.0014,
+          "variancia_explicada_pct": 0.14,
+          "p_valor": 0.3649,
+          "erro_padrao": 0.003017,
+          "significativo_5pct": false,
+          "interpretacao": "Cada +1 ponto de sentimento associa-se a +0.274% de retorno em D+1"
+        },
+        "event_study": {
+          "ticker": "VALE3.SA",
+          "beta_estimado": 0.7914,
+          "alfa_estimado": -0.000686,
+          "r2_modelo_mercado": 0.2601,
+          "janela_dias": 3,
+          "n_eventos_positivos": 38,
+          "n_eventos_negativos": 52,
+          "car_medio_positivo_pct": 0.3381,
+          "p_valor_positivo": 0.415,
+          "significativo_positivo": false,
+          "car_medio_negativo_pct": -0.3386,
+          "p_valor_negativo": 0.3079,
+          "significativo_negativo": false
+        }
+      },
+      "ITUB4.SA": {
+        "n_dias_com_noticia": 551,
+        "correlacao_defasada": [
+          {
+            "lag_dias": 0,
+            "n_observacoes": 551,
+            "pearson_r": 0.0541,
+            "pearson_p": 0.2048,
+            "spearman_r": 0.0445,
+            "spearman_p": 0.2973,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 1,
+            "n_observacoes": 550,
+            "pearson_r": 0.0012,
+            "pearson_p": 0.9784,
+            "spearman_r": -0.003,
+            "spearman_p": 0.9433,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 2,
+            "n_observacoes": 549,
+            "pearson_r": 0.0274,
+            "pearson_p": 0.5218,
+            "spearman_r": 0.0328,
+            "spearman_p": 0.443,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 3,
+            "n_observacoes": 548,
+            "pearson_r": 0.0109,
+            "pearson_p": 0.7987,
+            "spearman_r": -0.0118,
+            "spearman_p": 0.782,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 5,
+            "n_observacoes": 546,
+            "pearson_r": -0.0559,
+            "pearson_p": 0.1921,
+            "spearman_r": -0.0642,
+            "spearman_p": 0.1341,
+            "significativo_5pct": false
+          }
+        ],
+        "teste_medias": {
+          "lag_dias": 1,
+          "n_positivo": 108,
+          "n_negativo": 29,
+          "retorno_medio_apos_noticia_positiva_pct": 0.1684,
+          "retorno_medio_apos_noticia_negativa_pct": 0.4897,
+          "diferenca_pct": -0.3213,
+          "estatistica_t": -1.211,
+          "p_valor": 0.2307,
+          "significativo_5pct": false,
+          "d_cohen": -0.2121,
+          "magnitude_efeito": "Pequeno"
+        },
+        "regressao": {
+          "lag_dias": 1,
+          "n_observacoes": 550,
+          "coeficiente_angular_b": 7.5e-05,
+          "intercepto_a": 0.001181,
+          "r": 0.0012,
+          "r2": 0.0,
+          "variancia_explicada_pct": 0.0,
+          "p_valor": 0.9784,
+          "erro_padrao": 0.002785,
+          "significativo_5pct": false,
+          "interpretacao": "Cada +1 ponto de sentimento associa-se a +0.008% de retorno em D+1"
+        },
+        "event_study": {
+          "ticker": "ITUB4.SA",
+          "beta_estimado": 0.9054,
+          "alfa_estimado": 0.001634,
+          "r2_modelo_mercado": 0.4963,
+          "janela_dias": 3,
+          "n_eventos_positivos": 75,
+          "n_eventos_negativos": 17,
+          "car_medio_positivo_pct": -0.2993,
+          "p_valor_positivo": 0.1496,
+          "significativo_positivo": false,
+          "car_medio_negativo_pct": -0.1863,
+          "p_valor_negativo": 0.5961,
+          "significativo_negativo": false
+        }
+      },
+      "BBDC4.SA": {
+        "n_dias_com_noticia": 657,
+        "correlacao_defasada": [
+          {
+            "lag_dias": 0,
+            "n_observacoes": 657,
+            "pearson_r": 0.1006,
+            "pearson_p": 0.0099,
+            "spearman_r": 0.0678,
+            "spearman_p": 0.0824,
+            "significativo_5pct": true
+          },
+          {
+            "lag_dias": 1,
+            "n_observacoes": 656,
+            "pearson_r": -0.0048,
+            "pearson_p": 0.9023,
+            "spearman_r": -0.0183,
+            "spearman_p": 0.6398,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 2,
+            "n_observacoes": 655,
+            "pearson_r": -0.0332,
+            "pearson_p": 0.397,
+            "spearman_r": -0.0095,
+            "spearman_p": 0.8085,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 3,
+            "n_observacoes": 654,
+            "pearson_r": -0.0186,
+            "pearson_p": 0.6345,
+            "spearman_r": -0.0254,
+            "spearman_p": 0.5162,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 5,
+            "n_observacoes": 652,
+            "pearson_r": -0.0353,
+            "pearson_p": 0.3682,
+            "spearman_r": -0.0635,
+            "spearman_p": 0.1055,
+            "significativo_5pct": false
+          }
+        ],
+        "teste_medias": {
+          "lag_dias": 1,
+          "n_positivo": 64,
+          "n_negativo": 41,
+          "retorno_medio_apos_noticia_positiva_pct": -0.0824,
+          "retorno_medio_apos_noticia_negativa_pct": -0.3508,
+          "diferenca_pct": 0.2684,
+          "estatistica_t": 1.0003,
+          "p_valor": 0.3196,
+          "significativo_5pct": false,
+          "d_cohen": 0.1917,
+          "magnitude_efeito": "Desprezível"
+        },
+        "regressao": {
+          "lag_dias": 1,
+          "n_observacoes": 656,
+          "coeficiente_angular_b": -0.00058,
+          "intercepto_a": 0.00044,
+          "r": -0.0048,
+          "r2": 0.0,
+          "variancia_explicada_pct": 0.0,
+          "p_valor": 0.9023,
+          "erro_padrao": 0.004726,
+          "significativo_5pct": false,
+          "interpretacao": "Cada +1 ponto de sentimento associa-se a -0.058% de retorno em D+1"
+        },
+        "event_study": {
+          "ticker": "BBDC4.SA",
+          "beta_estimado": 1.2637,
+          "alfa_estimado": -0.000637,
+          "r2_modelo_mercado": 0.2717,
+          "janela_dias": 3,
+          "n_eventos_positivos": 31,
+          "n_eventos_negativos": 14,
+          "car_medio_positivo_pct": 0.279,
+          "p_valor_positivo": 0.6415,
+          "significativo_positivo": false,
+          "car_medio_negativo_pct": -0.0611,
+          "p_valor_negativo": 0.9126,
+          "significativo_negativo": false
+        }
+      },
+      "WEGE3.SA": {
+        "n_dias_com_noticia": 367,
+        "correlacao_defasada": [
+          {
+            "lag_dias": 0,
+            "n_observacoes": 367,
+            "pearson_r": 0.1961,
+            "pearson_p": 0.0002,
+            "spearman_r": 0.1503,
+            "spearman_p": 0.0039,
+            "significativo_5pct": true
+          },
+          {
+            "lag_dias": 1,
+            "n_observacoes": 366,
+            "pearson_r": 0.0765,
+            "pearson_p": 0.144,
+            "spearman_r": 0.0708,
+            "spearman_p": 0.1765,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 2,
+            "n_observacoes": 365,
+            "pearson_r": 0.0775,
+            "pearson_p": 0.1392,
+            "spearman_r": 0.0456,
+            "spearman_p": 0.3846,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 3,
+            "n_observacoes": 364,
+            "pearson_r": 0.0485,
+            "pearson_p": 0.3557,
+            "spearman_r": 0.0728,
+            "spearman_p": 0.1659,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 5,
+            "n_observacoes": 362,
+            "pearson_r": 0.0344,
+            "pearson_p": 0.5144,
+            "spearman_r": 0.0487,
+            "spearman_p": 0.3558,
+            "significativo_5pct": false
+          }
+        ],
+        "teste_medias": {
+          "lag_dias": 1,
+          "n_positivo": 88,
+          "n_negativo": 20,
+          "retorno_medio_apos_noticia_positiva_pct": 0.2416,
+          "retorno_medio_apos_noticia_negativa_pct": 0.1405,
+          "diferenca_pct": 0.1011,
+          "estatistica_t": 0.2558,
+          "p_valor": 0.7996,
+          "significativo_5pct": false,
+          "d_cohen": 0.053,
+          "magnitude_efeito": "Desprezível"
+        },
+        "regressao": {
+          "lag_dias": 1,
+          "n_observacoes": 366,
+          "coeficiente_angular_b": 0.006923,
+          "intercepto_a": -0.000706,
+          "r": 0.0765,
+          "r2": 0.0059,
+          "variancia_explicada_pct": 0.59,
+          "p_valor": 0.144,
+          "erro_padrao": 0.004728,
+          "significativo_5pct": false,
+          "interpretacao": "Cada +1 ponto de sentimento associa-se a +0.692% de retorno em D+1"
+        },
+        "event_study": {
+          "ticker": "WEGE3.SA",
+          "beta_estimado": 0.7388,
+          "alfa_estimado": 0.000197,
+          "r2_modelo_mercado": 0.1496,
+          "janela_dias": 3,
+          "n_eventos_positivos": 60,
+          "n_eventos_negativos": 15,
+          "car_medio_positivo_pct": 1.0021,
+          "p_valor_positivo": 0.0131,
+          "significativo_positivo": true,
+          "car_medio_negativo_pct": -1.5809,
+          "p_valor_negativo": 0.2209,
+          "significativo_negativo": false
+        }
+      },
+      "MGLU3.SA": {
+        "n_dias_com_noticia": 512,
+        "correlacao_defasada": [
+          {
+            "lag_dias": 0,
+            "n_observacoes": 512,
+            "pearson_r": 0.1607,
+            "pearson_p": 0.0003,
+            "spearman_r": 0.1196,
+            "spearman_p": 0.0068,
+            "significativo_5pct": true
+          },
+          {
+            "lag_dias": 1,
+            "n_observacoes": 511,
+            "pearson_r": -0.0268,
+            "pearson_p": 0.5462,
+            "spearman_r": -0.0252,
+            "spearman_p": 0.57,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 2,
+            "n_observacoes": 510,
+            "pearson_r": 0.0266,
+            "pearson_p": 0.5491,
+            "spearman_r": -0.0162,
+            "spearman_p": 0.715,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 3,
+            "n_observacoes": 509,
+            "pearson_r": -0.0195,
+            "pearson_p": 0.66,
+            "spearman_r": -0.0424,
+            "spearman_p": 0.3398,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 5,
+            "n_observacoes": 507,
+            "pearson_r": 0.0272,
+            "pearson_p": 0.5417,
+            "spearman_r": 0.0088,
+            "spearman_p": 0.8432,
+            "significativo_5pct": false
+          }
+        ],
+        "teste_medias": {
+          "lag_dias": 1,
+          "n_positivo": 62,
+          "n_negativo": 60,
+          "retorno_medio_apos_noticia_positiva_pct": -0.1337,
+          "retorno_medio_apos_noticia_negativa_pct": -0.1059,
+          "diferenca_pct": -0.0278,
+          "estatistica_t": -0.0379,
+          "p_valor": 0.9699,
+          "significativo_5pct": false,
+          "d_cohen": -0.0069,
+          "magnitude_efeito": "Desprezível"
+        },
+        "regressao": {
+          "lag_dias": 1,
+          "n_observacoes": 511,
+          "coeficiente_angular_b": -0.004911,
+          "intercepto_a": -0.001503,
+          "r": -0.0268,
+          "r2": 0.0007,
+          "variancia_explicada_pct": 0.07,
+          "p_valor": 0.5462,
+          "erro_padrao": 0.008132,
+          "significativo_5pct": false,
+          "interpretacao": "Cada +1 ponto de sentimento associa-se a -0.491% de retorno em D+1"
+        },
+        "event_study": {
+          "ticker": "MGLU3.SA",
+          "beta_estimado": 2.7263,
+          "alfa_estimado": -0.002367,
+          "r2_modelo_mercado": 0.2259,
+          "janela_dias": 3,
+          "n_eventos_positivos": 44,
+          "n_eventos_negativos": 40,
+          "car_medio_positivo_pct": 0.6585,
+          "p_valor_positivo": 0.4394,
+          "significativo_positivo": false,
+          "car_medio_negativo_pct": 0.6264,
+          "p_valor_negativo": 0.5363,
+          "significativo_negativo": false
+        }
+      },
+      "ABEV3.SA": {
+        "n_dias_com_noticia": 462,
+        "correlacao_defasada": [
+          {
+            "lag_dias": 0,
+            "n_observacoes": 462,
+            "pearson_r": 0.0641,
+            "pearson_p": 0.1689,
+            "spearman_r": 0.0535,
+            "spearman_p": 0.251,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 1,
+            "n_observacoes": 461,
+            "pearson_r": 0.0404,
+            "pearson_p": 0.3867,
+            "spearman_r": 0.0471,
+            "spearman_p": 0.3134,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 2,
+            "n_observacoes": 460,
+            "pearson_r": -0.0047,
+            "pearson_p": 0.9199,
+            "spearman_r": -0.034,
+            "spearman_p": 0.467,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 3,
+            "n_observacoes": 459,
+            "pearson_r": -0.0064,
+            "pearson_p": 0.8913,
+            "spearman_r": -0.0333,
+            "spearman_p": 0.4772,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 5,
+            "n_observacoes": 457,
+            "pearson_r": -0.0023,
+            "pearson_p": 0.9601,
+            "spearman_r": -0.0191,
+            "spearman_p": 0.6844,
+            "significativo_5pct": false
+          }
+        ],
+        "teste_medias": {
+          "lag_dias": 1,
+          "n_positivo": 64,
+          "n_negativo": 31,
+          "retorno_medio_apos_noticia_positiva_pct": 0.4572,
+          "retorno_medio_apos_noticia_negativa_pct": 0.086,
+          "diferenca_pct": 0.3712,
+          "estatistica_t": 1.273,
+          "p_valor": 0.2077,
+          "significativo_5pct": false,
+          "d_cohen": 0.2712,
+          "magnitude_efeito": "Pequeno"
+        },
+        "regressao": {
+          "lag_dias": 1,
+          "n_observacoes": 461,
+          "coeficiente_angular_b": 0.003164,
+          "intercepto_a": 0.000558,
+          "r": 0.0404,
+          "r2": 0.0016,
+          "variancia_explicada_pct": 0.16,
+          "p_valor": 0.3867,
+          "erro_padrao": 0.003651,
+          "significativo_5pct": false,
+          "interpretacao": "Cada +1 ponto de sentimento associa-se a +0.316% de retorno em D+1"
+        },
+        "event_study": {
+          "ticker": "ABEV3.SA",
+          "beta_estimado": 0.7536,
+          "alfa_estimado": -0.000599,
+          "r2_modelo_mercado": 0.2555,
+          "janela_dias": 3,
+          "n_eventos_positivos": 32,
+          "n_eventos_negativos": 20,
+          "car_medio_positivo_pct": 0.7821,
+          "p_valor_positivo": 0.1458,
+          "significativo_positivo": false,
+          "car_medio_negativo_pct": 0.2708,
+          "p_valor_negativo": 0.6341,
+          "significativo_negativo": false
+        }
+      },
+      "RENT3.SA": {
+        "n_dias_com_noticia": 33,
+        "correlacao_defasada": [
+          {
+            "lag_dias": 0,
+            "n_observacoes": 33,
+            "pearson_r": 0.4088,
+            "pearson_p": 0.0182,
+            "spearman_r": 0.3212,
+            "spearman_p": 0.0684,
+            "significativo_5pct": true
+          },
+          {
+            "lag_dias": 1,
+            "n_observacoes": 32,
+            "pearson_r": -0.1742,
+            "pearson_p": 0.3404,
+            "spearman_r": -0.0165,
+            "spearman_p": 0.9287,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 2,
+            "n_observacoes": 31,
+            "pearson_r": -0.3164,
+            "pearson_p": 0.0829,
+            "spearman_r": -0.2843,
+            "spearman_p": 0.1212,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 3,
+            "n_observacoes": 30,
+            "pearson_r": -0.1294,
+            "pearson_p": 0.4957,
+            "spearman_r": 0.0079,
+            "spearman_p": 0.967,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 5,
+            "n_observacoes": 28,
+            "pearson_r": -0.3809,
+            "pearson_p": 0.0455,
+            "spearman_r": -0.3308,
+            "spearman_p": 0.0855,
+            "significativo_5pct": true
+          }
+        ],
+        "teste_medias": {
+          "lag_dias": 1,
+          "n_positivo": 10,
+          "n_negativo": 10,
+          "retorno_medio_apos_noticia_positiva_pct": -2.3343,
+          "retorno_medio_apos_noticia_negativa_pct": -0.7621,
+          "diferenca_pct": -1.5723,
+          "estatistica_t": -0.713,
+          "p_valor": 0.4906,
+          "significativo_5pct": false,
+          "d_cohen": -0.3188,
+          "magnitude_efeito": "Pequeno"
+        },
+        "regressao": {
+          "erro": "Amostra insuficiente (32 obs., mínimo 60). Abaixo disso o teste tem menos de 80% de poder."
+        },
+        "event_study": {
+          "ticker": "RENT3.SA",
+          "beta_estimado": 1.5068,
+          "alfa_estimado": -0.001734,
+          "r2_modelo_mercado": 0.4792,
+          "janela_dias": 3,
+          "n_eventos_positivos": 10,
+          "n_eventos_negativos": 10,
+          "car_medio_positivo_pct": 0.4775,
+          "p_valor_positivo": 0.7188,
+          "significativo_positivo": false,
+          "car_medio_negativo_pct": -1.0618,
+          "p_valor_negativo": 0.5314,
+          "significativo_negativo": false
+        }
+      },
+      "SUZB3.SA": {
+        "n_dias_com_noticia": 349,
+        "correlacao_defasada": [
+          {
+            "lag_dias": 0,
+            "n_observacoes": 349,
+            "pearson_r": 0.1421,
+            "pearson_p": 0.0078,
+            "spearman_r": 0.1488,
+            "spearman_p": 0.0053,
+            "significativo_5pct": true
+          },
+          {
+            "lag_dias": 1,
+            "n_observacoes": 348,
+            "pearson_r": -0.0613,
+            "pearson_p": 0.254,
+            "spearman_r": 0.0142,
+            "spearman_p": 0.7922,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 2,
+            "n_observacoes": 347,
+            "pearson_r": 0.0758,
+            "pearson_p": 0.1591,
+            "spearman_r": 0.017,
+            "spearman_p": 0.7523,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 3,
+            "n_observacoes": 346,
+            "pearson_r": 0.022,
+            "pearson_p": 0.6833,
+            "spearman_r": -0.0134,
+            "spearman_p": 0.8045,
+            "significativo_5pct": false
+          },
+          {
+            "lag_dias": 5,
+            "n_observacoes": 344,
+            "pearson_r": 0.0171,
+            "pearson_p": 0.7514,
+            "spearman_r": 0.0687,
+            "spearman_p": 0.2039,
+            "significativo_5pct": false
+          }
+        ],
+        "teste_medias": {
+          "lag_dias": 1,
+          "n_positivo": 69,
+          "n_negativo": 27,
+          "retorno_medio_apos_noticia_positiva_pct": 0.0553,
+          "retorno_medio_apos_noticia_negativa_pct": 0.0031,
+          "diferenca_pct": 0.0522,
+          "estatistica_t": 0.1258,
+          "p_valor": 0.9005,
+          "significativo_5pct": false,
+          "d_cohen": 0.0318,
+          "magnitude_efeito": "Desprezível"
+        },
+        "regressao": {
+          "lag_dias": 1,
+          "n_observacoes": 348,
+          "coeficiente_angular_b": -0.004886,
+          "intercepto_a": 0.000499,
+          "r": -0.0613,
+          "r2": 0.0038,
+          "variancia_explicada_pct": 0.38,
+          "p_valor": 0.254,
+          "erro_padrao": 0.004277,
+          "significativo_5pct": false,
+          "interpretacao": "Cada +1 ponto de sentimento associa-se a -0.489% de retorno em D+1"
+        },
+        "event_study": {
+          "ticker": "SUZB3.SA",
+          "beta_estimado": 0.2588,
+          "alfa_estimado": 0.000948,
+          "r2_modelo_mercado": 0.0273,
+          "janela_dias": 3,
+          "n_eventos_positivos": 38,
+          "n_eventos_negativos": 22,
+          "car_medio_positivo_pct": -0.1221,
+          "p_valor_positivo": 0.8079,
+          "significativo_positivo": false,
+          "car_medio_negativo_pct": -1.1623,
+          "p_valor_negativo": 0.1035,
+          "significativo_negativo": false
+        }
+      }
+    },
+    "consolidado": {
+      "ativos_analisados": 9,
+      "ativos_com_relacao_significativa": 0,
+      "p_valor_medio": null,
+      "veredito": "H0 NÃO rejeitada na maioria dos casos (0 de 9). Não houve evidência estatística suficiente no período analisado. Isso é um resultado válido e deve ser reportado com honestidade."
+    }
+  }
+}

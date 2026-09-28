@@ -2,7 +2,7 @@
   RESULTADO CONGELADO — 2026-09-28
 ==============================================================================
   Fonte: dados/noticias_com_sentimento.csv (19410 noticias)
-         dados/cache_precos/ (9 ativos, 1249 pregoes apos alinhamento)
+         dados/cache_precos/ (9 ativos, 1250 pregoes apos alinhamento)
   Minimo de observacoes: 60
 ==============================================================================
 ativo          n    r D+0     p D+0   H0 D+0    r D+1     p D+1   H0 D+1

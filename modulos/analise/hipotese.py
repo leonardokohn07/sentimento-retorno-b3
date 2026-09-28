@@ -435,8 +435,16 @@ def gerar_relatorio(
 
     for ticker in tickers:
         serie = montar_serie_diaria(noticias, retornos, ticker)
-        if serie.empty or len(serie) < 20:
-            relatorio["por_ativo"][ticker] = {"erro": "Dados insuficientes"}
+        # O corte é o MESMO da regressão: MIN_OBSERVACOES, que vem da análise
+        # de poder. Até 28/09/2026 este guarda usava 20 — número anterior à
+        # análise de poder —, então um ativo com 33 dias entrava na conta de
+        # "analisados" mas não tinha regressão calculada, e o denominador do
+        # veredito saía maior que o do estudo (6 de 9 em vez de 6 de 8).
+        if serie.empty or len(serie) < MIN_OBSERVACOES:
+            relatorio["por_ativo"][ticker] = {
+                "erro": (f"Amostra insuficiente ({len(serie)} dias com notícia "
+                         f"e pregão, mínimo {MIN_OBSERVACOES})")
+            }
             continue
 
         bloco = {
