@@ -115,9 +115,15 @@ veio depois.
   do preço. Por isso o trabalho afirma associação, e não causa.
 - **O léxico não foi validado contra rotulagem humana.** O que foi validado
   foi o método estatístico, não o instrumento de medida.
-- **O que se mede é o tom (polaridade) da cobertura jornalística**, não o
-  sentimento do investidor, que é um construto distinto, medido por pesquisas
-  de opinião e fluxo de capital.
+- **O que se mede é o tom (polaridade) da cobertura jornalística.** Não é o
+  sentimento do investidor: ninguém foi entrevistado e nenhuma emoção foi
+  registrada. "Sentimento do investidor" é um construto distinto na literatura
+  (Baker e Wurgler, 2007), medido por pesquisas de opinião, fluxo de capital e
+  indicadores de mercado. O termo "análise de sentimento" é mantido por ser o
+  nome consagrado da técnica — é como o método aparece na literatura e nos
+  modelos da área —, mas o objeto medido aqui é o texto, não a pessoa. A
+  distinção foi apontada por um professor de psicologia e administração durante
+  a FEICIT 2026.
 
 ## Próximos passos
 
@@ -194,6 +200,10 @@ continua acessível no histórico, na tag `feicit-2026`.
   2024. DOI: 10.1108/REGE-07-2021-0145.
 - COHEN, J. *Statistical power analysis for the behavioral sciences*. 2. ed.
   Hillsdale: Lawrence Erlbaum, 1988.
+- BAKER, M.; WURGLER, J. Investor sentiment in the stock market. *Journal of
+  Economic Perspectives*, v. 21, n. 2, p. 129–151, 2007.
+- STEIGER, J. H. Tests for comparing elements of a correlation matrix.
+  *Psychological Bulletin*, v. 87, n. 2, p. 245–251, 1980.
 
 ## Licença
 
