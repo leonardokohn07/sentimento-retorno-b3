@@ -45,6 +45,49 @@ Na VALE3, nenhum dos 10.000 embaralhamentos alcançou o valor observado.
 
 ![Permutação da VALE3](resultados/banner_permutacao_VALE3.SA.png)
 
+### Controle de causalidade reversa (D−1)
+
+Se o sentimento de hoje se associa ao retorno de **ontem**, parte da relação
+observada pode ser o noticiário reagindo a um movimento que já aconteceu. Esse
+teste foi pré-registrado (`docs/pre-registro_2026-09-28_defasagem-negativa.md`)
+e rodado em 28/09/2026.
+
+| Ativo | r em D−1 | p | r em D+0 | p | D+0 > D−1? |
+|---|---:|---:|---:|---:|:--|
+| ABEV3 | 0,0652 | 0,1620 | 0,0641 | 0,1689 | não |
+| BBDC4 | 0,0276 | 0,4799 | 0,1006 | 0,0099 | não |
+| ITUB4 | −0,0177 | 0,6787 | 0,0541 | 0,2048 | não |
+| MGLU3 | 0,0397 | 0,3703 | 0,1607 | 0,0003 | não |
+| PETR4 | **0,1176** | **0,0027** | 0,1442 | 0,0002 | não |
+| SUZB3 | **0,1428** | **0,0076** | 0,1421 | 0,0078 | não |
+| VALE3 | 0,0589 | 0,1555 | 0,1965 | 0,0000 | **sim** (p = 0,0165) |
+| WEGE3 | **0,1486** | **0,0043** | 0,1961 | 0,0002 | não |
+
+**O controle não passou limpo, e isso está reportado.** O sentimento se associa
+ao retorno do pregão anterior em 3 dos 8 ativos. E, comparando as duas
+correlações diretamente — pelo teste de Williams para correlações dependentes,
+que leva em conta a autocorrelação do retorno —, a associação em D+0 só é
+estatisticamente maior que a de D−1 na VALE3.
+
+Na SUZB3 as duas são praticamente idênticas (0,1421 contra 0,1428): ali a
+hipótese de cobertura reagindo ao preço explica o dado tão bem quanto a
+hipótese contrária.
+
+Duas ressalvas, nas duas direções:
+
+- Não encontrar diferença **não** é o mesmo que provar que elas são iguais: com
+  amostras desse tamanho, o teste tem pouco poder para separar correlações
+  próximas. O caso da SUZB3, em que os valores coincidem, é diferente dos
+  demais.
+- Em 5 dos 8 ativos o D−1 não é significativo, então o padrão não é geral.
+
+**O que isso muda no trabalho:** a conclusão sobre D+0 continua sendo de
+associação — nunca foi de causa —, mas agora o estudo sabe e declara que, para
+parte da amostra, a ordem temporal entre notícia e preço não está estabelecida.
+É exatamente o que o próximo experimento ataca: os Fatos Relevantes da CVM têm
+horário oficial de protocolo, o que permite separar o que veio antes do que
+veio depois.
+
 ---
 
 ## Como o estudo foi feito
@@ -78,8 +121,7 @@ Na VALE3, nenhum dos 10.000 embaralhamentos alcançou o valor observado.
 
 ## Próximos passos
 
-1. Teste de defasagem negativa (D−1): se o sentimento se associa ao retorno do
-   dia anterior, parte da relação é jornalismo reagindo ao preço.
+1. ~~Teste de defasagem negativa (D−1)~~ — feito em 28/09/2026, resultado acima.
 2. Backtest honesto da estratégia com sinal de D+1, contra buy-and-hold e com
    custos — a expectativa, dado o resultado acima, é que não supere.
 3. Notícias por setor como segunda variável: o que move o preço, a notícia da

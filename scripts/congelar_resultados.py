@@ -63,7 +63,7 @@ def main():
                                motivo=f"menos de {MIN_OBSERVACOES} dias"))
             continue
         linha = dict(ativo=t, n=len(serie), motivo="")
-        for lag, rot in ((0, "d0"), (1, "d1")):
+        for lag, rot in ((-1, "dm1"), (0, "d0"), (1, "d1")):
             reg = regressao_sentimento_retorno(serie, lag=lag)
             if "erro" in reg:
                 linha[f"{rot}_erro"] = reg["erro"]
@@ -85,24 +85,30 @@ def main():
     sig1 = int(validos["sig_d1"].sum()) if "sig_d1" in validos else 0
     p_medio0 = validos.loc[validos["sig_d0"] == True, "p_d0"].mean() if sig0 else float("nan")
 
-    larg = "=" * 78
+    larg = "=" * 96
     txt = [larg, f"  RESULTADO CONGELADO — {hoje}", larg,
            f"  Fonte: dados/noticias_com_sentimento.csv ({len(noticias)} noticias)",
            f"         dados/cache_precos/ ({retornos.shape[1]} ativos, "
            f"{retornos.shape[0]} pregoes apos alinhamento)",
            f"  Minimo de observacoes: {MIN_OBSERVACOES}", larg,
-           f"{'ativo':<10}{'n':>6}{'r D+0':>9}{'p D+0':>10}{'H0 D+0':>9}"
+           f"{'ativo':<10}{'n':>6}{'r D-1':>9}{'p D-1':>10}"
+           f"{'r D+0':>9}{'p D+0':>10}{'H0 D+0':>9}"
            f"{'r D+1':>9}{'p D+1':>10}{'H0 D+1':>9}",
-           "-" * 78]
+           "-" * 96]
     for _, l in tab.iterrows():
         if l["motivo"]:
             txt.append(f"{l['ativo']:<10}{int(l['n']):>6}   FORA — {l['motivo']}")
             continue
-        txt.append(f"{l['ativo']:<10}{int(l['n']):>6}{l['r_d0']:>9.4f}{l['p_d0']:>10.4f}"
+        txt.append(f"{l['ativo']:<10}{int(l['n']):>6}"
+                   f"{l['r_dm1']:>9.4f}{l['p_dm1']:>10.4f}"
+                   f"{l['r_d0']:>9.4f}{l['p_d0']:>10.4f}"
                    f"{('rejeita' if l['sig_d0'] else 'nao'):>9}"
                    f"{l['r_d1']:>9.4f}{l['p_d1']:>10.4f}"
                    f"{('rejeita' if l['sig_d1'] else 'nao'):>9}")
-    txt += ["-" * 78,
+    sigm1 = int(validos["sig_dm1"].sum()) if "sig_dm1" in validos else 0
+    txt += ["-" * 96,
+            f"  D-1 (controle de causalidade reversa): {sigm1} de {len(validos)} "
+            f"rejeitam H0",
             f"  D+0: {sig0} de {len(validos)} rejeitam H0"
             + (f" (p medio dos significativos = {p_medio0:.4f})" if sig0 else ""),
             f"  D+1: {sig1} de {len(validos)} rejeitam H0", larg,
