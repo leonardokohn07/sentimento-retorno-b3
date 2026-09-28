@@ -15,16 +15,23 @@ Por que este arquivo existe
     num arquivo.
 
 Tema escuro
-    O projeto roda em fundo escuro. Cores de dado escolhidas para ESTE fundo
-    (e não convertidas de um tema claro): azul #3987e5 para o resultado que
-    rejeita H0, vermelho #e66767 para o que não rejeita.
+    Cores escolhidas PARA fundo escuro, não convertidas de um tema claro.
+    Verde #199e70 = rejeita H0. Vermelho #e66767 = não rejeita. Azul
+    #3987e5 = dado observado. Âmbar #c98500 = tendência e destaque.
 
-A paleta foi validada para daltonismo e contraste
-    O par azul/vermelho sobre o fundo escuro: separação ΔE 19,2 em
-    protanopia e 29,0 em visão normal (mínimos de 8 e 15), ambos acima de
-    3:1 de contraste com o fundo. O verde escuro do banner (#0c5a4e) não
-    serve como cor de dado — reprova em luminosidade e saturação — e fica
-    reservado para uso de marca.
+Verde e vermelho juntos: quando pode e quando não pode
+    Verde contra vermelho é o pior par possível para quem tem deuteranopia
+    (separação ΔE 5,3, abaixo do piso de 8). Por isso eles só aparecem
+    juntos onde a COR É REDUNDANTE — na coluna do veredito, onde a célula
+    já diz "sim" ou "não" por escrito, e nos textos de conclusão.
+
+    Onde a cor é a única informação — as barras do gráfico de defasagem —
+    o par é verde contra CINZA NEUTRO, que se distingue por luminosidade e
+    não depende de percepção de matiz. O p-valor impresso sobre cada barra
+    é a segunda camada de informação.
+
+    O verde escuro do banner (#0c5a4e) não serve como cor de dado: reprova
+    em luminosidade e saturação. Fica reservado para uso de marca.
 """
 
 from pathlib import Path
@@ -34,22 +41,26 @@ RAIZ = Path(__file__).resolve().parent.parent
 # ─────────────────────────────────────────────────────────
 # PALETA
 # ─────────────────────────────────────────────────────────
-TINTA = "#e9ecf1"          # texto principal
-TINTA2 = "#b9c0cc"         # texto secundário
-MUDO = "#8c95a3"           # legendas, eixos, notas
-LINHA = "#272d38"          # bordas e réguas
-GRADE = "#222836"          # grade dos gráficos
+TINTA = "#f3f5f9"          # texto principal (títulos, números)
+TINTA2 = "#d6dbe4"         # texto corrido
+MUDO = "#9ba4b2"           # legendas, eixos, notas
+LINHA = "#2c3341"          # bordas e réguas
+GRADE = "#252c39"          # grade dos gráficos
 FUNDO = "#0f1218"          # fundo da página
 FUNDO2 = "#161b24"         # blocos de apoio
 
-SERIE_1 = "#3987e5"        # rejeita H0
-SERIE_2 = "#e66767"        # não rejeita / inconclusivo
-SERIE_3 = "#199e70"
-SERIE_4 = "#c98500"
-CATEGORICA = [SERIE_1, SERIE_2, SERIE_3, SERIE_4]
+SERIE_1 = "#199e70"        # verde: rejeita H0 / significativo
+SERIE_2 = "#e66767"        # vermelho: não rejeita / inconclusivo
+SERIE_3 = "#3987e5"        # azul: dado observado (pontos, histogramas)
+SERIE_4 = "#c98500"        # âmbar: linha de tendência, destaques
+
+NEUTRO = "#6b7484"         # marca sem significado de estado
+CATEGORICA = [SERIE_3, SERIE_4, SERIE_1, SERIE_2]
 
 SIGNIFICATIVO = SERIE_1
 INCONCLUSIVO = SERIE_2
+OBSERVADO = SERIE_3
+TENDENCIA = SERIE_4
 
 SERIF = "Georgia, 'Times New Roman', serif"
 SANS = ("system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', "
@@ -106,24 +117,28 @@ h1, h2, h3, h4 {{ font-family: {SERIF}; color: {TINTA}; letter-spacing: -0.01em;
 h1 {{ font-size: 1.62rem; font-weight: 700; }}
 h2 {{ font-size: 1.20rem; padding-top: 0.6rem; }}
 h3 {{ font-size: 1.02rem; }}
-p, li, label, .stMarkdown {{ color: {TINTA2}; }}
+p, li, label, .stMarkdown {{ color: {TINTA2}; font-size: 0.94rem; }}
+strong, b {{ color: {TINTA}; }}
+code {{ color: {TINTA}; background: {FUNDO2}; }}
 
 /* números das métricas: tipografia de dado, não de texto corrido */
 [data-testid="stMetricValue"] {{
     font-family: {SERIF}; font-size: 1.75rem; color: {TINTA};
     font-variant-numeric: tabular-nums;
 }}
-[data-testid="stMetricLabel"] p {{ font-size: 0.78rem; color: {MUDO}; }}
+[data-testid="stMetricLabel"] p {{ font-size: 0.80rem; color: {TINTA2}; }}
 [data-testid="stMetric"] {{ border-left: 2px solid {LINHA}; padding: 2px 0 2px 14px; }}
 
 /* réguas finas no lugar de caixas */
 hr {{ border-color: {LINHA}; margin: 1.6rem 0 1.2rem; }}
 [data-testid="stExpander"] {{ border: 1px solid {LINHA}; border-radius: 4px; }}
-[data-testid="stExpander"] summary {{ font-size: 0.86rem; color: {MUDO}; }}
+[data-testid="stExpander"] summary {{ font-size: 0.88rem; color: {TINTA2}; }}
 
 /* tabelas: números alinhados e cabeçalho discreto */
 [data-testid="stDataFrame"] {{ font-variant-numeric: tabular-nums; }}
 [data-testid="stTable"] td, [data-testid="stDataFrame"] td {{ color: {TINTA2}; }}
+[data-testid="stCaptionContainer"] p {{ color: {MUDO}; font-size: 0.80rem; }}
+[data-testid="stDataFrame"] th {{ color: {TINTA}; }}
 
 [data-testid="stAlert"] {{ border-radius: 4px; font-size: 0.88rem; }}
 .stButton button {{ border-radius: 4px; font-weight: 600; }}

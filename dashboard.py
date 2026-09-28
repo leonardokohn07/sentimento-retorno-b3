@@ -34,7 +34,8 @@ from modulos.coleta.precos import (
 from modulos.coleta.noticias import coletar_historico, ajustar_data_pregao
 from modulos.analise.sentimento import AnalisadorV2
 from modulos.visual import (
-    aplicar_estilo, cabecalho, SIGNIFICATIVO, INCONCLUSIVO, MUDO, LINHA,
+    aplicar_estilo, cabecalho, SIGNIFICATIVO, INCONCLUSIVO,
+    OBSERVADO, TENDENCIA, NEUTRO, MUDO, LINHA,
 )
 from modulos.analise.hipotese import (
     montar_serie_diaria, testar_correlacao_defasada,
@@ -379,13 +380,16 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
             significativos += 1
             p_valores.append(reg["p_valor"])
 
+        def _num(v, casas=4):
+            return f"{v:.{casas}f}".replace(".", ",")
+
         linhas_tabela.append({
-            "Ativo": tk,
-            "Dias c/ notícia": len(serie),
-            "Correlação (r)": reg["r"],
-            "R²": reg["r2"],
-            "% explicado": f"{reg['variancia_explicada_pct']}%",
-            "p-valor": reg["p_valor"],
+            "Ativo": tk.replace(".SA", ""),
+            "Dias": len(serie),
+            "r": _num(reg["r"]),
+            "R²": _num(reg["r2"]),
+            "% explicado": _num(reg["variancia_explicada_pct"], 2) + "%",
+            "p-valor": _num(reg["p_valor"]),
             "H₀ rejeitada": "sim" if sig else "não",
         })
 
@@ -424,6 +428,8 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
     # A coluna do veredito é texto, não ícone: "sim" em azul, "não" em
     # vermelho. Cor sozinha não carrega significado — a palavra carrega.
     def _cor_veredito(v):
+        # Verde e vermelho aqui é seguro porque a célula diz "sim" ou "não"
+        # por escrito: a cor reforça, não carrega sozinha a informação.
         if v == "sim":
             return f"color: {SIGNIFICATIVO}; font-weight: 700"
         if v == "não":
@@ -502,7 +508,7 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
 
         # Histograma da distribuição
         fig_hist = go.Figure(go.Histogram(
-            x=sc, nbinsx=40, marker_color=SIGNIFICATIVO,
+            x=sc, nbinsx=40, marker_color=OBSERVADO,
         ))
         fig_hist.update_layout(
             height=260,
@@ -593,14 +599,14 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
     st.markdown("#### Correlação por defasagem")
     st.caption(
         "Mede a relação entre o sentimento do dia D e o retorno em D+lag. "
-        "Barras verdes indicam correlação estatisticamente significativa."
+        "Barras verdes são significativas ao nível de 5%; as cinzas, não. O p-valor está impresso sobre cada barra."
     )
 
     corr = testar_correlacao_defasada(serie_sel, lags=[0, 1, 2, 3, 5])
 
     if not corr.empty:
         cores = [
-            SIGNIFICATIVO if s else INCONCLUSIVO
+            SIGNIFICATIVO if s else NEUTRO
             for s in corr["significativo_5pct"]
         ]
         fig_lag = go.Figure(go.Bar(
@@ -643,7 +649,7 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
             x=s_plot["sentimento"],
             y=s_plot["retorno_lag"] * 100,
             mode="markers",
-            marker=dict(size=7, color=SIGNIFICATIVO, opacity=0.5),
+            marker=dict(size=7, color=OBSERVADO, opacity=0.5),
             name="Dias observados",
             hovertemplate=(
                 "Sentimento: %{x:.3f}<br>"
@@ -653,7 +659,7 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
         fig_disp.add_trace(go.Scatter(
             x=x_linha, y=y_linha,
             mode="lines",
-            line=dict(color=INCONCLUSIVO, width=2.5),
+            line=dict(color=TENDENCIA, width=2.5),
             name=f"Tendência (b = {b_lin:+.3f})",
         ))
         fig_disp.update_layout(
