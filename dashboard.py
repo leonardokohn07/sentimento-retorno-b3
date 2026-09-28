@@ -80,10 +80,11 @@ def carregar_precos_estudo(tickers, data_inicio_txt):
     )
 
 
-st.subheader("🔬 Validação Estatística da Hipótese")
+st.title("🔬 InvestAI — sentimento de notícias × retorno de ações")
+st.caption("Estudo estatístico · B3 · trabalho acadêmico, não é recomendação de investimento.")
 
 st.markdown("""
-Esta aba testa a **hipótese central do TCC** com dados históricos:
+Este estudo testa a **hipótese central do trabalho** com dados históricos:
 
 | | |
 |---|---|
@@ -96,10 +97,9 @@ que 0,05, rejeitamos H₀.
 """)
 
 st.info(
-    "⏱️ **Atenção:** este estudo é diferente das outras abas. Ele coleta "
-    "**meses ou anos** de notícias históricas (as outras abas usam apenas "
-    "os últimos dias). A primeira execução leva de 10 a 20 minutos. "
-    "Depois disso os dados ficam em cache e a análise é instantânea."
+    "⏱️ **Atenção:** o estudo coleta **meses ou anos** de notícias "
+    "históricas. A primeira execução leva de 10 a 20 minutos; depois "
+    "disso os dados ficam em cache e a análise é instantânea."
 )
 
 from modulos.caminhos import ARQ_NOTICIAS as ARQ_CACHE
@@ -176,9 +176,9 @@ else:
     )
 
 # ── Coleta / carregamento ──
-# Guardamos o resultado em session_state pelo mesmo motivo do botão
-# "Analisar Carteira": sem isso, trocar o ativo no seletor abaixo
-# apagaria todo o estudo e você teria que coletar tudo de novo.
+# Guardamos o resultado em session_state: sem isso, trocar o ativo no
+# seletor abaixo apagaria todo o estudo e seria preciso coletar tudo
+# de novo (o Streamlit reexecuta o script inteiro a cada interação).
 noticias_hist = st.session_state.get("noticias_historicas")
 
 if rodar_estudo:
@@ -287,11 +287,10 @@ else:
         f"{noticias_hist['data'].max():%d/%m/%Y}"
     )
 
-    # ── Independência total da barra lateral ──
-    # Os ativos analisados são os que EXISTEM no arquivo de notícias, e
-    # não os da carteira do usuário. Assim, trocar a carteira das abas
-    # 1 a 5 não altera a amostra do estudo — que é o que sustenta a
-    # conclusão estatística do trabalho.
+    # ── A amostra vem dos dados, não da interface ──
+    # Os ativos analisados são os que EXISTEM no arquivo de notícias.
+    # Nenhuma escolha de tela entra na definição da amostra: é isso que
+    # sustenta a conclusão estatística do trabalho.
     tickers_estudo = sorted(noticias_hist["ticker"].dropna().unique())
 
     with st.spinner("📈 Alinhando preços ao período do estudo..."):
@@ -300,8 +299,8 @@ else:
         )
     st.caption(
         f"**{len(tickers_estudo)} ativos** no estudo, preços com histórico "
-        f"`{_per}`. Esta aba é independente da carteira e do período "
-        f"escolhidos na barra lateral."
+        f"`{_per}`. A amostra é definida pelos dados coletados, não por "
+        f"escolhas de interface."
     )
 
     # Ativos que realmente têm dados suficientes
@@ -540,7 +539,7 @@ if noticias_hist is not None and not noticias_hist.empty and tem_resultados:
                 st.success(
                     "✅ Cobertura homogênea entre os ativos: o léxico se "
                     "comporta de forma parecida em todos os setores da "
-                    "carteira."
+                    "amostra."
                 )
 
         st.markdown("---")
