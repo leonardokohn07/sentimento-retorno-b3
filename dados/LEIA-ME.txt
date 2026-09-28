@@ -1,0 +1,7 @@
+PASTA: dados/
+=============
+
+Aqui ficam os arquivos BAIXADOS da internet.
+
+    noticias_com_sentimento.csv   Notícias coletadas + score de sentimento
+    

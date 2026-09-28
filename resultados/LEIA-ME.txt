@@ -1,0 +1,27 @@
+PASTA: resultados/
+==================
+
+Aqui ficam as SAÍDAS do estudo — o que vai para o TCC e para o banner.
+
+Arquivos que vão aparecer:
+
+    resultado_hipotese.json        Testes estatísticos, ativo por ativo
+                                   (2_coletar_e_analisar.py)
+
+    resultado_permutacao.txt       Controle negativo: p clássico x p
+                                   empírico, ativo por ativo
+                                   (12_teste_permutacao.py)
+
+    curvas_de_deteccao.png         Até onde o instrumento enxerga
+                                   (7_curvas_de_deteccao.py)
+
+    permutacao_<ATIVO>.png         Distribuição sob embaralhamento,
+                                   formato normal — para o caderno de campo
+
+    banner_permutacao_<ATIVO>.png  A mesma figura em 596 x 86 mm, no
+                                   encaixe exato do slot do banner
+
+    dispersao_*.png                Sentimento x retorno, por ativo
+
+Pode apagar? Sim. É só rodar os scripts de novo — nenhum destes arquivos
+é fonte de dado, todos são derivados de dados/noticias_com_sentimento.csv.

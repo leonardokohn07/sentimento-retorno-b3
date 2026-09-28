@@ -1,0 +1,41 @@
+# ─────────────────────────────────────────────────────────
+# InvestAI — dependências
+# ─────────────────────────────────────────────────────────
+# Instalar com:  pip install -r requirements.txt
+#
+# Esta lista contém apenas o que o projeto realmente importa. Foi conferida
+# arquivo por arquivo: cada item abaixo aparece em algum import do código.
+
+# ── Dados de mercado ──
+yfinance>=0.2.40          # preços da B3 e do Ibovespa
+
+# ── Cálculo ──
+pandas>=2.0.0             # séries temporais, junções por data
+numpy>=1.24.0             # álgebra, matriz de covariância, Monte Carlo
+scipy>=1.11.0             # testes estatísticos: pearsonr, ttest, linregress
+
+# ── Coleta de notícias ──
+feedparser>=6.0.10        # leitura dos feeds RSS do Google News
+beautifulsoup4>=4.12.0    # limpeza do HTML dos resumos
+
+# ── Interface e gráficos ──
+streamlit>=1.32.0         # dashboard
+plotly>=5.18.0            # gráficos interativos do dashboard
+matplotlib>=3.7.0         # gráficos salvos em PNG pelos scripts
+
+
+# ─────────────────────────────────────────────────────────
+# OPCIONAL — modo NLP híbrido (desativado)
+# ─────────────────────────────────────────────────────────
+# A classe AnalisadorV2 (modulos/analise/sentimento.py) pode combinar o
+# léxico com um DistilBERT multilíngue do HuggingFace. NÃO é necessário
+# para reproduzir os resultados: todos usam somente o léxico.
+#
+# São cerca de 2 GB de download, e o torch apresenta incompatibilidade em
+# algumas instalações do Windows. Para experimentar o modo híbrido:
+#     pip install transformers torch
+#
+# transformers>=4.38.0
+# torch>=2.1.0
+
+

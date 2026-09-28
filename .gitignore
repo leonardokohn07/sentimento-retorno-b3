@@ -1,0 +1,13 @@
+# ambiente
+venv/
+__pycache__/
+*.pyc
+.streamlit/secrets.toml
+
+# dados de terceiros — nao vao para o repositorio publico
+# (texto integral das noticias e series de preco do Yahoo)
+dados/noticias_com_sentimento.csv
+dados/cache_precos/
+
+# backups locais
+*.bak_feira

@@ -1,0 +1,19 @@
+# Configuração do Streamlit — projeto InvestAI
+#
+# fileWatcherType = "none"
+#   O vigia de arquivos do Streamlit percorre todos os módulos carregados em
+#   memória procurando alterações. Quando a biblioteca `transformers` está
+#   carregada (ao marcar "Usar modelo NLP"), essa varredura dispara o
+#   carregamento preguiçoso de centenas de submódulos dela, e cada um tenta
+#   importar o `torch`. Nesta máquina o torch falha ao carregar a DLL c10.dll
+#   (WinError 1114), gerando uma avalanche de erros no terminal.
+#
+#   Desligar o vigia elimina o problema. O custo é que alterações no código
+#   passam a exigir reinício manual do servidor — o que já era necessário
+#   para mudanças dentro de modulos/.
+
+[server]
+fileWatcherType = "none"
+
+[browser]
+gatherUsageStats = false
