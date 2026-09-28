@@ -1,0 +1,20 @@
+{
+    // Interpretador do projeto — sem isto o VS Code usa o Python do sistema
+    // e o Pylance acusa "Import could not be resolved" nos módulos internos.
+    "python.defaultInterpreterPath": "${workspaceFolder}\\venv\\Scripts\\python.exe",
+
+    // Os scripts inserem a raiz do projeto no sys.path em tempo de execução;
+    // o Pylance não enxerga isso, então a raiz é declarada aqui.
+    "python.analysis.extraPaths": ["${workspaceFolder}"],
+    "python.analysis.autoSearchPaths": true,
+    "python.terminal.activateEnvironment": true,
+
+    "files.exclude": {
+        "**/__pycache__": true,
+        "venv": true
+    },
+    "search.exclude": {
+        "venv": true,
+        "dados/cache_precos": true
+    }
+}

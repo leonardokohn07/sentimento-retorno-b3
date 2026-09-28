@@ -1,7 +1,23 @@
 PASTA: dados/
 =============
 
-Aqui ficam os arquivos BAIXADOS da internet.
+Entradas do estudo. NADA aqui vai para o repositório público: são dados de
+terceiros (texto das notícias e séries de preço), e o .gitignore os mantém
+fora do git.
 
-    noticias_com_sentimento.csv   Notícias coletadas + score de sentimento
-    
+    noticias_com_sentimento.csv   Notícias coletadas + escore de sentimento.
+                                  19.410 registros, 10 ativos, 2024-2026.
+                                  Gerado por scripts/2_coletar_e_analisar.py.
+
+    cache_precos/                 Cópia local das séries de preço já baixadas
+                                  (um CSV por ativo). Serve para o estudo
+                                  rodar quando o Yahoo não responde — foi o
+                                  que fez o ABEV3 sumir da análise em 24/09.
+                                  Escrito automaticamente por
+                                  modulos/coleta/precos.py a cada coleta
+                                  bem-sucedida.
+
+Perdi estes arquivos, e agora?
+    Rode scripts/2_coletar_e_analisar.py com USAR_CACHE = False. A coleta
+    leva de 10 a 20 minutos e reconstrói tudo. Atenção: os escores mudam se
+    o léxico tiver mudado desde a coleta original.

@@ -27,6 +27,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import pandas as pd
 import numpy as np
+from datetime import date
 
 from modulos.coleta.noticias import coletar_historico, ajustar_data_pregao
 from modulos.analise.sentimento import AnalisadorV2
@@ -38,10 +39,20 @@ from modulos.analise.hipotese import gerar_relatorio, imprimir_relatorio
 # CONFIGURAÇÃO — ajuste aqui
 # ═════════════════════════════════════════════════════════
 
-TICKERS = ["PETR4.SA", "VALE3.SA", "ITUB4.SA", "BBDC4.SA", "MGLU3.SA"]
+# A amostra vem de CARTEIRA_ESTUDO (modulos/coleta/precos.py), com o
+# criterio ja documentado la: no maximo 2 ativos por setor. Antes esta
+# lista era digitada aqui e ficou para tras quando a amostra cresceu de
+# 5 para 8 ativos — o script rodava com meia amostra sem avisar.
+from modulos.coleta.precos import CARTEIRA_ESTUDO
+TICKERS = CARTEIRA_ESTUDO
+
+# Defasagens testadas: 0 = mesmo pregao, 1 = dia seguinte. Ambas estavam
+# na hipotese escrita em 06/08/2026, antes da coleta.
+LAGS = (0, 1)
+LAG_GRAFICO = 0          # defasagem usada nos graficos de dispersao
 
 DATA_INICIO = "2024-01-01"
-DATA_FIM = "2025-12-31"
+DATA_FIM = date.today().isoformat()
 
 USAR_MODELO_ML = False   # True = mais preciso, porém MUITO mais lento
 USAR_CACHE = True        # True = reaproveita CSVs já baixados
@@ -145,21 +156,28 @@ def etapa_testes(noticias, retornos, ibov):
     print("  ETAPA 4/4 — TESTES ESTATÍSTICOS")
     print("=" * 68)
 
-    relatorio = gerar_relatorio(
-        noticias=noticias,
-        retornos=retornos,
-        retornos_mercado=ibov,
-        tickers=TICKERS,
-        lag_principal=1,
-    )
-
-    imprimir_relatorio(relatorio)
+    saida = {}
+    for lag in LAGS:
+        print("\n" + "-" * 68)
+        print(f"  DEFASAGEM D+{lag} "
+              f"({'mesmo pregao' if lag == 0 else 'dia seguinte'})")
+        print("-" * 68)
+        relatorio = gerar_relatorio(
+            noticias=noticias,
+            retornos=retornos,
+            retornos_mercado=ibov,
+            tickers=TICKERS,
+            lag_principal=lag,
+        )
+        imprimir_relatorio(relatorio)
+        saida[f"lag_{lag}"] = relatorio
 
     with open(ARQ_RESULTADO, "w", encoding="utf-8") as f:
-        json.dump(relatorio, f, indent=2, ensure_ascii=False, default=str)
+        json.dump(saida, f, indent=2, ensure_ascii=False, default=str)
     print(f"[OK] Resultado completo salvo em {ARQ_RESULTADO}")
+    print("     (o json tem uma chave por defasagem: lag_0 e lag_1)")
 
-    return relatorio
+    return saida
 
 
 # ═════════════════════════════════════════════════════════
@@ -189,9 +207,9 @@ def etapa_graficos(noticias, retornos):
 
         fig, axs = plt.subplots(1, 2, figsize=(13, 4.5))
 
-        # --- Gráfico 1: dispersão sentimento x retorno D+1 ---
+        # --- Gráfico 1: dispersão sentimento x retorno em D+LAG_GRAFICO ---
         s = serie.sort_values("data").copy()
-        s["retorno_lag"] = s["retorno"].shift(-1)
+        s["retorno_lag"] = s["retorno"].shift(-LAG_GRAFICO)
         s = s.dropna()
 
         axs[0].scatter(s["sentimento"], s["retorno_lag"] * 100,
@@ -205,7 +223,7 @@ def etapa_graficos(noticias, retornos):
         axs[0].axhline(0, color="gray", lw=0.8, ls="--")
         axs[0].axvline(0, color="gray", lw=0.8, ls="--")
         axs[0].set_xlabel("Sentimento da notícia (dia D)")
-        axs[0].set_ylabel("Retorno em D+1 (%)")
+        axs[0].set_ylabel(f"Retorno em D+{LAG_GRAFICO} (%)")
         axs[0].set_title(f"{ticker} — Sentimento vs Retorno")
         axs[0].grid(alpha=0.25)
 
