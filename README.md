@@ -216,6 +216,8 @@ Scripts do estudo, a partir da pasta `InvestAI/`:
 | `scripts/37_piloto_minuto.py` | Piloto de minuto: 30 min antes e depois da notícia |
 | `scripts/38_smallcaps_testes.py` | Testes H1 a H4 nas small caps |
 | `scripts/39_resumo_fase_F.py` | Tabela léxico x FinBERT e exploratório das manchetes de relato |
+| `scripts/40_janelas_curtas.py` | Janelas de até 5 minutos em volta da notícia (barras de 1 min) |
+| `scripts/41_grafico_perfil_minuto.py` | Gráfico do perfil minuto a minuto, de −15 a +15 min |
 | `scripts/congelar_resultados.py` | Recalcula o resultado a partir dos dados locais — teste de regressão do estudo |
 | `scripts/diagnostico_ativos.py` | Mostra por que um ativo entrou ou ficou fora da análise |
 
@@ -237,7 +239,8 @@ InvestAI/
 │       ├── causal.py         fase causal: abertura x pregão e barras horárias
 │       ├── validacao_lexico.py  léxico x rótulos dos anotadores (Fase E)
 │       ├── horarios.py       horário exato: Google real ou WordPress com filtro de data
-│       └── modelos.py        escores dos modelos de linguagem (Fase F)
+│       ├── modelos.py        escores dos modelos de linguagem (Fase F)
+│       └── minuto.py         barras de 1 e 5 minutos e eventos com horário exato
 ├── scripts/                  os experimentos, numerados
 ├── docs/                     pré-registros, literatura e diário da causalidade
 ├── resultados/               figuras e tabelas geradas

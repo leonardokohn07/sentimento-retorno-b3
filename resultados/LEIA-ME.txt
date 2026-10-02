@@ -72,3 +72,9 @@ pode apagar qualquer uma e gerar de novo.
     fase_H_smallcaps_<medida>_<data>.*
     .                              Fase H: testes H1-H4 nas small caps
     .                              (scripts/38_smallcaps_testes.py).
+    fase_G_janelas_curtas_<medida>_<data>.*
+    .                              Adendo 2 da Fase G: janelas de 1 a 5 minutos
+    .                              (scripts/40_janelas_curtas.py).
+    fase_G_perfil_minuto_*_<data>.csv e perfil_minuto_noticias.png
+    .                              Perfil minuto a minuto (-15 a +15), com IC
+    .                              95% (scripts/41_grafico_perfil_minuto.py).
