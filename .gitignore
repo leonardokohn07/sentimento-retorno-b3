@@ -28,3 +28,12 @@ dados/horarios_busca.csv
 dados/validacao_lexico/para_rotular.csv
 dados/validacao_lexico/para_rotular_ordem_inversa.csv
 dados/validacao_lexico/*.xlsx
+
+# fases F, G e H (02/10/2026): dados baixados, escores com texto de manchetes,
+# arquivos dos modelos (~1 GB) e logs das coletas
+dados/minuto/
+dados/prospectivo/
+dados/smallcaps/
+dados/modelos/
+dados/sentimento_*.csv
+dados/execucao/
