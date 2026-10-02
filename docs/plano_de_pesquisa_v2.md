@@ -47,7 +47,7 @@ X do Investidor Brasileiro, "portais e sites" e "sites de notícias" aparecem
 entre os canais usados para decidir (ANBIMA, 2026). A literatura mostra que
 a pessoa física tende a comprar as ações que estão no noticiário (BARBER;
 ODEAN, 2008) e que, no Brasil, 97% dos que persistiram no *day trade* por
-mais de 300 pregões perderam dinheiro (CHAGUE; DE-LOSSO; GIOVANNETTI, 2020).
+mais de 300 dias perderam dinheiro (CHAGUE; DE-LOSSO; GIOVANNETTI, 2020).
 A pergunta prática é direta: quem decide pela manchete está à frente ou atrás
 do preço?
 

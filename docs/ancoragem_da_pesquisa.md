@@ -58,7 +58,7 @@ frente dele.
 
 Chague, De-Losso e Giovannetti (2019, rev. 2020) acompanharam **todas** as
 pessoas que começaram a fazer *day trade* no mercado futuro de índice
-brasileiro entre 2013 e 2015. Das que persistiram por mais de 300 pregões:
+brasileiro entre 2013 e 2015. Das que persistiram por mais de 300 dias:
 - **97% perderam dinheiro**;
 - só 1,1% ganharam mais que um salário mínimo.
 
