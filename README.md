@@ -205,6 +205,17 @@ Scripts do estudo, a partir da pasta `InvestAI/`:
 | `scripts/27_exploratorio_pos_resultado.py` | Análises exploratórias, decididas depois dos resultados |
 | `scripts/28_amostra_validacao_lexico.py` | Sorteia (ou confere) as 300 manchetes da validação do léxico |
 | `scripts/29_validacao_lexico.py` | Compara o léxico com os rótulos dos anotadores |
+| `scripts/30_sentimento_modelos.py` | Escores do FinBERT-PT-BR e do distilbert para todas as manchetes |
+| `scripts/30a_baixar_modelos.py` | Baixa os arquivos dos modelos do Hugging Face (não precisa do torch) |
+| `scripts/31_baixar_minuto.py` | Barras de 1 e 5 minutos do Yahoo (acrescenta, nunca apaga) |
+| `scripts/32_coletar_recentes.py` | Notícias recentes e horário oficial do WordPress |
+| `scripts/33_smallcaps.py` | Seleção (carteira do SMLL + sorteio) e coleta das small caps |
+| `scripts/34_coleta_diaria.py` | Coleta prospectiva diária (agendada pelo `AGENDAR_COLETA_DIARIA.bat`) |
+| `scripts/35_validacao_modelos.py` | Léxico x modelos de linguagem contra os rótulos |
+| `scripts/36_resultado_original_medida.py` | Resultado original (D−1, D+0, D+1) com cada medida |
+| `scripts/37_piloto_minuto.py` | Piloto de minuto: 30 min antes e depois da notícia |
+| `scripts/38_smallcaps_testes.py` | Testes H1 a H4 nas small caps |
+| `scripts/39_resumo_fase_F.py` | Tabela léxico x FinBERT e exploratório das manchetes de relato |
 | `scripts/congelar_resultados.py` | Recalcula o resultado a partir dos dados locais — teste de regressão do estudo |
 | `scripts/diagnostico_ativos.py` | Mostra por que um ativo entrou ou ficou fora da análise |
 
@@ -224,7 +235,9 @@ InvestAI/
 │       ├── painel.py         teste agrupado (8 ativos), permutação em blocos de data
 │       ├── mercado.py        Ibovespa e retorno anormal
 │       ├── causal.py         fase causal: abertura x pregão e barras horárias
-│       └── validacao_lexico.py  léxico x rótulos dos anotadores (Fase E)
+│       ├── validacao_lexico.py  léxico x rótulos dos anotadores (Fase E)
+│       ├── horarios.py       horário exato: Google real ou WordPress com filtro de data
+│       └── modelos.py        escores dos modelos de linguagem (Fase F)
 ├── scripts/                  os experimentos, numerados
 ├── docs/                     pré-registros, literatura e diário da causalidade
 ├── resultados/               figuras e tabelas geradas

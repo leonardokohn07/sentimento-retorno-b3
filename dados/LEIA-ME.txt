@@ -57,6 +57,19 @@ mantém fora do git. A exceção são os rótulos de sentimento da Fase E
         rotulos_<nome>.csv        rótulos humanos exportados pelo
                                   scripts/29_validacao_lexico.py --humanos.
 
+    minuto/                       Barras de 1 e 5 minutos (scripts/31 e 34).
+                                  O arquivo cresce a cada coleta; o Yahoo só
+                                  guarda 30 dias (1 min) e 60 dias (5 min).
+    prospectivo/                  Notícias recentes e horários do WordPress
+                                  (scripts/32 e 34) e o log da coleta diária.
+    smallcaps/                    Fase H: carteira do SMLL como veio da B3,
+                                  seleção, notícias e preços (scripts/33).
+    modelos/                      Arquivos e cartão oficial do FinBERT-PT-BR
+                                  e do distilbert (scripts/30a). ~1 GB.
+    sentimento_finbert.csv        Probabilidades de cada modelo para cada
+    sentimento_distil.csv         manchete (scripts/30).
+    execucao/                     Logs das coletas que rodaram no Windows.
+
 Perdi estes arquivos, e agora?
     Rode scripts/2_coletar_e_analisar.py com USAR_CACHE = False. A coleta
     leva de 10 a 20 minutos e reconstrói tudo. Atenção: os escores mudam se

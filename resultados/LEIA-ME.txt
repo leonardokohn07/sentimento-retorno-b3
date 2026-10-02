@@ -51,3 +51,24 @@ pode apagar qualquer uma e gerar de novo.
     .                              "preliminar_claude" = anotadores
     .                              automáticos; "humanos" = Leonardo e
     .                              Maurício. (scripts/29_validacao_lexico.py)
+
+    fase_F_validacao_modelos_*.txt/.json
+    .                              Fase F: léxico x FinBERT x distilbert contra
+    .                              os rótulos (scripts/35_validacao_modelos.py).
+    fase_causal_finbert_<data>.*   Robustez R1: a fase causal com o FinBERT.
+    fase_causal_A1_finbert_<data>.* Robustez R2: a análise A1 com o FinBERT.
+    fase_causal*_lexico_reexecucao_<data>.*
+    .                              A mesma análise com o léxico, no mesmo
+    .                              computador, para a comparação ser justa.
+    fase_F_R3_resultado_original_<data>.*
+    .                              Robustez R3: D-1, D+0, D+1 por ativo com as
+    .                              duas medidas (scripts/36).
+    fase_F_robustez_comparacao_<data>.txt
+    .                              Tudo lado a lado + exploratório das manchetes
+    .                              de relato (scripts/39_resumo_fase_F.py).
+    fase_G_piloto_minuto_<medida>_<data>.*
+    .                              Fase G: 30 min antes e depois da notícia
+    .                              (scripts/37_piloto_minuto.py).
+    fase_H_smallcaps_<medida>_<data>.*
+    .                              Fase H: testes H1-H4 nas small caps
+    .                              (scripts/38_smallcaps_testes.py).
