@@ -244,8 +244,24 @@ InvestAI/
 ├── scripts/                  os experimentos, numerados
 ├── docs/                     pré-registros, literatura e diário da causalidade
 ├── resultados/               figuras e tabelas geradas
+├── verificacao/              verificador, manifesto SHA-256, referência e registro de testes
 └── dados/                    dados locais (não versionados)
 ```
+
+## Como verificar os resultados
+
+Qualquer pessoa pode refazer **todos** os testes do estudo e conferir que os
+números batem com os publicados:
+
+    python verificacao/verificar_tudo.py        (no Windows: VERIFICAR_TUDO.bat)
+
+O verificador confere a impressão digital (SHA-256) dos 75 arquivos de dados
+congelados, roda as 32 etapas de análise sem internet e com o relógio fixado
+em 02/10/2026, e compara cada saída com a referência. O passo a passo está em
+[`REPRODUZIR.md`](REPRODUZIR.md); a explicação do método, em
+[`docs/metodo_cientifico_e_verificacao.md`](docs/metodo_cientifico_e_verificacao.md).
+Todos os testes feitos, inclusive os nulos, estão em
+[`verificacao/registro_de_testes.csv`](verificacao/registro_de_testes.csv).
 
 ## Sobre os dados
 
@@ -253,7 +269,7 @@ O repositório **não** inclui o texto das notícias coletadas (conteúdo de
 terceiros) nem as séries de preços do Yahoo Finance. O que fica versionado são
 o código, as figuras, as tabelas de resultado e os rótulos de sentimento da
 validação do léxico (só id e rótulo, sem o texto). Rodando os scripts de coleta,
-os dados são reconstruídos.
+os dados são reconstruídos (mas não idênticos: as fontes mudam com o tempo). Para conferir os resultados exatamente, use o pacote de dados congelados (seção anterior), entregue pelos autores a quem pedir.
 
 ## Histórico
 

@@ -1,0 +1,28 @@
+==============================================================================================
+  CONTROLE DE CAUSALIDADE REVERSA — SENTIMENTO DE HOJE x RETORNO DE ONTEM
+==============================================================================================
+  Data: 2026-10-02  ·  alfa = 0.05  ·  pre-registro em docs/
+  Amostra: os mesmos 8 ativos do estudo, sem inclusao nem exclusao
+==============================================================================================
+ativo         n    r D-1    p D-1    r D+0    p D+0   autocor  Williams t        p   D+0 > D-1
+----------------------------------------------------------------------------------------------
+ABEV3       462   0.0652   0.1620   0.0641   0.1689    0.0739      -0.017   0.9867         nao
+BBDC4       657   0.0276   0.4799   0.1006   0.0099   -0.0222       1.312   0.1901         nao
+ITUB4       551  -0.0177   0.6787   0.0541   0.2048    0.0036       1.192   0.2337         nao
+MGLU3       512   0.0397   0.3703   0.1607   0.0003   -0.0415       1.914   0.0562         nao
+PETR4       650   0.1176   0.0027   0.1442   0.0002    0.0805       0.505   0.6140         nao
+SUZB3       349   0.1428   0.0076   0.1421   0.0078    0.0347      -0.009   0.9930         nao
+VALE3       583   0.0589   0.1555   0.1965   0.0000    0.0172       2.405   0.0165         sim
+WEGE3       367   0.1486   0.0043   0.1961   0.0002   -0.0370       0.644   0.5201         nao
+----------------------------------------------------------------------------------------------
+  D-1 significativo em 3 de 8 ativos
+  D+0 significativo em 6 de 8 ativos
+  D+0 estatisticamente MAIOR que D-1 em 1 de 8 ativos (teste de Williams)
+==============================================================================================
+  COMO LER
+  Uma correlacao em D-1 nao significa, por si so, jornalismo reativo:
+  se o retorno de hoje e correlacionado com o de ontem (coluna autocor),
+  uma associacao real em D+0 aparece em D-1 por arrasto. Por isso a
+  comparacao direta entre as duas usa o teste de Williams, que leva a
+  autocorrelacao em conta e trata as duas correlacoes como dependentes.
+==============================================================================================

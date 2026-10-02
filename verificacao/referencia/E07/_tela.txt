@@ -1,0 +1,42 @@
+==========================================================================
+  TESTE DE ROBUSTEZ — SUBAMOSTRA DE FIM DE SEMANA
+==========================================================================
+  Notícias no arquivo : 19410
+  Publicadas no fim de semana : 1236  (6.4%)
+  Sábados  : 721
+  Domingos : 515
+  Atribuídas ao pregão de segunda-feira : 100.0%
+  (o ajustar_data_pregao empurra sábado +2 dias e domingo +1)
+  Ativos na subamostra : 10
+  Baixando preços (histórico 5 anos)...
+==========================================================================
+  RESULTADO — amostra completa  x  somente fim de semana
+==========================================================================
+  ativo      |    --- AMOSTRA COMPLETA ---    |     --- SÓ FIM DE SEMANA ---    
+             |     n        r        p   sig |     n        r        p  r_crit   sig
+  ------------------------------------------------------------------------
+  ABEV3.SA   |   462   0.0641   0.1689   não |    53        —        —       —     —
+  BBDC4.SA   |   657   0.1006   0.0099   SIM |   102   0.0013   0.9897   0.194   não
+  ITUB4.SA   |   551   0.0541   0.2048   não |    71  -0.0287   0.8119   0.233   não
+  MGLU3.SA   |   512   0.1607   0.0003   SIM |    53        —        —       —     —
+  PETR4.SA   |   650   0.1442   0.0002   SIM |   111  -0.0790   0.4098   0.186   não
+  SUZB3.SA   |   349   0.1421   0.0078   SIM |    29        —        —       —  n<30
+  VALE3.SA   |   583   0.1965   0.0000   SIM |    73  -0.0895   0.4512   0.229   não
+  WEGE3.SA   |   367   0.1961   0.0002   SIM |    33        —        —       —     —
+==========================================================================
+  VEREDITO DO TESTE DE ROBUSTEZ
+==========================================================================
+  Ativos testáveis          : 4
+  Com relação significativa : 0/4
+  n médio da subamostra     : 89
+  Comparação das correlações (mesma direção?):
+    BBDC4.SA   completa +0.1006  =  fim de semana +0.0013
+    ITUB4.SA   completa +0.0541  ≠  fim de semana -0.0287
+    PETR4.SA   completa +0.1442  ≠  fim de semana -0.0790
+    VALE3.SA   completa +0.1965  ≠  fim de semana -0.0895
+  >>> INCONCLUSIVO NA SUBAMOSTRA.
+      Antes de concluir ausência de efeito, compare o r observado
+      com o r_crit da tabela: se |r| < r_crit, o teste não tinha
+      poder para detectar — é limitação de amostra, não evidência
+      de que o efeito inexiste.
+==========================================================================

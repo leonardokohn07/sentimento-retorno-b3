@@ -1,0 +1,47 @@
+======================================================================================
+  FASE CAUSAL — testes do pré-registro mestre de 02/10/2026
+======================================================================================
+  Horários WordPress: 4253 horários; sobreposição com o Google: 123 notícias, 79.7% dentro de 15 min -> REPROVADO (corte: 85%, n >= 20)
+  Notícias com horário no principal: 951  (fontes: {'google': 951})
+  + horários da busca web (só sensibilidade): 82
+  ── FAMÍLIA PRINCIPAL (Holm sobre P1 a P9) ──
+  P1  notícias do dia D -> ABERTURA de D+1 | pregão D, abertura D : r = +0.0109   p = 0.4766   n = 4047   (r detectável ~0.044, bi)
+  P2  notícias da noite/madrugada -> ABERTURA seguinte | pregão anterior : r = +0.1134   p = 0.0753   n = 254   (r detectável ~0.175, bi)
+  P3  notícias da noite/madrugada <- PREGÃO que já passou (relato)      : r = +0.1207   p = 0.0555   n = 254   (r detectável ~0.175, bi)
+  P4  notícia no pregão -> HORA SEGUINTE à publicação                    : r = +0.0416   p = 0.5747   n = 190   (r detectável ~0.202, bi)
+  P5  notícia no pregão <- HORA ANTERIOR à publicação (relato/vazamento) : r = +0.1026   p = 0.1931   n = 189   (r detectável ~0.203, bi)
+  P6  RÉPLICA de P1 em 2021-2023                                          : r = +0.0068   p = 0.3583   n = 2643   (r detectável ~0.054, pos)
+  P7  RÉPLICA do Teste 1 (informativas, D+0) em 2021-2023                 : r = +0.0290   p = 0.0705   n = 2708   (r detectável ~0.054, pos)
+  P8  RÉPLICA do Teste 3 (retorno anormal, D+0) em 2021-2023              : r = +0.0768   p = 0.0002   n = 2739   (r detectável ~0.054, pos)
+  P9  notícias de fim de semana -> ABERTURA de segunda | pregão de sexta : r = +0.0065   p = 0.8758   n = 543   (r detectável ~0.120, bi)
+  teste         r   p bruto    p Holm  decisão (α = 5%)
+  P1      +0.0109    0.4766    1.0000  não rejeita
+  P2      +0.1134    0.0753    0.4935  não rejeita
+  P3      +0.1207    0.0555    0.4440  não rejeita
+  P4      +0.0416    0.5747    1.0000  não rejeita
+  P5      +0.1026    0.1931    0.9654  não rejeita
+  P6      +0.0068    0.3583    1.0000  não rejeita
+  P7      +0.0290    0.0705    0.4935  não rejeita
+  P8      +0.0768    0.0002    0.0018  REJEITA H0
+  P9      +0.0065    0.8758    1.0000  não rejeita
+  ── ANÁLISES SECUNDÁRIAS (sem correção; servem de apoio) ──
+  S1  pregão: do fim da hora da notícia ao FECHAMENTO : r = +0.0607   p = 0.4598   n = 190   (r detectável ~0.202, bi)
+  S1  pregão: da ABERTURA ao início da hora da notícia: r = +0.1343   p = 0.0932   n = 190   (r detectável ~0.202, bi)
+  S2  P1 com retorno BRUTO                            : r = +0.0096   p = 0.5468   n = 4047   (r detectável ~0.044, bi)
+  S2  P2 com retorno BRUTO                            : r = +0.1151   p = 0.0690   n = 254   (r detectável ~0.175, bi)
+  S2  P3 com retorno BRUTO                            : r = +0.0763   p = 0.2320   n = 254   (r detectável ~0.175, bi)
+  S2  P4 com retorno BRUTO                            : r = +0.0613   p = 0.4001   n = 190   (r detectável ~0.202, bi)
+  S2  P5 com retorno BRUTO                            : r = +0.0325   p = 0.6769   n = 189   (r detectável ~0.203, bi)
+  S3  P2 + horários da busca web                      : r = +0.0253   p = 0.6650   n = 283   (r detectável ~0.166, bi)
+  S3  P3 + horários da busca web                      : r = +0.1097   p = 0.0653   n = 283   (r detectável ~0.166, bi)
+  S3  P4 + horários da busca web                      : r = +0.0610   p = 0.3683   n = 220   (r detectável ~0.188, bi)
+  S3  P5 + horários da busca web                      : r = +0.0914   p = 0.2040   n = 219   (r detectável ~0.188, bi)
+  S4  CONTROLE POSITIVO: relato da noite <- pregão passado : amostra pequena (n=9)
+  S4  CONTROLE POSITIVO: relato no pregão <- hora anterior : amostra pequena (n=8)
+  S5  FALSIFICAÇÃO: hora seguinte, mas do DIA ANTERIOR     : r = -0.0616   p = 0.4138   n = 190   (r detectável ~0.202, bi)
+  S6  RÉPLICA do placebo em 2021-2023 (própria - cruzada) : própria +0.0794, cruzada -0.0210, diferença p = 0.0010
+  S7  perfil médio (retorno anormal %, notícias no pregão; descritivo):
+      tercil neg  -3h:-0.038  -2h:-0.146  -1h:-0.043  +0h:+0.054  +1h:+0.024  +2h:-0.006  +3h:-0.035
+      tercil pos  -3h:+0.303  -2h:+0.323  -1h:+0.248  +0h:+0.145  +1h:-0.093  +2h:-0.087  +3h:-0.141
+======================================================================================
+salvo em: resultados/fase_causal_2026-10-02.txt (+ .json e perfil horário)

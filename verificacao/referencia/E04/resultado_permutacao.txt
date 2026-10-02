@@ -1,0 +1,35 @@
+
+==============================================================================
+  TESTE DE PERMUTAÇÃO — CONTROLE NEGATIVO
+==============================================================================
+
+  Notícias no arquivo : 19410
+  Ativos              : 10
+  Permutações por ativo: 10000
+  Semente             : 42
+
+==============================================================================
+  RESULTADO — p clássico (fórmula)  x  p de permutação (empírico)
+==============================================================================
+
+  ativo         n    r obs.   p clássico   p permut.  percentil  veredito
+  --------------------------------------------------------------------------
+  ABEV3.SA    462    0.0641       0.1689      0.1646      83.5%  não rejeita nos dois
+  BBDC4.SA    657    0.1006       0.0099      0.0104      99.0%  rejeita H0 nos dois
+  ITUB4.SA    551    0.0541       0.2048      0.2008      79.9%  não rejeita nos dois
+  MGLU3.SA    512    0.1607       0.0003      0.0009      99.9%  rejeita H0 nos dois
+  PETR4.SA    650    0.1442       0.0002      0.0004     100.0%  rejeita H0 nos dois
+  SUZB3.SA    349    0.1421       0.0078      0.0092      99.1%  rejeita H0 nos dois
+  VALE3.SA    583    0.1965       0.0000      0.0001     100.0%  rejeita H0 nos dois
+  WEGE3.SA    367    0.1961       0.0002      0.0003     100.0%  rejeita H0 nos dois
+
+  COMO LER
+  O p de permutação é a fração dos 10.000 embaralhamentos que produziu
+  correlação igual ou maior, em módulo, que a observada. O percentil diz
+  onde o r observado caiu dentro da distribuição do acaso.
+
+  Se as duas colunas de p concordarem, os métodos se corroboram por
+  caminhos independentes — e fica demonstrado que o resultado não
+  dependia de uma premissa de distribuição que os dados não cumprem.
+  Se divergirem, o de permutação é o que vale, porque não assume nada
+  sobre a forma da distribuição.

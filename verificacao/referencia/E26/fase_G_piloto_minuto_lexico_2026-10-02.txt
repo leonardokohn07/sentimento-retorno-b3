@@ -1,0 +1,32 @@
+======================================================================================
+  FASE G — PILOTO DE MINUTO (barras de 5 min)   medida principal: lexico
+======================================================================================
+  Barras: 60 pregões, de 09/07/2026 a 01/10/2026; 39418 barras-ativo
+  Notícias (estudo + coleta recente, 8 ativos): 21000
+
+  G-D1 (adendo 1) — diferença Google − WordPress, em minutos, nas notícias com as duas horas:
+    n = 249 | mediana +0.0 | quartis +0.0 a +0.5 | Google depois do site: 28.9% | iguais (±1 min): 77.5% | Google 5+ min depois: 5.6%
+
+  Eventos válidos (10h30-16h20, prioridade Google > WordPress): 666
+
+  ── TESTES PRINCIPAIS (Holm sobre M1 e M2) ──
+  M1  notícia -> 30 min DEPOIS (notícia -> preço) : r = -0.0105   p = 0.7950   n = 665   (r detectável ~0.108)
+  M2  notícia <- 30 min ANTES  (preço -> notícia) : r = -0.0287   p = 0.4793   n = 659   (r detectável ~0.109)
+      M1: p Holm = 0.9585 -> não rejeita
+      M2: p Holm = 0.9585 -> não rejeita
+
+  ── SECUNDÁRIAS (sem correção) ──
+  G-S1  15 min DEPOIS : r = -0.0306   p = 0.4334   n = 665   (r detectável ~0.108)
+  G-S1  15 min ANTES  : r = -0.0436   p = 0.2523   n = 665   (r detectável ~0.108)
+  G-S3  M1 com finbert : r = +0.0038   p = 0.9291   n = 665   (r detectável ~0.108)
+  G-S3  M2 com finbert : r = +0.0002   p = 0.9951   n = 659   (r detectável ~0.109)
+  G-S4  CONTROLE POSITIVO (relato) <- 30 min ANTES : r = +0.1488   p = 0.3905   n = 43   (r detectável ~0.416)
+  G-S5  FALSIFICAÇÃO (mesma faixa, pregão anterior) : r = -0.0173   p = 0.6768   n = 662   (r detectável ~0.109)
+  G-S6  prioridade WordPress > Google, M1 : r = -0.0126   p = 0.7580   n = 666   (r detectável ~0.108)
+  G-S6  prioridade WordPress > Google, M2 : r = -0.0309   p = 0.4448   n = 660   (r detectável ~0.109)
+  G-S7  só hora do WordPress, M1 : r = +0.0436   p = 0.4675   n = 298   (r detectável ~0.162)
+  G-S7  só hora do WordPress, M2 : r = -0.0362   p = 0.5371   n = 295   (r detectável ~0.162)
+  G-S2  perfil (retorno anormal médio por barra, %), terços extremos:
+      neg: acumulado -60→0 min: +0.025% | barra 0: -0.006% | 0→+60 min: -0.023%
+      pos: acumulado -60→0 min: +0.135% | barra 0: +0.015% | 0→+60 min: +0.078%
+======================================================================================

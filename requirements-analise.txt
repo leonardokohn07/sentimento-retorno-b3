@@ -1,0 +1,26 @@
+# ─────────────────────────────────────────────────────────
+# InvestAI — o mínimo para REFAZER as análises (verificacao/verificar_tudo.py)
+# ─────────────────────────────────────────────────────────
+# Instalar com:  pip install -r requirements-analise.txt
+#
+# Não precisa de internet para rodar as análises: os dados vêm do pacote
+# congelado. yfinance, feedparser e beautifulsoup4 só são IMPORTADOS por
+# modulos/coleta/ (usado pelos scripts 9 e 12); com INVESTAI_SO_CACHE=1 (o
+# verificador liga sozinho) nada é baixado. Quem descobriu que faltavam o
+# feedparser e o beautifulsoup4 nesta lista foi a verificação na VM Linux.
+#
+# Versões em que a verificação foi feita:
+#   Linux (servidor)       : Python 3.11.15, numpy 2.4.4, pandas 3.0.2, scipy 1.17.1, matplotlib 3.10.9
+#   Windows 11 (PC do Leonardo): Python 3.14.4, numpy 2.5.2, pandas 3.0.5, scipy 1.18.1, matplotlib 3.11.1
+#   Linux (VM do Leonardo) : Python 3.10.12, numpy 2.2.6, pandas 2.3.3, scipy 1.15.3
+#       -> 93 de 99: todos os testes idênticos; muda só o perfil hora a hora
+#          descritivo (empates entre manchetes), ver docs/diario_causalidade.md, seção 22
+#   (relatórios em verificacao/relatorio_verificacao_*.txt)
+
+numpy>=1.24
+pandas>=2.0
+scipy>=1.11
+matplotlib>=3.7
+yfinance>=0.2.40
+feedparser>=6.0.10
+beautifulsoup4>=4.12.0

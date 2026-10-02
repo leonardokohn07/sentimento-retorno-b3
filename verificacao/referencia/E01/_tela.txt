@@ -1,0 +1,43 @@
+####################################################################
+#  VALIDAÇÃO DO MÓDULO ESTATÍSTICO
+#  1000 simulações de 400 dias cada
+####################################################################
+====================================================================
+  CENÁRIO A — o sentimento REALMENTE influencia o retorno
+====================================================================
+  Exemplo de uma simulação:
+    Correlação por defasagem:
+      D+0: r = -0.0345 | p = 0.4920
+      D+1: r = +0.3356 | p = 0.0000  *** SIGNIFICATIVO
+      D+2: r = +0.0215 | p = 0.6694
+      D+3: r = -0.0157 | p = 0.7551
+    Regressão D+1: b = +0.009080 | R² = 0.1126 | p = 0.0000
+    Teste t: após notícia boa +0.4464% vs ruim -0.6501% | p = 0.0000
+  Resultado das 1000 simulações:
+    Correlação MEDIDA         : r = +0.3599
+    Correlação TEÓRICA        : r = +0.3592   <- derivada dos parâmetros
+    Diferença                 : 0.0007
+    H0 rejeitada em           : 100.0% dos casos
+    (isto é o PODER do teste — quanto maior, melhor)
+    >>> ✓ PASSOU (esperado: pelo menos 80%)
+====================================================================
+  CENÁRIO B — sentimento e retorno são independentes
+====================================================================
+  Exemplo de uma simulação:
+    Correlação por defasagem:
+      D+0: r = -0.0008 | p = 0.9876
+      D+1: r = -0.0361 | p = 0.4722
+      D+2: r = +0.0585 | p = 0.2444
+      D+3: r = -0.0076 | p = 0.8806
+    Regressão D+1: b = -0.000920 | R² = 0.0013 | p = 0.4722
+    Teste t: após notícia boa -0.1635% vs ruim -0.0409% | p = 0.4550
+  Resultado das 1000 simulações:
+    Correlação média          : r = +0.0011   (esperado: ~0)
+    H0 rejeitada em           : 5.0% dos casos
+    Valor teórico (alfa)      : 5.0%
+    (isto é a taxa de FALSO POSITIVO — é da natureza do método)
+    >>> ✓ PASSOU (limite: 7.1% = alfa + 3 erros padrão)
+####################################################################
+#  ✓ MÓDULO VALIDADO
+#    Detecta efeito real e NÃO inventa efeito onde não existe.
+####################################################################

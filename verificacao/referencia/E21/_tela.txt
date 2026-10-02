@@ -1,0 +1,2 @@
+Amostra reconstruída: 300 manchetes ({'Neutro': 100, 'Positivo': 100, 'Negativo': 100})
+OK: a planilha existente é IDÊNTICA à reconstruída (mesmos itens, mesma ordem).

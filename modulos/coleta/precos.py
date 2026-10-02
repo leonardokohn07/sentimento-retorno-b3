@@ -8,6 +8,7 @@ import yfinance as yf
 import pandas as pd
 import numpy as np
 from typing import List, Dict, Optional
+import os
 import time
 from pathlib import Path
 
@@ -82,6 +83,12 @@ STATUS_PRECOS: Dict[str, str] = {}         # ticker -> online | cache | faltou
 _ANOS = {"1y": 1, "2y": 2, "5y": 5, "10y": 10, "max": 100}
 
 
+def _so_cache() -> bool:
+    """INVESTAI_SO_CACHE=1 (usado por verificacao/verificar_tudo.py): nunca baixa
+    nada do Yahoo, só lê dados/cache_precos/. Sem a variável, nada muda."""
+    return os.environ.get("INVESTAI_SO_CACHE") == "1"
+
+
 def _arquivo_cache(ticker: str, intervalo: str) -> Path:
     return PASTA_CACHE_PRECOS / f"{ticker.replace('^', 'IDX_')}_{intervalo}.csv"
 
@@ -108,6 +115,8 @@ def _ler_cache(ticker: str, periodo: str, intervalo: str):
     try:
         df = pd.read_csv(arq, index_col=0, parse_dates=True)
         df.index.name = "Data"
+        if _so_cache():                    # verificação: usa o arquivo congelado inteiro
+            return df
         anos = _ANOS.get(periodo, 2)
         corte = pd.Timestamp.now().normalize() - pd.Timedelta(days=int(anos * 365.25))
         return df.loc[df.index >= corte]
@@ -136,7 +145,7 @@ def baixar_dados(
     STATUS_PRECOS.clear()
     for ticker in tickers:
         df = None
-        for tentativa in range(1, TENTATIVAS + 1):
+        for tentativa in range(1, (0 if _so_cache() else TENTATIVAS) + 1):
             try:
                 bruto = yf.Ticker(ticker).history(period=periodo, interval=intervalo)
                 if not bruto.empty:

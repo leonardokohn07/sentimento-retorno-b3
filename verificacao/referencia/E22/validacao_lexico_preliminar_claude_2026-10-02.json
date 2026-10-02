@@ -1,0 +1,193 @@
+{
+ "anotadores": [
+  "Claude A",
+  "Claude B"
+ ],
+ "n": 300,
+ "concordancia": 0.95,
+ "kappa_anotadores": 0.9232147427693882,
+ "discordancias": {
+  "neutro x positivo": 7,
+  "positivo x neutro": 6,
+  "negativo x neutro": 2
+ },
+ "principal": {
+  "n": 285,
+  "n_por_classe_do_lexico": {
+   "negativo": 98,
+   "neutro": 95,
+   "positivo": 92
+  },
+  "acuracia_amostra": 0.5929824561403508,
+  "acuracia_populacao": 0.6100415938915612,
+  "precisao_por_classe": {
+   "negativo": 0.5612244897959183,
+   "neutro": 0.6210526315789474,
+   "positivo": 0.5978260869565217
+  },
+  "kappa": 0.3893383575307548,
+  "matriz": {
+   "negativo": {
+    "negativo": 55,
+    "neutro": 19,
+    "positivo": 9
+   },
+   "neutro": {
+    "negativo": 36,
+    "neutro": 59,
+    "positivo": 28
+   },
+   "positivo": {
+    "negativo": 7,
+    "neutro": 17,
+    "positivo": 55
+   }
+  },
+  "spearman": 0.5812863488029553,
+  "kappa_populacao": 0.2962462585381242,
+  "matriz_populacao": {
+   "negativo": {
+    "negativo": 0.063418,
+    "neutro": 0.1408,
+    "positivo": 0.017902
+   },
+   "neutro": {
+    "negativo": 0.04151,
+    "neutro": 0.437221,
+    "positivo": 0.055696
+   },
+   "positivo": {
+    "negativo": 0.008071,
+    "neutro": 0.125979,
+    "positivo": 0.109402
+   }
+  },
+  "ic": {
+   "acuracia_amostra": [
+    0.5368421052631579,
+    0.6491228070175439
+   ],
+   "acuracia_populacao": [
+    0.5373232689837949,
+    0.6801990397772381
+   ],
+   "kappa": [
+    0.30491561565053027,
+    0.4732764009413488
+   ],
+   "precisao_por_classe": {
+    "negativo": [
+     0.46938775510204084,
+     0.6530612244897959
+    ],
+    "neutro": [
+     0.5263157894736842,
+     0.7157894736842105
+    ],
+    "positivo": [
+     0.5,
+     0.6956521739130435
+    ]
+   }
+  },
+  "spearman_p": 9.999000099990002e-05
+ },
+ "sensibilidade": {
+  "n": 300,
+  "n_por_classe_do_lexico": {
+   "negativo": 100,
+   "neutro": 100,
+   "positivo": 100
+  },
+  "acuracia_amostra": 0.58,
+  "acuracia_populacao": 0.61336,
+  "precisao_por_classe": {
+   "negativo": 0.55,
+   "neutro": 0.64,
+   "positivo": 0.55
+  },
+  "kappa": 0.36999999999999994,
+  "matriz": {
+   "negativo": {
+    "negativo": 55,
+    "neutro": 19,
+    "positivo": 9
+   },
+   "neutro": {
+    "negativo": 38,
+    "neutro": 64,
+    "positivo": 36
+   },
+   "positivo": {
+    "negativo": 7,
+    "neutro": 17,
+    "positivo": 55
+   }
+  },
+  "spearman": 0.5632527206581657,
+  "kappa_populacao": 0.28456919145179327,
+  "matriz_populacao": {
+   "negativo": {
+    "negativo": 0.06215,
+    "neutro": 0.13376,
+    "positivo": 0.01647
+   },
+   "neutro": {
+    "negativo": 0.04294,
+    "neutro": 0.45056,
+    "positivo": 0.06588
+   },
+   "positivo": {
+    "negativo": 0.00791,
+    "neutro": 0.11968,
+    "positivo": 0.10065
+   }
+  },
+  "ic": {
+   "acuracia_amostra": [
+    0.5233333333333333,
+    0.6366666666666667
+   ],
+   "acuracia_populacao": [
+    0.5430895,
+    0.68238225
+   ],
+   "kappa": [
+    0.285,
+    0.455
+   ],
+   "precisao_por_classe": {
+    "negativo": [
+     0.45,
+     0.65
+    ],
+    "neutro": [
+     0.55,
+     0.73
+    ],
+    "positivo": [
+     0.45,
+     0.65
+    ]
+   }
+  },
+  "spearman_p": 9.999000099990002e-05
+ },
+ "complementar": {
+  "por_anotador": {
+   "Claude A": {
+    "acuracia_amostra": 0.58,
+    "kappa": 0.3700000000000001
+   },
+   "Claude B": {
+    "acuracia_amostra": 0.5966666666666667,
+    "kappa": 0.395
+   }
+  },
+  "recall_populacao": {
+   "negativo": 0.2855132937602129,
+   "neutro": 0.8181119725839323,
+   "positivo": 0.4493778109087377
+  }
+ }
+}

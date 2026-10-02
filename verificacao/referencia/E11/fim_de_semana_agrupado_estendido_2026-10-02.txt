@@ -1,0 +1,29 @@
+==============================================================================
+  FIM DE SEMANA AGRUPADO — rótulo: estendido
+==============================================================================
+  Correção de fuso         : sim
+  Arquivos extras          : dados/noticias_2021_2023.csv
+  Período das notícias     : 01/10/2021 a 06/09/2026
+  Notícias de fim de semana: 1692
+  Pares ativo-segunda (n)  : 835   |   fins de semana distintos: 245
+  Menor r detectável (80%) : 0.097  (supondo independência; é otimista)
+
+  Por ativo (descritivo, sem inferência):
+    ativo        n  r segunda   r sexta
+    ABEV3.SA    89    -0.0775    0.1746
+    BBDC4.SA   155     0.0440   -0.0547
+    ITUB4.SA   104     0.0163    0.1536
+    MGLU3.SA   106    -0.0589    0.0199
+    PETR4.SA   188    -0.0419    0.0265
+    SUZB3.SA    43     0.1050    0.2152
+    VALE3.SA   106    -0.2201    0.0174
+    WEGE3.SA    44     0.1050    0.2339
+
+  AGRUPADO (z dentro do ativo, permutação em blocos de data):
+    H0-A  sentimento fds x retorno SEGUNDA : r = -0.0268   p = 0.4337
+    H0-B  sentimento fds x retorno SEXTA   : r = +0.0606   p = 0.0887
+    Williams (segunda vs sexta)            : t = -1.764   p = 0.0780
+
+  VEREDITO (regra pré-registrada):
+    Nenhuma rejeitada. Não é evidência de ausência de efeito: o teste só detectaria r acima de ~0.097.
+==============================================================================

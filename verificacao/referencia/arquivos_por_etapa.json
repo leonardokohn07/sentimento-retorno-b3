@@ -1,0 +1,129 @@
+{
+ "E00": [],
+ "E01": [],
+ "E02": [
+  "curvas_de_deteccao.png"
+ ],
+ "E03": [
+  "congelado_2026-10-02.csv",
+  "congelado_2026-10-02.txt"
+ ],
+ "E04": [
+  "banner_permutacao_ABEV3.SA.png",
+  "banner_permutacao_BBDC4.SA.png",
+  "banner_permutacao_ITUB4.SA.png",
+  "banner_permutacao_MGLU3.SA.png",
+  "banner_permutacao_PETR4.SA.png",
+  "banner_permutacao_SUZB3.SA.png",
+  "banner_permutacao_VALE3.SA.png",
+  "banner_permutacao_WEGE3.SA.png",
+  "permutacao_ABEV3.SA.png",
+  "permutacao_BBDC4.SA.png",
+  "permutacao_ITUB4.SA.png",
+  "permutacao_MGLU3.SA.png",
+  "permutacao_PETR4.SA.png",
+  "permutacao_SUZB3.SA.png",
+  "permutacao_VALE3.SA.png",
+  "permutacao_WEGE3.SA.png",
+  "resultado_permutacao.txt"
+ ],
+ "E05": [
+  "defasagem_negativa_2026-10-02.csv",
+  "defasagem_negativa_2026-10-02.txt"
+ ],
+ "E06": [
+  "curva_defasagem_2026-10-02.csv",
+  "curva_defasagem_2026-10-02.png",
+  "curva_defasagem_2026-10-02.txt"
+ ],
+ "E07": [],
+ "E08": [
+  "impacto_fuso_2026-10-02.txt"
+ ],
+ "E09": [
+  "fim_de_semana_agrupado_principal_2026-10-02.txt"
+ ],
+ "E10": [
+  "fim_de_semana_agrupado_sensibilidade_2026-10-02.txt"
+ ],
+ "E11": [
+  "fim_de_semana_agrupado_estendido_2026-10-02.txt"
+ ],
+ "E12": [
+  "teste1_sem_manchetes_de_preco_2026-10-02.txt"
+ ],
+ "E13": [
+  "teste2_placebo_entre_empresas_2026-10-02.txt"
+ ],
+ "E14": [
+  "teste3_retorno_anormal_2026-10-02.txt"
+ ],
+ "E15": [
+  "teste5_granger_2026-10-02.txt"
+ ],
+ "E16": [
+  "fase_causal_2026-10-02.json",
+  "fase_causal_2026-10-02.txt",
+  "fase_causal_perfil_horario_2026-10-02.csv"
+ ],
+ "E17": [
+  "fase_causal_A1_2026-10-02.json",
+  "fase_causal_A1_2026-10-02.txt",
+  "fase_causal_A1_perfil_horario_2026-10-02.csv"
+ ],
+ "E18": [
+  "fase_causal_finbert_2026-10-02.json",
+  "fase_causal_finbert_2026-10-02.txt",
+  "fase_causal_finbert_perfil_horario_2026-10-02.csv"
+ ],
+ "E19": [
+  "fase_causal_A1_finbert_2026-10-02.json",
+  "fase_causal_A1_finbert_2026-10-02.txt",
+  "fase_causal_A1_finbert_perfil_horario_2026-10-02.csv"
+ ],
+ "E20": [
+  "exploratorio_pos_resultado.txt"
+ ],
+ "E21": [],
+ "E22": [
+  "validacao_lexico_preliminar_claude_2026-10-02.json",
+  "validacao_lexico_preliminar_claude_2026-10-02.txt"
+ ],
+ "E23": [
+  "fase_F_validacao_modelos_preliminar_claude_2026-10-02.json",
+  "fase_F_validacao_modelos_preliminar_claude_2026-10-02.txt"
+ ],
+ "E24": [
+  "fase_F_R3_resultado_original_2026-10-02.csv",
+  "fase_F_R3_resultado_original_2026-10-02.txt"
+ ],
+ "E25": [
+  "fase_F_exploratorio_relato_2026-10-02.json",
+  "fase_F_robustez_comparacao_2026-10-02.txt"
+ ],
+ "E26": [
+  "fase_G_perfil_minuto_lexico_2026-10-02.csv",
+  "fase_G_piloto_minuto_lexico_2026-10-02.json",
+  "fase_G_piloto_minuto_lexico_2026-10-02.txt"
+ ],
+ "E27": [
+  "fase_G_janelas_curtas_lexico_2026-10-02.json",
+  "fase_G_janelas_curtas_lexico_2026-10-02.txt",
+  "fase_G_perfil_minuto_a_minuto_lexico_2026-10-02.csv",
+  "fase_G_perfil_minuto_bandas_lexico_2026-10-02.csv"
+ ],
+ "E28": [
+  "fase_H_smallcaps_lexico_2026-10-02.json",
+  "fase_H_smallcaps_lexico_2026-10-02.txt"
+ ],
+ "E29": [
+  "fase_H_smallcaps_finbert_2026-10-02.json",
+  "fase_H_smallcaps_finbert_2026-10-02.txt"
+ ],
+ "E30": [
+  "perfil_horario_noticias.png"
+ ],
+ "E31": [
+  "perfil_minuto_noticias.png"
+ ]
+}

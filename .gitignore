@@ -37,3 +37,10 @@ dados/smallcaps/
 dados/modelos/
 dados/sentimento_*.csv
 dados/execucao/
+
+# verificação (02/10/2026): o pacote de dados congelados tem dados de terceiros;
+# vai só o manifesto SHA-256. A pasta de execução é temporária.
+verificacao/dados_congelados_*.zip
+verificacao/_execucao/
+verificacao/status_verificacao.txt
+verificacao/relatorio_verificacao.txt

@@ -1,0 +1,217 @@
+{
+ "referencia": "preliminar_claude",
+ "n": 285,
+ "adota_finbert": false,
+ "candidatos": {
+  "L  léxico": {
+   "kappa_pop": 0.2962462585381244,
+   "acc_pop": 0.6100415938915614,
+   "kappa_amostra": 0.3893383575307548,
+   "acc_amostra": 0.5929824561403508,
+   "precisao": {
+    "negativo": 0.5612244897959185,
+    "neutro": 0.6210526315789474,
+    "positivo": 0.5978260869565215
+   },
+   "recall": {
+    "negativo": 0.2855132937602129,
+    "neutro": 0.8181119725839321,
+    "positivo": 0.44937781090873774
+   },
+   "spearman": 0.5812863488029553,
+   "matriz": {
+    "negativo": {
+     "negativo": 55,
+     "neutro": 19,
+     "positivo": 9
+    },
+    "neutro": {
+     "negativo": 36,
+     "neutro": 59,
+     "positivo": 28
+    },
+    "positivo": {
+     "negativo": 7,
+     "neutro": 17,
+     "positivo": 55
+    }
+   }
+  },
+  "F  FinBERT-PT-BR": {
+   "kappa_pop": 0.43741870328396354,
+   "acc_pop": 0.6272836758044181,
+   "kappa_amostra": 0.43446204259967236,
+   "acc_amostra": 0.6175438596491228,
+   "precisao": {
+    "negativo": 0.577332912755324,
+    "neutro": 0.7826426764349662,
+    "positivo": 0.5063724885259951
+   },
+   "recall": {
+    "negativo": 0.9012180276711329,
+    "neutro": 0.5105040349158908,
+    "positivo": 0.6337068412040479
+   },
+   "spearman": 0.6686967019337018,
+   "matriz": {
+    "negativo": {
+     "negativo": 77,
+     "neutro": 3,
+     "positivo": 3
+    },
+    "neutro": {
+     "negativo": 43,
+     "neutro": 51,
+     "positivo": 29
+    },
+    "positivo": {
+     "negativo": 11,
+     "neutro": 20,
+     "positivo": 48
+    }
+   }
+  },
+  "D  distilbert (do código)": {
+   "kappa_pop": 0.11870452999185016,
+   "acc_pop": 0.32824593237752764,
+   "kappa_amostra": 0.17438033528746277,
+   "acc_amostra": 0.4070175438596491,
+   "precisao": {
+    "negativo": 0.4528956517909132,
+    "neutro": NaN,
+    "positivo": 0.282931752165841
+   },
+   "recall": {
+    "negativo": 0.5436092882209109,
+    "neutro": 0.0,
+    "positivo": 0.8523186270561848
+   },
+   "spearman": 0.4898071815447387,
+   "matriz": {
+    "negativo": {
+     "negativo": 49,
+     "neutro": 0,
+     "positivo": 34
+    },
+    "neutro": {
+     "negativo": 32,
+     "neutro": 0,
+     "positivo": 91
+    },
+    "positivo": {
+     "negativo": 12,
+     "neutro": 0,
+     "positivo": 67
+    }
+   }
+  },
+  "H1 0,5 léxico + 0,5 D": {
+   "kappa_pop": 0.1792300000546328,
+   "acc_pop": 0.46165590062111805,
+   "kappa_amostra": 0.3312032925376366,
+   "acc_amostra": 0.543859649122807,
+   "precisao": {
+    "negativo": 0.606608890529337,
+    "neutro": 0.5458376591754521,
+    "positivo": 0.3669935230323403
+   },
+   "recall": {
+    "negativo": 0.35445429090331915,
+    "neutro": 0.36299723216739826,
+    "positivo": 0.7760396556376421
+   },
+   "spearman": 0.629990335992571,
+   "matriz": {
+    "negativo": {
+     "negativo": 52,
+     "neutro": 21,
+     "positivo": 10
+    },
+    "neutro": {
+     "negativo": 23,
+     "neutro": 38,
+     "positivo": 62
+    },
+    "positivo": {
+     "negativo": 5,
+     "neutro": 9,
+     "positivo": 65
+    }
+   }
+  },
+  "H2 0,5 léxico + 0,5 F": {
+   "kappa_pop": 0.4373738040748502,
+   "acc_pop": 0.6243704875542896,
+   "kappa_amostra": 0.4414578014311913,
+   "acc_amostra": 0.6175438596491228,
+   "precisao": {
+    "negativo": 0.5830405614880054,
+    "neutro": 0.7845403239560744,
+    "positivo": 0.5112809362591381
+   },
+   "recall": {
+    "negativo": 0.8461809909058621,
+    "neutro": 0.48326383269219075,
+    "positivo": 0.7317529090386816
+   },
+   "spearman": 0.6769798309683884,
+   "matriz": {
+    "negativo": {
+     "negativo": 74,
+     "neutro": 5,
+     "positivo": 4
+    },
+    "neutro": {
+     "negativo": 43,
+     "neutro": 42,
+     "positivo": 38
+    },
+    "positivo": {
+     "negativo": 7,
+     "neutro": 12,
+     "positivo": 60
+    }
+   }
+  }
+ },
+ "ic_kappa_pop": {
+  "L  léxico": [
+   0.20850200149214299,
+   0.38874829983383513
+  ],
+  "F  FinBERT-PT-BR": [
+   0.33295855926312173,
+   0.5391434691134341
+  ],
+  "D  distilbert (do código)": [
+   0.06122865443354349,
+   0.17839823520693626
+  ],
+  "H1 0,5 léxico + 0,5 D": [
+   0.07994088597690305,
+   0.2788467470572923
+  ],
+  "H2 0,5 léxico + 0,5 F": [
+   0.33229982429524446,
+   0.5387509008413107
+  ]
+ },
+ "ic_diferenca": {
+  "F  FinBERT-PT-BR": [
+   -0.011129422092651133,
+   0.28349404031184816
+  ],
+  "D  distilbert (do código)": [
+   -0.2968037162881882,
+   -0.05931715782335188
+  ],
+  "H1 0,5 léxico + 0,5 D": [
+   -0.23903881108532735,
+   0.008005337959673913
+  ],
+  "H2 0,5 léxico + 0,5 F": [
+   -0.006571641818915417,
+   0.27960818647025304
+  ]
+ }
+}

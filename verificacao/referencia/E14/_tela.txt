@@ -1,0 +1,29 @@
+==============================================================================
+  TESTE 3 — RETORNO ANORMAL (descontado o mercado)
+==============================================================================
+  Mercado: Ibovespa (^BVSP)
+  Alfa e beta estimados nos 250 pregões antes de 02/01/2024:
+      ABEV3.SA  beta = 0.63   R² do modelo = 0.27
+      BBDC4.SA  beta = 1.16   R² do modelo = 0.46
+      ITUB4.SA  beta = 1.00   R² do modelo = 0.55
+      MGLU3.SA  beta = 2.04   R² do modelo = 0.21
+      PETR4.SA  beta = 1.00   R² do modelo = 0.28
+      SUZB3.SA  beta = 0.30   R² do modelo = 0.04
+      VALE3.SA  beta = 0.82   R² do modelo = 0.29
+      WEGE3.SA  beta = 0.56   R² do modelo = 0.15
+      ABEV3.SA  n= 460  r(sentimento, AR D+0) = +0.0729  p = 0.1185
+      BBDC4.SA  n= 657  r(sentimento, AR D+0) = +0.0683  p = 0.0804
+      ITUB4.SA  n= 550  r(sentimento, AR D+0) = -0.0001  p = 0.9977
+      MGLU3.SA  n= 512  r(sentimento, AR D+0) = +0.1213  p = 0.0060
+      PETR4.SA  n= 650  r(sentimento, AR D+0) = +0.1503  p = 0.0001
+      SUZB3.SA  n= 350  r(sentimento, AR D+0) = +0.1387  p = 0.0094
+      VALE3.SA  n= 583  r(sentimento, AR D+0) = +0.1726  p = 0.0000
+      WEGE3.SA  n= 367  r(sentimento, AR D+0) = +0.1685  p = 0.0012
+      por ativo (descritivo): 5 de 8 com p < 0,05
+  AGRUPADO D+0 (H0-3): r = +0.1094   p = 0.0001   n = 4129   (menor r detectável ~0.044)
+  AGRUPADO D-1       : r = +0.0647   p = 0.0001
+  VEREDITO (regra pré-registrada):
+    H0-3 REJEITADA com r > 0: a associação sobrevive ao desconto do mercado.
+    Não é só o dia ruim (ou bom) da bolsa inteira.
+==============================================================================
+salvo em: resultados/teste3_retorno_anormal_2026-10-02.txt

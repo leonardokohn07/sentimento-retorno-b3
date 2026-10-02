@@ -1,0 +1,17 @@
+======================================================================================
+  FASE H — SMALL CAPS   medida: lexico
+======================================================================================
+  Ativos sorteados: ASAI3, FLRY3, MDNE3, MULT3, POMO4, TAEE11, TTEN3, VAMO3
+  Pregões com preço dos 8: 832 (02/06/2023 a 30/09/2026)
+  Notícias (até 06/09/2026): 1160  | por ativo: ASAI3 165, FLRY3 144, MDNE3 83, MULT3 109, POMO4 206, TAEE11 199, TTEN3 94, VAMO3 160
+  H1  D+0: sentimento do pregão D x retorno anormal D (réplica)     : r = +0.2128   p = 0.0001   n = 660   (r detectável ~0.109, pos)
+  H2  notícias do dia D -> ABERTURA de D+1 | pregão D, abertura D   : r = +0.0527   p = 0.1950   n = 624   (r detectável ~0.112, bi)
+  H3  notícias do pregão D <- retorno anormal de D-1                : r = +0.0541   p = 0.1676   n = 660   (r detectável ~0.109, bi)
+  H4  fim de semana -> ABERTURA de segunda | pregão de sexta        : r = +0.0960   p = 0.5391   n = 46   (r detectável ~0.403, bi)
+
+  teste         r   p bruto    p Holm  decisão (α = 5%)
+  H1      +0.2128    0.0001    0.0004  REJEITA H0
+  H2      +0.0527    0.1950    0.5027  não rejeita
+  H3      +0.0541    0.1676    0.5027  não rejeita
+  H4      +0.0960    0.5391    0.5391  não rejeita
+======================================================================================

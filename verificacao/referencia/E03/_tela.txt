@@ -1,0 +1,28 @@
+================================================================================================
+  RESULTADO CONGELADO — 2026-10-02
+================================================================================================
+  Fonte: dados/noticias_com_sentimento.csv (19410 noticias)
+         dados/cache_precos/ (9 ativos, 1254 pregoes apos alinhamento)
+  Minimo de observacoes: 60
+================================================================================================
+ativo          n    r D-1     p D-1    r D+0     p D+0   H0 D+0    r D+1     p D+1   H0 D+1
+------------------------------------------------------------------------------------------------
+ABEV3.SA     462   0.0652    0.1620   0.0641    0.1689      nao   0.0787    0.0913      nao
+BBDC4.SA     657   0.0276    0.4799   0.1006    0.0099  rejeita  -0.0021    0.9571      nao
+ELET3.SA       0   FORA — sem serie de precos
+ITUB4.SA     551  -0.0177    0.6787   0.0541    0.2048      nao   0.0127    0.7663      nao
+MGLU3.SA     512   0.0397    0.3703   0.1607    0.0003  rejeita  -0.0303    0.4935      nao
+PETR4.SA     650   0.1176    0.0027   0.1442    0.0002  rejeita  -0.0233    0.5532      nao
+RENT3.SA      33   FORA — menos de 60 dias
+SUZB3.SA     349   0.1428    0.0076   0.1421    0.0078  rejeita  -0.0152    0.7769      nao
+VALE3.SA     583   0.0589    0.1555   0.1965    0.0000  rejeita   0.0356    0.3906      nao
+WEGE3.SA     367   0.1486    0.0043   0.1961    0.0002  rejeita   0.0494    0.3457      nao
+------------------------------------------------------------------------------------------------
+  D-1 (controle de causalidade reversa): 3 de 8 rejeitam H0
+  D+0: 6 de 8 rejeitam H0 (p medio dos significativos = 0.0031)
+  D+1: 0 de 8 rejeitam H0
+================================================================================================
+  Estes numeros sao a REFERENCIA. Depois de qualquer mudanca no codigo,
+  rode este script de novo: se algum numero mudar, a mudanca quebrou algo.
+================================================================================================
+salvo em: congelado_2026-10-02.csv e congelado_2026-10-02.txt

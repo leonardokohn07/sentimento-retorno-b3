@@ -1,0 +1,43 @@
+==============================================================================
+  TESTE 1 — SEM AS MANCHETES QUE RELATAM PREÇO
+==============================================================================
+  Notícias: 18463  |  manchetes de relato: 584 (3.2%)
+
+  --- TODAS (referência): 18463 notícias, 4243 pares ativo-dia ---
+      ABEV3.SA  n= 460  r=+0.0678  p=0.1464
+      BBDC4.SA  n= 657  r=+0.0970  p=0.0129
+      ITUB4.SA  n= 550  r=+0.0577  p=0.1763
+      MGLU3.SA  n= 512  r=+0.1568  p=0.0004
+      PETR4.SA  n= 650  r=+0.1455  p=0.0002
+      SUZB3.SA  n= 350  r=+0.1452  p=0.0065
+      VALE3.SA  n= 583  r=+0.1977  p=0.0000
+      WEGE3.SA  n= 367  r=+0.1902  p=0.0002
+      por ativo (descritivo): 6 de 8 com p < 0,05 em D+0
+    AGRUPADO D+0: r = +0.1305   p = 0.0001   n = 4129   (menor r detectável ~0.044)
+    AGRUPADO D-1: r = +0.0643   p = 0.0002   n = 4129   (menor r detectável ~0.044)
+
+  --- INFORMATIVAS (principal): 17879 notícias, 4210 pares ativo-dia ---
+      ABEV3.SA  n= 458  r=+0.0392  p=0.4024
+      BBDC4.SA  n= 657  r=+0.0553  p=0.1570
+      ITUB4.SA  n= 550  r=+0.0528  p=0.2159
+      MGLU3.SA  n= 498  r=+0.0354  p=0.4308
+      PETR4.SA  n= 650  r=+0.0807  p=0.0397
+      SUZB3.SA  n= 344  r=+0.0839  p=0.1204
+      VALE3.SA  n= 579  r=+0.1098  p=0.0082
+      WEGE3.SA  n= 360  r=+0.1384  p=0.0086
+      por ativo (descritivo): 3 de 8 com p < 0,05 em D+0
+    AGRUPADO D+0: r = +0.0725   p = 0.0001   n = 4096   (menor r detectável ~0.044)
+    AGRUPADO D-1: r = +0.0511   p = 0.0018   n = 4096   (menor r detectável ~0.044)
+
+  --- SÓ RELATO DE PREÇO: 584 notícias, 359 pares ativo-dia ---
+      MGLU3.SA  n=  77  r=+0.4659  p=0.0000
+      PETR4.SA  n= 100  r=+0.6400  p=0.0000
+      VALE3.SA  n=  64  r=+0.6513  p=0.0000
+      por ativo (descritivo): 3 de 3 com p < 0,05 em D+0
+    AGRUPADO D+0: r = +0.5693   p = 0.0001   n = 356   (menor r detectável ~0.148)
+    AGRUPADO D-1: r = +0.1621   p = 0.0023   n = 356   (menor r detectável ~0.148)
+
+  VEREDITO (regra pré-registrada, H0-1 = informativas em D+0):
+    H0-1 REJEITADA com r > 0: a relação de D+0 NÃO depende das manchetes
+    que relatam preço.
+==============================================================================
