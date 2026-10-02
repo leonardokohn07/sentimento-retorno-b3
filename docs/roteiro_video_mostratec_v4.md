@@ -289,71 +289,37 @@ gráficos e esquemas foram feitos por nós (gráficos pelo script
 
 ## Referências
 
-ARAÚJO, T.; ELEUTÉRIO, S.; LOUÇÃ, F. Do sentiments influence market
-dynamics? A reconstruction of the Brazilian stock market and its mood.
-**Physica A**, v. 505, p. 1139-1149, 2018. DOI: 10.1016/j.physa.2018.04.045.
+ARAÚJO, T.; ELEUTÉRIO, S.; LOUÇÃ, F. Do sentiments influence market dynamics? A reconstruction of the Brazilian stock market and its mood. **Physica A**, v. 505, p. 1139-1149, 2018. Disponível em: https://doi.org/10.1016/j.physa.2018.04.045. Acesso em: 2 out. 2026.
 
-B3. **A descoberta da bolsa pelo investidor brasileiro**. São Paulo: B3, dez.
-2020. Disponível em:
-https://www.b3.com.br/data/files/69/75/42/A0/36ECA71068C61CA7AC094EA8/Pesquisa%20PF_vf%20_dez.20_.pdf.
-Acesso em: 2 out. 2026.
+B3. **A descoberta da bolsa pelo investidor brasileiro**. São Paulo: B3, dez. 2020. Disponível em: https://www.b3.com.br/data/files/69/75/42/A0/36ECA71068C61CA7AC094EA8/Pesquisa%20PF_vf%20_dez.20_.pdf. Acesso em: 2 out. 2026.
 
-B3. **Pessoas físicas**: uma análise da evolução dos investidores na B3 — 2º
-trimestre de 2025. São Paulo: B3, 2025. Disponível em:
-https://www.b3.com.br/data/files/A2/A0/78/20/E61689100A29E189AC094EA8/Book%20PF%202TRI%202025_vF.pdf.
-Acesso em: 2 out. 2026.
+B3. **Pessoas físicas**: uma análise da evolução dos investidores na B3 — 2º trimestre de 2025. São Paulo: B3, 2025. Disponível em: https://www.b3.com.br/data/files/A2/A0/78/20/E61689100A29E189AC094EA8/Book%20PF%202TRI%202025_vF.pdf. Acesso em: 2 out. 2026.
 
-B3. **Índice Small Cap (SMLL B3)**: composição da carteira. São Paulo: B3,
-2026. Disponível em:
-https://www.b3.com.br/pt_br/market-data-e-indices/indices/indices-de-segmentos-e-setoriais/indice-small-cap-smll-composicao-da-carteira.htm.
-Acesso em: 2 out. 2026.
+B3. **Índice Small Cap (SMLL B3)**: composição da carteira. São Paulo: B3, 2026. Disponível em: https://www.b3.com.br/pt_br/market-data-e-indices/indices/indices-de-segmentos-e-setoriais/indice-small-cap-smll-composicao-da-carteira.htm. Acesso em: 2 out. 2026.
 
-BAKER, M.; WURGLER, J. Investor sentiment in the stock market. **Journal of
-Economic Perspectives**, v. 21, n. 2, p. 129-151, 2007.
+BAKER, M.; WURGLER, J. Investor sentiment in the stock market. **Journal of Economic Perspectives**, v. 21, n. 2, p. 129-151, 2007. Disponível em: https://doi.org/10.1257/jep.21.2.129. Acesso em: 2 out. 2026.
 
-BARBER, B. M.; ODEAN, T. All that glitters: the effect of attention and news
-on the buying behavior of individual and institutional investors. **The
-Review of Financial Studies**, v. 21, n. 2, p. 785-818, 2008. DOI:
-10.1093/rfs/hhm079.
+BARBER, B. M.; ODEAN, T. All that glitters: the effect of attention and news on the buying behavior of individual and institutional investors. **The Review of Financial Studies**, v. 21, n. 2, p. 785-818, 2008. Disponível em: https://doi.org/10.1093/rfs/hhm079. Acesso em: 2 out. 2026.
 
-CAROSIA, A. E. O.; COELHO, G. P.; SILVA, A. E. A. Investment strategies
-applied to the Brazilian stock market: a methodology based on sentiment
-analysis with deep learning. **Expert Systems with Applications**, v. 184,
-art. 115470, 2021. DOI: 10.1016/j.eswa.2021.115470.
+CAROSIA, A. E. O.; COELHO, G. P.; SILVA, A. E. A. Investment strategies applied to the Brazilian stock market: a methodology based on sentiment analysis with deep learning. **Expert Systems with Applications**, v. 184, art. 115470, 2021. Disponível em: https://doi.org/10.1016/j.eswa.2021.115470. Acesso em: 2 out. 2026.
 
-CHAGUE, F.; DE-LOSSO, R.; GIOVANNETTI, B. **Day trading for a living?**
-SSRN, 2020. Working paper. Disponível em:
-https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3423101. Acesso em: 2
-out. 2026.
+CHAGUE, F.; DE-LOSSO, R.; GIOVANNETTI, B. **Day trading for a living?** SSRN, 2020. Working paper. Disponível em: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3423101. Acesso em: 2 out. 2026.
 
-COHEN, J. **Statistical power analysis for the behavioral sciences**. 2. ed.
-Hillsdale: Lawrence Erlbaum Associates, 1988.
+COHEN, J. **Statistical power analysis for the behavioral sciences**. 2. ed. Hillsdale: Lawrence Erlbaum Associates, 1988. Disponível em: https://doi.org/10.4324/9780203771587. Acesso em: 2 out. 2026.
 
-FAMA, E. F. Efficient capital markets: a review of theory and empirical work.
-**The Journal of Finance**, v. 25, n. 2, p. 383-417, 1970.
+FAMA, E. F. Efficient capital markets: a review of theory and empirical work. **The Journal of Finance**, v. 25, n. 2, p. 383-417, 1970. Disponível em: https://doi.org/10.2307/2325486. Acesso em: 2 out. 2026.
 
-GOOGLE. **Google Notícias**. 2026. Disponível em: https://news.google.com.
-Acesso em: 2 out. 2026.
+GOOGLE. **Google Notícias**. 2026. Disponível em: https://news.google.com. Acesso em: 2 out. 2026.
 
-GRANGER, C. W. J. Investigating causal relations by econometric models and
-cross-spectral methods. **Econometrica**, v. 37, n. 3, p. 424-438, 1969.
-DOI: 10.2307/1912791.
+GRANGER, C. W. J. Investigating causal relations by econometric models and cross-spectral methods. **Econometrica**, v. 37, n. 3, p. 424-438, 1969. Disponível em: https://doi.org/10.2307/1912791. Acesso em: 2 out. 2026.
 
-HOLM, S. A simple sequentially rejective multiple test procedure.
-**Scandinavian Journal of Statistics**, v. 6, n. 2, p. 65-70, 1979.
+HOLM, S. A simple sequentially rejective multiple test procedure. **Scandinavian Journal of Statistics**, v. 6, n. 2, p. 65-70, 1979. Disponível em: https://www.jstor.org/stable/4615733. Acesso em: 2 out. 2026.
 
-SANTOS, L. L.; BIANCHI, R. A. C.; COSTA, A. H. R. FinBERT-PT-BR: análise de
-sentimentos de textos em português do mercado financeiro. In: BRAZILIAN
-WORKSHOP ON ARTIFICIAL INTELLIGENCE IN FINANCE, 2., 2023, João Pessoa.
-**Anais** [...]. Porto Alegre: Sociedade Brasileira de Computação, 2023.
-p. 144-155. DOI: 10.5753/bwaif.2023.231151.
+SANTOS, L. L.; BIANCHI, R. A. C.; COSTA, A. H. R. FinBERT-PT-BR: análise de sentimentos de textos em português do mercado financeiro. In: BRAZILIAN WORKSHOP ON ARTIFICIAL INTELLIGENCE IN FINANCE, 2., 2023, João Pessoa. **Anais** [...]. Porto Alegre: Sociedade Brasileira de Computação, 2023. p. 144-155. Disponível em: https://doi.org/10.5753/bwaif.2023.231151. Acesso em: 2 out. 2026.
 
-SOUZA, D. M. S. de; MARTINS, O. S. Brazilian stock market performance and
-investor sentiment on Twitter. **Revista de Gestão**, v. 31, n. 1, p. 18-33,
-2024. DOI: 10.1108/REGE-07-2021-0145.
+SOUZA, D. M. S. de; MARTINS, O. S. Brazilian stock market performance and investor sentiment on Twitter. **Revista de Gestão**, v. 31, n. 1, p. 18-33, 2024. Disponível em: https://doi.org/10.1108/REGE-07-2021-0145. Acesso em: 2 out. 2026.
 
-YAHOO. **Yahoo Finance**. 2026. Disponível em: https://finance.yahoo.com.
-Acesso em: 2 out. 2026.
+YAHOO. **Yahoo Finance**. 2026. Disponível em: https://finance.yahoo.com. Acesso em: 2 out. 2026.
 
 ## O que ficou de fora de propósito
 
