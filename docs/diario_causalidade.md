@@ -52,6 +52,18 @@
 >     0,0004);
 >   - a direção não dá para separar com os dados atuais.
 >
+> **VERIFICAÇÃO (02/10/2026, seção 20):**
+> - Os 75 arquivos de dados foram **congelados** com impressão digital
+>   SHA-256 (manifesto no git).
+> - Um comando (`VERIFICAR_TUDO.bat` ou `python verificacao/verificar_tudo.py`)
+>   refaz as 32 etapas de análise e confere 99 saídas com a referência.
+> - **99 de 99 conferiram** no servidor Linux e no **Windows 11** do Leonardo
+>   (Python 3.14, todas as bibliotecas em outra versão).
+> - Com os dados congelados, três números mudam na 4ª casa decimal em relação
+>   à rodada de 01/10 (por exemplo, P8: p de Holm 0,0018 em vez de 0,0009).
+>   Nenhuma conclusão muda. A partir de agora, valem os números congelados.
+> - Todos os 279 testes estão em `verificacao/registro_de_testes.csv`.
+>
 > **Todos os testes, nulos e erros estão documentados abaixo.**
 
 Registro cronológico de tudo o que foi feito para testar a **direção** da
@@ -768,3 +780,173 @@ de calcular qualquer janela curta.
 de 1 minuto) entram na família confirmatória junto com M1 e M2, com Holm
 sobre os 4. O coletor diário já guarda as barras de 1 minuto, então a
 amostra cresce sozinha.
+
+## 20. Ancoragem, verificação e plano de pesquisa v2 (02/10/2026)
+
+**O pedido:** tornar a pesquisa "100% confirmável", achar uma boa causa
+para ela ("ancorar", como disse o professor na FEICIT) e atualizar o plano de
+pesquisa com tudo o que mudou desde 01/10.
+
+### 20.1 "100% comprovado" × "100% verificável"
+
+Nenhum estudo com dados reais prova algo com 100% de certeza (seção 0). O que
+dá para garantir é que **qualquer pessoa chega aos mesmos números** com os
+mesmos dados e o mesmo código, e que as regras foram escritas antes. É isso
+que foi construído. A explicação completa, com a "escada da confirmação",
+está em `docs/metodo_cientifico_e_verificacao.md`.
+
+### 20.2 A âncora (`docs/ancoragem_da_pesquisa.md`)
+
+Fontes conferidas hoje na fonte original:
+- **Problema real:** pessoas físicas na B3 passaram de 583 mil (2011) para
+  5,4 milhões (2º tri/2025) (B3); muitas decidem pela internet e por sites de
+  notícias (B3, 2020; ANBIMA, Raio X, 9ª ed.); a pessoa física compra as
+  ações que estão no noticiário (Barber; Odean, 2008); 97% dos que
+  persistiram no *day trade* perderam dinheiro (Chague; De-Losso;
+  Giovannetti).
+- **Mecanismo:** a Resolução CVM 44/2021 manda divulgar fato relevante de
+  forma imediata e simultânea, de preferência fora do pregão. O canal
+  oficial é o comunicado da empresa; a matéria de jornal vem depois.
+- **Lacuna:** nas bases consultadas, nenhum estudo com horário exato de
+  matérias da imprensa e preço intradiário na B3.
+- **Método:** a crise de replicação em finanças (Harvey; Liu; Zhu, 2016;
+  Hou; Xue; Zhang, 2020) e o pré-registro (Nosek et al., 2018).
+- **Eletrônica:** medir o atraso entre dois sinais por correlação cruzada
+  (Knapp; Carter, 1976): amostragem, sinal-ruído, piso de ruído e calibração.
+- Números lidos por leitura automática de PDF estão marcados [CONFERIR].
+
+### 20.3 O pacote de verificação
+
+| Arquivo | O que é |
+|---|---|
+| `verificacao/dados_congelados_2026-10-02.zip` | os 75 arquivos de dados (19 MB). Fora do git (dados de terceiros) |
+| `verificacao/manifesto_dados_congelados_2026-10-02.sha256` | SHA-256 de cada arquivo. **No git** |
+| `verificacao/verificar_tudo.py` e `VERIFICAR_TUDO.bat` | refaz e compara tudo |
+| `verificacao/_relogio_congelado.py` | roda cada script com o relógio em 02/10/2026 12:00 |
+| `verificacao/referencia/` | as 99 saídas de referência |
+| `verificacao/registro_de_testes.csv` | 279 testes, montados das saídas por `montar_registro_de_testes.py` |
+| `REPRODUZIR.md`, `requirements-analise.txt` | passo a passo e dependências |
+
+**Uma mudança no código do estudo:** `modulos/coleta/precos.py` ganhou a
+opção `INVESTAI_SO_CACHE=1`. Com ela, os scripts antigos 9 e 12 leem só o
+arquivo de preços congelado, em vez de baixar do Yahoo. Sem a variável, nada
+muda.
+
+**Descoberta:** comparando os dados do PC do Leonardo com os do servidor,
+todos os arquivos eram idênticos, **menos os preços diários**. O painel
+atualiza o cache, e o Yahoo recalcula os preços ajustados dos dias antigos
+(diferença na 7ª casa decimal). Isso explica as pequenas diferenças de
+p-valor entre as rodadas de 01/10 e 02/10 (seção 6). Congelar resolve.
+
+**Outra descoberta (da verificação na VM Linux):** o `requirements` não
+listava o `feedparser` e o `beautifulsoup4`, que o `modulos/coleta/` importa.
+Foram incluídos no `requirements-analise.txt`.
+
+### 20.4 Resultados da verificação
+
+- **Referência × resultados já publicados** (47 arquivos de texto e
+  tabela): 44 idênticos; 3 com diferença mínima, todas do cache de preços:
+  - `congelado`: 1.254 pregões no cabeçalho em vez de 1.250. Os r e p são
+    iguais;
+  - `curva_defasagem` (CSV): dois p-valores na 4ª casa;
+  - exploratório E1 noite: r = 0,0612 e p = 0,0143 (antes 0,0611 e 0,0152).
+- **Números que passam a valer (dados congelados):**
+  - P8: p = 0,0002, p de Holm = 0,0018 (rodada de 01/10: 0,0001 e 0,0009);
+  - A1_P3: p = 0,0010 (antes 0,0009);
+  - nenhuma decisão muda.
+- **Reprodução em outras máquinas:**
+
+| Máquina | Python / numpy / pandas / scipy | Resultado |
+|---|---|---|
+| Servidor Linux (referência) | 3.11.15 / 2.4.4 / 3.0.2 / 1.17.1 | 99 de 99 |
+| **Windows 11 do Leonardo** (dois cliques no `.bat`) | **3.14.4** / 2.5.2 / 3.0.5 / 1.18.1 | **99 de 99** (64 idênticos letra por letra, 15 tabelas com diferença ≤ 5,4 × 10⁻¹⁴, 20 imagens) |
+| VM Linux do Leonardo | 3.10.12 / 2.2.6 / 2.3.3 / 1.15.3 | 93 de 99: as 6 diferentes são o perfil hora a hora descritivo (S7) das etapas E16 e E18; todos os testes estatísticos saíram idênticos (seção 22) |
+
+### 20.5 Plano de pesquisa v2 (`docs/plano_de_pesquisa_v2.md`)
+
+- **Tema e problema:** passam a incluir a direção (notícia → preço ou preço
+  → notícia).
+- **Justificativa:** quatro frentes (social, científica, metodológica e
+  formação técnica), com números com fonte. O antigo "580 mil para mais de 4
+  milhões", que não tinha fonte, foi trocado por 583 mil (2011) → 5,4
+  milhões (2025).
+- **Hipóteses:** três famílias, Holm e adendos.
+- **Objetivos:** de 7 para 11, todos cumpridos.
+- **Revisão:** 28 referências conferidas.
+- **Metodologia:** amostras novas, horário exato, desenho intradiário,
+  controles, pré-registro, verificador e coleta prospectiva.
+- **Análise:** resultados de todas as fases; conclusão "preço → notícia".
+- Itens que só vocês podem confirmar estão marcados [CONFERIR].
+
+### 20.6 O que falta (com vocês)
+
+1. **`git push`** para o GitHub, para a data dos pré-registros ficar num
+   servidor de terceiros. De preferência, ligar o repositório ao **Zenodo**
+   (gera um DOI com data).
+2. **Agendar a coleta diária** (`scripts/AGENDAR_COLETA_DIARIA.bat`) antes
+   de 03/10.
+3. **Rotulagem humana** das 300 manchetes.
+4. **Replicação por um professor:** entregar a pasta e o zip dos dados e
+   pedir que ele dê dois cliques em `VERIFICAR_TUDO.bat`.
+5. **Conferir os [CONFERIR]** do plano antes da inscrição.
+
+## 21. Conferência dos números do resumo antigo (02/10/2026)
+
+Ao reescrever o resumo, cada número foi conferido contra uma saída que o
+verificador reproduz (seção 20). Três frases do resumo enviado em 01/10
+(v2) não passaram:
+
+1. **"Poder de 82,7% com 60 observações."** Esse número está num comentário
+   de `modulos/analise/hipotese.py` (linha 42) e veio de uma rodada antiga do
+   `scripts/7_curvas_de_deteccao.py`. Rodado hoje, o script 7 dá poder
+   *medido* de 0,0% com 20, 40 e 60 dias. O motivo: a simulação usa 60 dias,
+   o teste em D+1 perde um dia (59 pares) e o módulo recusa amostras abaixo do
+   mínimo de 60, que foi elevado depois daquela rodada. Ou seja, é um defeito
+   do script de sensibilidade, não do estudo. O valor que se reproduz é o
+   **poder teórico de 80,3%** (mesma saída do script 7). O resumo novo e o
+   plano v2 usam o valor teórico. Correção do script 7: pendente (não muda
+   nenhum resultado do estudo, mas muda a referência da etapa E02).
+2. **"Os critérios foram registrados antes de cada rodada de testes."** O
+   primeiro pré-registro datado no repositório é de 28/09/2026. Para a rodada
+   original (D+0 e D+1) não há documento datado. O resumo novo diz "a partir
+   de setembro de 2026".
+3. **"Detectou 100% dos efeitos implantados."** É verdade na saída do
+   script 1, mas o efeito implantado é r ≈ 0,36, mais de três vezes o efeito
+   real (≈ 0,10 a 0,13). A frase sugeria mais sensibilidade do que o teste
+   tem para efeitos do tamanho real. Saiu do resumo; ficou só a taxa de
+   falsos positivos (5,0%), que é o que a simulação de fato garante.
+
+Fontes de cada frase do resumo novo: `resumo_v4_fontes.md`.
+
+## 22. Verificação na VM Linux (pandas 2.3.3) e uma correção de compatibilidade (02/10/2026)
+
+A VM do PC do Leonardo tem versões mais antigas (Python 3.10.12, numpy
+2.2.6, pandas 2.3.3). O verificador foi rodado lá em 6 partes, porque cada
+chamada tem limite de tempo.
+
+**Problema 1 — cinco etapas quebravam (E09 a E12 e E14).** Erro:
+`'<' not supported between instances of 'Timestamp' and 'int'`, sem o
+relógio congelado também, ou seja, não era do verificador. Causa: em
+`modulos/analise/painel.py` e `scripts/17_fim_de_semana_agrupado.py`, a
+lista de datas virava um array de objetos `Timestamp`, e o pandas 2.x com o
+numpy 2.2 não compara isso com `datetime64` no `searchsorted`. Correção: as
+datas são convertidas para `datetime64[ns]` nas duas pontas. Conferência:
+no servidor (pandas 3.0.2), as etapas E09 a E14 deram 12 de 12 saídas
+idênticas à referência depois da correção.
+
+**Problema 2 — o perfil hora a hora descritivo (S7) muda.** Nas etapas E16
+e E18 (análise principal, com léxico e com FinBERT), o perfil hora a hora
+dos terços muda um pouco (por exemplo, 51 em vez de 52 eventos num ponto).
+Causa: `pd.qcut(... rank(method="first"))` desempata manchetes com o mesmo
+escore pela ordem das linhas, e essa ordem vem de uma ordenação que não é
+estável e mudou entre o pandas 2 e o 3. É um gráfico descritivo, não um
+teste; os JSON com os r, p e n dos testes saíram **idênticos**. Correção
+possível depois da feira: desempate explícito (por exemplo, ordenação
+estável por ativo, dia e hora antes do `rank`).
+
+**Resultado na VM:** 93 de 99 saídas conferem; as 6 diferentes são as do
+problema 2. Relatório: `verificacao/relatorio_verificacao_vm_linux.txt`.
+
+**Windows de novo:** como o código mudou, a verificação completa foi rodada
+outra vez no Windows (dois cliques no `.bat`): **99 de 99** de novo. No servidor
+Linux também foi refeita por completo (relatório atualizado).
