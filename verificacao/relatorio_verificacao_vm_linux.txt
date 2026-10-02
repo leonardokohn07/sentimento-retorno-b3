@@ -1,0 +1,460 @@
+VERIFICAÇÃO NA VM LINUX DO PC DO LEONARDO (02/10/2026)
+Python 3.10.12 | numpy 2.2.6 | pandas 2.3.3 | scipy 1.15.3
+Rodada em 6 partes (cada chamada da VM tem limite de tempo).
+Etapas com dependência (E25, E30) rodam de novo E16-E19; por isso algumas saídas aparecem mais de uma vez.
+Saídas únicas: 99. Conferem: 93. Diferentes: 6 (E16 e E18: perfil hora a hora descritivo, S7).
+Todos os JSON com os testes estatísticos (r, p, n) saíram IDÊNTICOS.
+
+################ PARTE 1 ################
+==============================================================================
+  VERIFICAÇÃO DO ESTUDO InvestAI — refaz tudo a partir dos dados congelados
+==============================================================================
+  Início: 02/10/2026 15:35   Máquina: Linux 6.8.0-138-generic (x86_64)
+  Python 3.10.12 | numpy 2.2.6 | pandas 2.3.3 | scipy 1.15.3
+  Pacote de dados: dados_congelados_2026-10-02.zip
+
+1) DADOS: conferindo a impressão digital (SHA-256) de cada arquivo
+  75 arquivos no manifesto; TODOS com o hash certo.
+
+2) RODANDO 6 etapas (relógio parado em 02/10/2026 12:00; 1 por vez)
+  E00 teste automático do alinhamento de datas (bug dos 16,6%) ...
+      terminou em 2 s (código 0); arquivos: só a tela
+  E01 validação do método com séries sintéticas ...
+      terminou em 19 s (código 0); arquivos: só a tela
+  E02 curvas de detecção (poder do teste) ...
+      terminou em 45 s (código 0); arquivos: curvas_de_deteccao.png
+  E03 resultado original: D+0 e D+1 por ativo ...
+      terminou em 2 s (código 0); arquivos: congelado_2026-10-02.csv, congelado_2026-10-02.txt
+  E05 controle de causalidade reversa (D−1) ...
+      terminou em 2 s (código 0); arquivos: defasagem_negativa_2026-10-02.csv, defasagem_negativa_2026-10-02.txt
+  E06 curva de defasagem D−5 a D+5 ...
+      terminou em 3 s (código 0); arquivos: curva_defasagem_2026-10-02.csv, curva_defasagem_2026-10-02.png, curva_defasagem_2026-10-02.txt
+
+3) COMPARANDO com a referência (verificacao/referencia/)
+
+  E00  teste automático do alinhamento de datas (bug dos 16,6%)
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+
+  E01  validação do método com séries sintéticas
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+
+  E02  curvas de detecção (poder do teste)
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ curvas_de_deteccao.png: EXISTE (imagem)
+
+  E03  resultado original: D+0 e D+1 por ativo
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ congelado_2026-10-02.csv: IDÊNTICO
+      ✔ congelado_2026-10-02.txt: IDÊNTICO
+
+  E05  controle de causalidade reversa (D−1)
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ defasagem_negativa_2026-10-02.csv: IDÊNTICO
+      ✔ defasagem_negativa_2026-10-02.txt: IDÊNTICO
+
+  E06  curva de defasagem D−5 a D+5
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ curva_defasagem_2026-10-02.csv: IDÊNTICO
+      ✔ curva_defasagem_2026-10-02.png: EXISTE (imagem)
+      ✔ curva_defasagem_2026-10-02.txt: IDÊNTICO
+
+==============================================================================
+  RESULTADO: 14 de 14 saídas conferem com a referência; 0 diferentes; 0 etapas com erro.
+  Tempo total: 1 min. Relatório: verificacao/relatorio_verificacao.txt
+  ==> TUDO REPRODUZIDO: os mesmos dados dão os mesmos resultados nesta máquina.
+==============================================================================
+
+################ PARTE 2 ################
+==============================================================================
+  VERIFICAÇÃO DO ESTUDO InvestAI — refaz tudo a partir dos dados congelados
+==============================================================================
+  Início: 02/10/2026 15:34   Máquina: Linux 6.8.0-138-generic (x86_64)
+  Python 3.10.12 | numpy 2.2.6 | pandas 2.3.3 | scipy 1.15.3
+  Pacote de dados: dados_congelados_2026-10-02.zip
+
+1) DADOS: conferindo a impressão digital (SHA-256) de cada arquivo
+  75 arquivos no manifesto; TODOS com o hash certo.
+
+2) RODANDO 10 etapas (relógio parado em 02/10/2026 12:00; 1 por vez)
+  E04 permutação por ativo (10.000) ...
+      terminou em 8 s (código 0); arquivos: banner_permutacao_ABEV3.SA.png, banner_permutacao_BBDC4.SA.png, banner_permutacao_ITUB4.SA.png, banner_permutacao_MGLU3.SA.png, banner_permutacao_PETR4.SA.png, banner_permutacao_SUZB3.SA.png, banner_permutacao_VALE3.SA.png, banner_permutacao_WEGE3.SA.png, permutacao_ABEV3.SA.png, permutacao_BBDC4.SA.png, permutacao_ITUB4.SA.png, permutacao_MGLU3.SA.png, permutacao_PETR4.SA.png, permutacao_SUZB3.SA.png, permutacao_VALE3.SA.png, permutacao_WEGE3.SA.png, resultado_permutacao.txt
+  E07 fim de semana por ativo (antigo) ...
+      terminou em 3 s (código 0); arquivos: só a tela
+  E08 impacto do bug de fuso horário ...
+      terminou em 3 s (código 0); arquivos: impacto_fuso_2026-10-02.txt
+  E09 fim de semana agrupado (principal) ...
+      terminou em 3 s (código 0); arquivos: fim_de_semana_agrupado_principal_2026-10-02.txt
+  E10 fim de semana agrupado (sem correção de fuso) ...
+      terminou em 2 s (código 0); arquivos: fim_de_semana_agrupado_sensibilidade_2026-10-02.txt
+  E11 fim de semana agrupado (com 2021-2023) ...
+      terminou em 3 s (código 0); arquivos: fim_de_semana_agrupado_estendido_2026-10-02.txt
+  E12 teste 1: sem manchetes de preço ...
+      terminou em 4 s (código 0); arquivos: teste1_sem_manchetes_de_preco_2026-10-02.txt
+  E13 teste 2: placebo entre empresas ...
+      terminou em 5 s (código 0); arquivos: teste2_placebo_entre_empresas_2026-10-02.txt
+  E14 teste 3: retorno anormal (Ibovespa) ...
+      terminou em 3 s (código 0); arquivos: teste3_retorno_anormal_2026-10-02.txt
+  E15 teste 5: Granger diário ...
+      terminou em 2 s (código 0); arquivos: teste5_granger_2026-10-02.txt
+
+3) COMPARANDO com a referência (verificacao/referencia/)
+
+  E04  permutação por ativo (10.000)
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ banner_permutacao_ABEV3.SA.png: EXISTE (imagem)
+      ✔ banner_permutacao_BBDC4.SA.png: EXISTE (imagem)
+      ✔ banner_permutacao_ITUB4.SA.png: EXISTE (imagem)
+      ✔ banner_permutacao_MGLU3.SA.png: EXISTE (imagem)
+      ✔ banner_permutacao_PETR4.SA.png: EXISTE (imagem)
+      ✔ banner_permutacao_SUZB3.SA.png: EXISTE (imagem)
+      ✔ banner_permutacao_VALE3.SA.png: EXISTE (imagem)
+      ✔ banner_permutacao_WEGE3.SA.png: EXISTE (imagem)
+      ✔ permutacao_ABEV3.SA.png: EXISTE (imagem)
+      ✔ permutacao_BBDC4.SA.png: EXISTE (imagem)
+      ✔ permutacao_ITUB4.SA.png: EXISTE (imagem)
+      ✔ permutacao_MGLU3.SA.png: EXISTE (imagem)
+      ✔ permutacao_PETR4.SA.png: EXISTE (imagem)
+      ✔ permutacao_SUZB3.SA.png: EXISTE (imagem)
+      ✔ permutacao_VALE3.SA.png: EXISTE (imagem)
+      ✔ permutacao_WEGE3.SA.png: EXISTE (imagem)
+      ✔ resultado_permutacao.txt: IDÊNTICO
+
+  E07  fim de semana por ativo (antigo)
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+
+  E08  impacto do bug de fuso horário
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ impacto_fuso_2026-10-02.txt: IDÊNTICO
+
+  E09  fim de semana agrupado (principal)
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ fim_de_semana_agrupado_principal_2026-10-02.txt: IDÊNTICO
+
+  E10  fim de semana agrupado (sem correção de fuso)
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ fim_de_semana_agrupado_sensibilidade_2026-10-02.txt: IDÊNTICO
+
+  E11  fim de semana agrupado (com 2021-2023)
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ fim_de_semana_agrupado_estendido_2026-10-02.txt: IDÊNTICO
+
+  E12  teste 1: sem manchetes de preço
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ teste1_sem_manchetes_de_preco_2026-10-02.txt: IDÊNTICO
+
+  E13  teste 2: placebo entre empresas
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ teste2_placebo_entre_empresas_2026-10-02.txt: IDÊNTICO
+
+  E14  teste 3: retorno anormal (Ibovespa)
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ teste3_retorno_anormal_2026-10-02.txt: IDÊNTICO
+
+  E15  teste 5: Granger diário
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ teste5_granger_2026-10-02.txt: IDÊNTICO
+
+==============================================================================
+  RESULTADO: 35 de 35 saídas conferem com a referência; 0 diferentes; 0 etapas com erro.
+  Tempo total: 0 min. Relatório: verificacao/relatorio_verificacao.txt
+  ==> TUDO REPRODUZIDO: os mesmos dados dão os mesmos resultados nesta máquina.
+==============================================================================
+
+################ PARTE 3 ################
+==============================================================================
+  VERIFICAÇÃO DO ESTUDO InvestAI — refaz tudo a partir dos dados congelados
+==============================================================================
+  Início: 02/10/2026 15:36   Máquina: Linux 6.8.0-138-generic (x86_64)
+  Python 3.10.12 | numpy 2.2.6 | pandas 2.3.3 | scipy 1.15.3
+  Pacote de dados: dados_congelados_2026-10-02.zip
+
+1) DADOS: conferindo a impressão digital (SHA-256) de cada arquivo
+  75 arquivos no manifesto; TODOS com o hash certo.
+
+2) RODANDO 5 etapas (relógio parado em 02/10/2026 12:00; 1 por vez)
+  E16 fase causal, análise principal (P1-P9, S1-S7) ...
+      terminou em 11 s (código 0); arquivos: fase_causal_2026-10-02.json, fase_causal_2026-10-02.txt, fase_causal_perfil_horario_2026-10-02.csv
+  E17 fase causal, análise adicional A1 ...
+      terminou em 5 s (código 0); arquivos: fase_causal_A1_2026-10-02.json, fase_causal_A1_2026-10-02.txt, fase_causal_A1_perfil_horario_2026-10-02.csv
+  E18 fase causal principal com FinBERT ...
+      terminou em 11 s (código 0); arquivos: fase_causal_finbert_2026-10-02.json, fase_causal_finbert_2026-10-02.txt, fase_causal_finbert_perfil_horario_2026-10-02.csv
+  E19 A1 com FinBERT ...
+      terminou em 5 s (código 0); arquivos: fase_causal_A1_finbert_2026-10-02.json, fase_causal_A1_finbert_2026-10-02.txt, fase_causal_A1_finbert_perfil_horario_2026-10-02.csv
+  E20 exploratório E1-E3 (decidido depois) ...
+      terminou em 5 s (código 0); arquivos: exploratorio_pos_resultado.txt
+
+3) COMPARANDO com a referência (verificacao/referencia/)
+
+  E16  fase causal, análise principal (P1-P9, S1-S7)
+      ✘ (o que o script mostrou na tela): DIFERENTE na linha 44:
+          novo: tercil neg  -3h:-0.038  -2h:-0.110  -1h:-0.020  +0h:+0.052  +1h:+0.031  +2h:-0.025  +3h:-0.028
+          ref.: tercil neg  -3h:-0.038  -2h:-0.146  -1h:-0.043  +0h:+0.054  +1h:+0.024  +2h:-0.006  +3h:-0.035
+      ✔ fase_causal_2026-10-02.json: IDÊNTICO
+      ✘ fase_causal_2026-10-02.txt: DIFERENTE na linha 47:
+          novo: tercil neg  -3h:-0.038  -2h:-0.110  -1h:-0.020  +0h:+0.052  +1h:+0.031  +2h:-0.025  +3h:-0.028
+          ref.: tercil neg  -3h:-0.038  -2h:-0.146  -1h:-0.043  +0h:+0.054  +1h:+0.024  +2h:-0.006  +3h:-0.035
+      ✘ fase_causal_perfil_horario_2026-10-02.csv: DIFERENTE na linha 4:
+          novo: -2,neg,-0.10987181772227428,51
+          ref.: -2,neg,-0.14613012447717869,52
+
+  E17  fase causal, análise adicional A1
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ fase_causal_A1_2026-10-02.json: IDÊNTICO
+      ✔ fase_causal_A1_2026-10-02.txt: IDÊNTICO
+      ✔ fase_causal_A1_perfil_horario_2026-10-02.csv: IDÊNTICO
+
+  E18  fase causal principal com FinBERT
+      ✘ (o que o script mostrou na tela): DIFERENTE na linha 45:
+          novo: tercil neg  -3h:-0.115  -2h:-0.174  -1h:+0.002  +0h:+0.120  +1h:-0.007  +2h:+0.034  +3h:-0.069
+          ref.: tercil neg  -3h:-0.128  -2h:-0.183  -1h:+0.013  +0h:+0.123  +1h:-0.005  +2h:+0.044  +3h:-0.075
+      ✔ fase_causal_finbert_2026-10-02.json: IDÊNTICO
+      ✘ fase_causal_finbert_2026-10-02.txt: DIFERENTE na linha 47:
+          novo: tercil neg  -3h:-0.115  -2h:-0.174  -1h:+0.002  +0h:+0.120  +1h:-0.007  +2h:+0.034  +3h:-0.069
+          ref.: tercil neg  -3h:-0.128  -2h:-0.183  -1h:+0.013  +0h:+0.123  +1h:-0.005  +2h:+0.044  +3h:-0.075
+      ✘ fase_causal_finbert_perfil_horario_2026-10-02.csv: DIFERENTE na linha 2:
+          novo: -3,neg,-0.11519069923893316,41
+          ref.: -3,neg,-0.12832971266978307,42
+
+  E19  A1 com FinBERT
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ fase_causal_A1_finbert_2026-10-02.json: IDÊNTICO
+      ✔ fase_causal_A1_finbert_2026-10-02.txt: IDÊNTICO
+      ✔ fase_causal_A1_finbert_perfil_horario_2026-10-02.csv: IDÊNTICO
+
+  E20  exploratório E1-E3 (decidido depois)
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ exploratorio_pos_resultado.txt: IDÊNTICO
+
+==============================================================================
+  RESULTADO: 12 de 18 saídas conferem com a referência; 6 diferentes; 0 etapas com erro.
+  Tempo total: 0 min. Relatório: verificacao/relatorio_verificacao.txt
+  ==> ATENÇÃO: há diferenças. Veja acima quais arquivos e linhas.
+==============================================================================
+
+################ PARTE 4 ################
+==============================================================================
+  VERIFICAÇÃO DO ESTUDO InvestAI — refaz tudo a partir dos dados congelados
+==============================================================================
+  Início: 02/10/2026 15:37   Máquina: Linux 6.8.0-138-generic (x86_64)
+  Python 3.10.12 | numpy 2.2.6 | pandas 2.3.3 | scipy 1.15.3
+  Pacote de dados: dados_congelados_2026-10-02.zip
+
+1) DADOS: conferindo a impressão digital (SHA-256) de cada arquivo
+  75 arquivos no manifesto; TODOS com o hash certo.
+
+2) RODANDO 9 etapas (relógio parado em 02/10/2026 12:00; 1 por vez)
+  E16 fase causal, análise principal (P1-P9, S1-S7) ...
+      terminou em 11 s (código 0); arquivos: fase_causal_2026-10-02.json, fase_causal_2026-10-02.txt, fase_causal_perfil_horario_2026-10-02.csv
+  E17 fase causal, análise adicional A1 ...
+      terminou em 5 s (código 0); arquivos: fase_causal_A1_2026-10-02.json, fase_causal_A1_2026-10-02.txt, fase_causal_A1_perfil_horario_2026-10-02.csv
+  E18 fase causal principal com FinBERT ...
+      terminou em 10 s (código 0); arquivos: fase_causal_finbert_2026-10-02.json, fase_causal_finbert_2026-10-02.txt, fase_causal_finbert_perfil_horario_2026-10-02.csv
+  E19 A1 com FinBERT ...
+      terminou em 5 s (código 0); arquivos: fase_causal_A1_finbert_2026-10-02.json, fase_causal_A1_finbert_2026-10-02.txt, fase_causal_A1_finbert_perfil_horario_2026-10-02.csv
+  E21 Fase E: a amostra de 300 manchetes se refaz igual ...
+      terminou em 2 s (código 0); arquivos: só a tela
+  E22 Fase E: léxico x anotadores (preliminar) ...
+      terminou em 5 s (código 0); arquivos: validacao_lexico_preliminar_claude_2026-10-02.json, validacao_lexico_preliminar_claude_2026-10-02.txt
+  E23 Fase F: léxico x FinBERT x distilbert ...
+      terminou em 6 s (código 0); arquivos: fase_F_validacao_modelos_preliminar_claude_2026-10-02.json, fase_F_validacao_modelos_preliminar_claude_2026-10-02.txt
+  E24 Fase F, R3: resultado original por medida ...
+      terminou em 2 s (código 0); arquivos: fase_F_R3_resultado_original_2026-10-02.csv, fase_F_R3_resultado_original_2026-10-02.txt
+  E25 Fase F: robustez lado a lado + exploratório ...
+      terminou em 5 s (código 0); arquivos: fase_F_exploratorio_relato_2026-10-02.json, fase_F_robustez_comparacao_2026-10-02.txt
+
+3) COMPARANDO com a referência (verificacao/referencia/)
+
+  E16  fase causal, análise principal (P1-P9, S1-S7)
+      ✘ (o que o script mostrou na tela): DIFERENTE na linha 44:
+          novo: tercil neg  -3h:-0.038  -2h:-0.110  -1h:-0.020  +0h:+0.052  +1h:+0.031  +2h:-0.025  +3h:-0.028
+          ref.: tercil neg  -3h:-0.038  -2h:-0.146  -1h:-0.043  +0h:+0.054  +1h:+0.024  +2h:-0.006  +3h:-0.035
+      ✔ fase_causal_2026-10-02.json: IDÊNTICO
+      ✘ fase_causal_2026-10-02.txt: DIFERENTE na linha 47:
+          novo: tercil neg  -3h:-0.038  -2h:-0.110  -1h:-0.020  +0h:+0.052  +1h:+0.031  +2h:-0.025  +3h:-0.028
+          ref.: tercil neg  -3h:-0.038  -2h:-0.146  -1h:-0.043  +0h:+0.054  +1h:+0.024  +2h:-0.006  +3h:-0.035
+      ✘ fase_causal_perfil_horario_2026-10-02.csv: DIFERENTE na linha 4:
+          novo: -2,neg,-0.10987181772227428,51
+          ref.: -2,neg,-0.14613012447717869,52
+
+  E17  fase causal, análise adicional A1
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ fase_causal_A1_2026-10-02.json: IDÊNTICO
+      ✔ fase_causal_A1_2026-10-02.txt: IDÊNTICO
+      ✔ fase_causal_A1_perfil_horario_2026-10-02.csv: IDÊNTICO
+
+  E18  fase causal principal com FinBERT
+      ✘ (o que o script mostrou na tela): DIFERENTE na linha 45:
+          novo: tercil neg  -3h:-0.115  -2h:-0.174  -1h:+0.002  +0h:+0.120  +1h:-0.007  +2h:+0.034  +3h:-0.069
+          ref.: tercil neg  -3h:-0.128  -2h:-0.183  -1h:+0.013  +0h:+0.123  +1h:-0.005  +2h:+0.044  +3h:-0.075
+      ✔ fase_causal_finbert_2026-10-02.json: IDÊNTICO
+      ✘ fase_causal_finbert_2026-10-02.txt: DIFERENTE na linha 47:
+          novo: tercil neg  -3h:-0.115  -2h:-0.174  -1h:+0.002  +0h:+0.120  +1h:-0.007  +2h:+0.034  +3h:-0.069
+          ref.: tercil neg  -3h:-0.128  -2h:-0.183  -1h:+0.013  +0h:+0.123  +1h:-0.005  +2h:+0.044  +3h:-0.075
+      ✘ fase_causal_finbert_perfil_horario_2026-10-02.csv: DIFERENTE na linha 2:
+          novo: -3,neg,-0.11519069923893316,41
+          ref.: -3,neg,-0.12832971266978307,42
+
+  E19  A1 com FinBERT
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ fase_causal_A1_finbert_2026-10-02.json: IDÊNTICO
+      ✔ fase_causal_A1_finbert_2026-10-02.txt: IDÊNTICO
+      ✔ fase_causal_A1_finbert_perfil_horario_2026-10-02.csv: IDÊNTICO
+
+  E21  Fase E: a amostra de 300 manchetes se refaz igual
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+
+  E22  Fase E: léxico x anotadores (preliminar)
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ validacao_lexico_preliminar_claude_2026-10-02.json: IDÊNTICO
+      ✔ validacao_lexico_preliminar_claude_2026-10-02.txt: IDÊNTICO
+
+  E23  Fase F: léxico x FinBERT x distilbert
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ fase_F_validacao_modelos_preliminar_claude_2026-10-02.json: IDÊNTICO
+      ✔ fase_F_validacao_modelos_preliminar_claude_2026-10-02.txt: IDÊNTICO
+
+  E24  Fase F, R3: resultado original por medida
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ fase_F_R3_resultado_original_2026-10-02.csv: IDÊNTICO
+      ✔ fase_F_R3_resultado_original_2026-10-02.txt: IDÊNTICO
+
+  E25  Fase F: robustez lado a lado + exploratório
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ fase_F_exploratorio_relato_2026-10-02.json: IDÊNTICO
+      ✔ fase_F_robustez_comparacao_2026-10-02.txt: IDÊNTICO
+
+==============================================================================
+  RESULTADO: 23 de 29 saídas conferem com a referência; 6 diferentes; 0 etapas com erro.
+  Tempo total: 1 min. Relatório: verificacao/relatorio_verificacao.txt
+  ==> ATENÇÃO: há diferenças. Veja acima quais arquivos e linhas.
+==============================================================================
+
+################ PARTE 5 ################
+==============================================================================
+  VERIFICAÇÃO DO ESTUDO InvestAI — refaz tudo a partir dos dados congelados
+==============================================================================
+  Início: 02/10/2026 15:39   Máquina: Linux 6.8.0-138-generic (x86_64)
+  Python 3.10.12 | numpy 2.2.6 | pandas 2.3.3 | scipy 1.15.3
+  Pacote de dados: dados_congelados_2026-10-02.zip
+
+1) DADOS: conferindo a impressão digital (SHA-256) de cada arquivo
+  75 arquivos no manifesto; TODOS com o hash certo.
+
+2) RODANDO 5 etapas (relógio parado em 02/10/2026 12:00; 1 por vez)
+  E26 Fase G: piloto de 30 minutos (barras de 5 min) ...
+      terminou em 6 s (código 0); arquivos: fase_G_perfil_minuto_lexico_2026-10-02.csv, fase_G_piloto_minuto_lexico_2026-10-02.json, fase_G_piloto_minuto_lexico_2026-10-02.txt
+  E27 Fase G, adendo 2: janelas de até 5 minutos ...
+      terminou em 7 s (código 0); arquivos: fase_G_janelas_curtas_lexico_2026-10-02.json, fase_G_janelas_curtas_lexico_2026-10-02.txt, fase_G_perfil_minuto_a_minuto_lexico_2026-10-02.csv, fase_G_perfil_minuto_bandas_lexico_2026-10-02.csv
+  E28 Fase H: small caps (léxico) ...
+      terminou em 3 s (código 0); arquivos: fase_H_smallcaps_lexico_2026-10-02.json, fase_H_smallcaps_lexico_2026-10-02.txt
+  E29 Fase H: small caps (FinBERT) ...
+      terminou em 3 s (código 0); arquivos: fase_H_smallcaps_finbert_2026-10-02.json, fase_H_smallcaps_finbert_2026-10-02.txt
+  E31 gráfico do perfil minuto a minuto ...
+      terminou em 2 s (código 0); arquivos: perfil_minuto_noticias.png
+
+3) COMPARANDO com a referência (verificacao/referencia/)
+
+  E26  Fase G: piloto de 30 minutos (barras de 5 min)
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ fase_G_perfil_minuto_lexico_2026-10-02.csv: IDÊNTICO
+      ✔ fase_G_piloto_minuto_lexico_2026-10-02.json: IDÊNTICO
+      ✔ fase_G_piloto_minuto_lexico_2026-10-02.txt: IDÊNTICO
+
+  E27  Fase G, adendo 2: janelas de até 5 minutos
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ fase_G_janelas_curtas_lexico_2026-10-02.json: IGUAL (dif. < 1e-09)
+      ✔ fase_G_janelas_curtas_lexico_2026-10-02.txt: IDÊNTICO
+      ✔ fase_G_perfil_minuto_a_minuto_lexico_2026-10-02.csv: IDÊNTICO
+      ✔ fase_G_perfil_minuto_bandas_lexico_2026-10-02.csv: IDÊNTICO
+
+  E28  Fase H: small caps (léxico)
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ fase_H_smallcaps_lexico_2026-10-02.json: IDÊNTICO
+      ✔ fase_H_smallcaps_lexico_2026-10-02.txt: IDÊNTICO
+
+  E29  Fase H: small caps (FinBERT)
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ fase_H_smallcaps_finbert_2026-10-02.json: IDÊNTICO
+      ✔ fase_H_smallcaps_finbert_2026-10-02.txt: IDÊNTICO
+
+  E31  gráfico do perfil minuto a minuto
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ perfil_minuto_noticias.png: EXISTE (imagem)
+
+==============================================================================
+  RESULTADO: 17 de 17 saídas conferem com a referência; 0 diferentes; 0 etapas com erro.
+  Tempo total: 0 min. Relatório: verificacao/relatorio_verificacao.txt
+  ==> TUDO REPRODUZIDO: os mesmos dados dão os mesmos resultados nesta máquina.
+==============================================================================
+
+################ PARTE 6 ################
+==============================================================================
+  VERIFICAÇÃO DO ESTUDO InvestAI — refaz tudo a partir dos dados congelados
+==============================================================================
+  Início: 02/10/2026 15:39   Máquina: Linux 6.8.0-138-generic (x86_64)
+  Python 3.10.12 | numpy 2.2.6 | pandas 2.3.3 | scipy 1.15.3
+  Pacote de dados: dados_congelados_2026-10-02.zip
+
+1) DADOS: conferindo a impressão digital (SHA-256) de cada arquivo
+  75 arquivos no manifesto; TODOS com o hash certo.
+
+2) RODANDO 5 etapas (relógio parado em 02/10/2026 12:00; 1 por vez)
+  E16 fase causal, análise principal (P1-P9, S1-S7) ...
+      terminou em 11 s (código 0); arquivos: fase_causal_2026-10-02.json, fase_causal_2026-10-02.txt, fase_causal_perfil_horario_2026-10-02.csv
+  E17 fase causal, análise adicional A1 ...
+      terminou em 5 s (código 0); arquivos: fase_causal_A1_2026-10-02.json, fase_causal_A1_2026-10-02.txt, fase_causal_A1_perfil_horario_2026-10-02.csv
+  E18 fase causal principal com FinBERT ...
+      terminou em 11 s (código 0); arquivos: fase_causal_finbert_2026-10-02.json, fase_causal_finbert_2026-10-02.txt, fase_causal_finbert_perfil_horario_2026-10-02.csv
+  E19 A1 com FinBERT ...
+      terminou em 5 s (código 0); arquivos: fase_causal_A1_finbert_2026-10-02.json, fase_causal_A1_finbert_2026-10-02.txt, fase_causal_A1_finbert_perfil_horario_2026-10-02.csv
+  E30 gráfico do perfil hora a hora ...
+      terminou em 2 s (código 0); arquivos: perfil_horario_noticias.png
+
+3) COMPARANDO com a referência (verificacao/referencia/)
+
+  E16  fase causal, análise principal (P1-P9, S1-S7)
+      ✘ (o que o script mostrou na tela): DIFERENTE na linha 44:
+          novo: tercil neg  -3h:-0.038  -2h:-0.110  -1h:-0.020  +0h:+0.052  +1h:+0.031  +2h:-0.025  +3h:-0.028
+          ref.: tercil neg  -3h:-0.038  -2h:-0.146  -1h:-0.043  +0h:+0.054  +1h:+0.024  +2h:-0.006  +3h:-0.035
+      ✔ fase_causal_2026-10-02.json: IDÊNTICO
+      ✘ fase_causal_2026-10-02.txt: DIFERENTE na linha 47:
+          novo: tercil neg  -3h:-0.038  -2h:-0.110  -1h:-0.020  +0h:+0.052  +1h:+0.031  +2h:-0.025  +3h:-0.028
+          ref.: tercil neg  -3h:-0.038  -2h:-0.146  -1h:-0.043  +0h:+0.054  +1h:+0.024  +2h:-0.006  +3h:-0.035
+      ✘ fase_causal_perfil_horario_2026-10-02.csv: DIFERENTE na linha 4:
+          novo: -2,neg,-0.10987181772227428,51
+          ref.: -2,neg,-0.14613012447717869,52
+
+  E17  fase causal, análise adicional A1
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ fase_causal_A1_2026-10-02.json: IDÊNTICO
+      ✔ fase_causal_A1_2026-10-02.txt: IDÊNTICO
+      ✔ fase_causal_A1_perfil_horario_2026-10-02.csv: IDÊNTICO
+
+  E18  fase causal principal com FinBERT
+      ✘ (o que o script mostrou na tela): DIFERENTE na linha 45:
+          novo: tercil neg  -3h:-0.115  -2h:-0.174  -1h:+0.002  +0h:+0.120  +1h:-0.007  +2h:+0.034  +3h:-0.069
+          ref.: tercil neg  -3h:-0.128  -2h:-0.183  -1h:+0.013  +0h:+0.123  +1h:-0.005  +2h:+0.044  +3h:-0.075
+      ✔ fase_causal_finbert_2026-10-02.json: IDÊNTICO
+      ✘ fase_causal_finbert_2026-10-02.txt: DIFERENTE na linha 47:
+          novo: tercil neg  -3h:-0.115  -2h:-0.174  -1h:+0.002  +0h:+0.120  +1h:-0.007  +2h:+0.034  +3h:-0.069
+          ref.: tercil neg  -3h:-0.128  -2h:-0.183  -1h:+0.013  +0h:+0.123  +1h:-0.005  +2h:+0.044  +3h:-0.075
+      ✘ fase_causal_finbert_perfil_horario_2026-10-02.csv: DIFERENTE na linha 2:
+          novo: -3,neg,-0.11519069923893316,41
+          ref.: -3,neg,-0.12832971266978307,42
+
+  E19  A1 com FinBERT
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ fase_causal_A1_finbert_2026-10-02.json: IDÊNTICO
+      ✔ fase_causal_A1_finbert_2026-10-02.txt: IDÊNTICO
+      ✔ fase_causal_A1_finbert_perfil_horario_2026-10-02.csv: IDÊNTICO
+
+  E30  gráfico do perfil hora a hora
+      ✔ (o que o script mostrou na tela): IDÊNTICO
+      ✔ perfil_horario_noticias.png: EXISTE (imagem)
+
+==============================================================================
+  RESULTADO: 12 de 18 saídas conferem com a referência; 6 diferentes; 0 etapas com erro.
+  Tempo total: 0 min. Relatório: verificacao/relatorio_verificacao.txt
+  ==> ATENÇÃO: há diferenças. Veja acima quais arquivos e linhas.
+==============================================================================
+
