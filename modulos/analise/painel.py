@@ -42,11 +42,13 @@ def teste_agrupado(linhas: pd.DataFrame, R: pd.DataFrame,
     if len(L) < 10:
         return {"erro": "amostra pequena demais", "n": len(L)}
 
-    datas = np.array(sorted(L["data"].unique()))
+    # datetime64[ns] explícito: com pandas 2.x, um array de Timestamps não se
+    # compara com datetime64 no searchsorted (achado pela verificação na VM).
+    datas = np.array(sorted(L["data"].unique()), dtype="datetime64[ns]")
     tick = sorted(L["ticker"].unique())
     M = R.loc[datas, tick].to_numpy(dtype=float)
     Mz = (M - M.mean(axis=0)) / M.std(axis=0, ddof=1)
-    i_d = np.searchsorted(datas, L["data"].to_numpy())
+    i_d = np.searchsorted(datas, L["data"].to_numpy().astype("datetime64[ns]"))
     i_a = L["ticker"].map({t: k for k, t in enumerate(tick)}).to_numpy()
     x = L.groupby("ticker")["sentimento"].transform(
         lambda v: (v - v.mean()) / v.std(ddof=1)).to_numpy()

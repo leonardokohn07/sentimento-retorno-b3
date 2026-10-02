@@ -144,7 +144,7 @@ def main():
     painel = pd.concat(blocos, ignore_index=True)
     painel["data"] = pd.to_datetime(painel["data"]).dt.normalize()
 
-    datas = np.array(sorted(painel["data"].unique()))
+    datas = np.array(sorted(painel["data"].unique()), dtype="datetime64[ns]")   # ver modulos/analise/painel.py
     pos = retornos.index.get_indexer(datas)
     tick = [t for t in ATIVOS if t in painel["ticker"].unique()]
     R0 = retornos.iloc[pos][tick].to_numpy()        # segunda (dia do pregão)
@@ -152,7 +152,7 @@ def main():
     z = lambda M: (M - M.mean(axis=0)) / M.std(axis=0, ddof=1)
     R0z, R1z = z(R0), z(R1)
 
-    i_d = np.searchsorted(datas, painel["data"].to_numpy())
+    i_d = np.searchsorted(datas, painel["data"].to_numpy().astype("datetime64[ns]"))
     i_a = painel["ticker"].map({t: k for k, t in enumerate(tick)}).to_numpy()
     x = painel.groupby("ticker")["sentimento"].transform(
         lambda v: (v - v.mean()) / v.std(ddof=1)).to_numpy()
