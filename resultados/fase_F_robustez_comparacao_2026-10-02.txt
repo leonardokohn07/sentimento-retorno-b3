@@ -1,0 +1,41 @@
+FASE F — ROBUSTEZ: a mesma análise com o léxico e com o FinBERT-PT-BR
+(mesmo computador, mesmos dados de preço, mesmos métodos e permutações)
+
+R1 — família principal (Holm sobre P1 a P9)
+  teste    r léxico   p Holm    r FinBERT   p Holm
+  P1        +0,0109   1.0000      -0,0029   1.0000
+  P2        +0,1134   0.4935      +0,0726   1.0000
+  P3        +0,1207   0.4440      +0,0089   1.0000
+  P4        +0,0416   1.0000      +0,0158   1.0000
+  P5        +0,1026   0.9654      +0,0283   1.0000
+  P6        +0,0068   1.0000      +0,0075   1.0000
+  P7        +0,0290   0.4935      +0,0334   0.3616
+  P8        +0,0768   0.0018      +0,0638   0.0054
+  P9        +0,0065   1.0000      +0,0183   1.0000
+
+R2 — análise adicional A1 (Google + WordPress), p sem correção
+  teste                        r léxico        p    r FinBERT        p
+  A1_P2                         +0,0130   0.5899      +0,0192   0.4385
+  A1_P3                         +0,0827   0.0010      +0,0640   0.0117
+  A1_P4                         +0,0358   0.2262      -0,0073   0.7980
+  A1_P5                         +0,0908   0.0031      +0,0366   0.2130
+  A1_S4_noite_relato            +0,3589   0.0210      +0,4290   0.0032
+  A1_S4_pregao_relato_antes     +0,2202   0.1269      +0,2395   0.0635
+  A1_S5_dia_errado              +0,0406   0.1766      -0,0072   0.8055
+
+R3 — resultado original por ativo (quantos dos 8 com p < 0,05; r médio)
+  D-1:  lexico: 3 de 8, r médio +0,0728  |  finbert: 0 de 8, r médio +0,0445
+  D+0:  lexico: 6 de 8, r médio +0,1323  |  finbert: 4 de 8, r médio +0,0847
+  D+1:  lexico: 0 de 8, r médio +0,0132  |  finbert: 0 de 8, r médio +0,0079
+
+EXPLORATÓRIO (decidido depois de ver R1-R3; não confirmatório)
+D+0 em 2024-2026 (sentimento do pregão D x retorno anormal de D), separando as manchetes:
+  lexico   todas        : r = +0,1019  p = 0.0001  n = 4129
+  lexico   informativas : r = +0,0515  p = 0.0014  n = 4096
+  lexico   só relato    : r = +0,4949  p = 0.0001  n = 356
+  finbert  todas        : r = +0,0768  p = 0.0001  n = 4129
+  finbert  informativas : r = +0,0505  p = 0.0014  n = 4096
+  finbert  só relato    : r = +0,4427  p = 0.0001  n = 356
+  Correlação entre os dois escores, manchete a manchete: +0.433 (n = 18463)
+  Escore médio em módulo — relato      : léxico 0.521, FinBERT 0.709
+  Escore médio em módulo — informativas: léxico 0.151, FinBERT 0.484
