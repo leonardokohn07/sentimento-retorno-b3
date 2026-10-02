@@ -1,0 +1,19 @@
+======================================================================================
+  FASE CAUSAL — testes do pré-registro mestre de 02/10/2026
+======================================================================================
+  Horários WordPress: A1: Google + WordPress filtrado por data (adendo 1; validação 94,0% em 15 min, n = 100)
+  Notícias com horário no principal: 4998  (fontes: {'wordpress_filtrado': 4047, 'google': 951})
+  + horários da busca web (só sensibilidade): 82
+
+  ── ANÁLISE ADICIONAL A1 (fora da família de Holm) ──
+  A1_P2                      noite -> ABERTURA seguinte | pregão anterior  : r = +0.0130   p = 0.5967   n = 1642   (r detectável ~0.069, bi)
+  A1_P3                      noite <- PREGÃO passado (relato)              : r = +0.0826   p = 0.0009   n = 1642   (r detectável ~0.069, bi)
+  A1_P4                      pregão -> HORA SEGUINTE                       : r = +0.0358   p = 0.2262   n = 1159   (r detectável ~0.082, bi)
+  A1_P5                      pregão <- HORA ANTERIOR (relato/vazamento)    : r = +0.0908   p = 0.0031   n = 1155   (r detectável ~0.082, bi)
+  A1_S4_noite_relato         CONTROLE POSITIVO noite <- pregão passado     : r = +0.3588   p = 0.0201   n = 40   (r detectável ~0.431, bi)
+  A1_S4_pregao_relato_antes  CONTROLE POSITIVO pregão <- hora anterior     : r = +0.2202   p = 0.1269   n = 55   (r detectável ~0.370, bi)
+  A1_S5_dia_errado           FALSIFICAÇÃO dia errado                       : r = +0.0406   p = 0.1766   n = 1155   (r detectável ~0.082, bi)
+  A1 S7 perfil médio (retorno anormal %):
+      tercil neg  -3h:-0.054  -2h:-0.009  -1h:-0.033  +0h:+0.030  +1h:-0.012  +2h:-0.004  +3h:-0.027
+      tercil pos  -3h:+0.126  -2h:+0.107  -1h:+0.093  +0h:+0.008  +1h:-0.032  +2h:-0.039  +3h:-0.014
+======================================================================================

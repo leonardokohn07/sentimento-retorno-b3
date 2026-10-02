@@ -1,0 +1,9 @@
+================================================================================
+  EXPLORATÓRIO (decidido depois dos resultados; não confirmatório)
+================================================================================
+  E1_noite_relato_informativas            : r = +0.0611   p = 0.0152   n = 1624
+  E1_pregao_hora_anterior_informativas    : r = +0.0724   p = 0.0198   n = 1111
+  E2_pregao_hora_seguinte_informativas    : r = +0.0240   p = 0.4240   n = 1115
+  E3_da_abertura_ate_a_noticia            : r = +0.1589   p = 0.0001   n = 1160
+  E3_da_noticia_ate_o_fechamento          : r = +0.0404   p = 0.1891   n = 1160
+================================================================================
