@@ -1,9 +1,9 @@
 # Plano de Pesquisa — MOSTRATEC-LIBERATO 2026 (versão 2, 02/10/2026)
 
-**Título proposto:** A precedência temporal entre o tom das notícias econômicas e o retorno de ações na B3
-
-> **[CONFERIR] (não copiar):** antes de trocar o nome no formulário, confirmem com a
-> professora Deise se a troca exige reenviar o plano ao CESP.
+> **Título:** fica o título já inscrito (não pode ser trocado). O termo
+> "sentimento" é mantido como nome da técnica (análise de sentimento); o que
+> ela mede é o tom positivo ou negativo do texto, e isso é dito na 1ª frase
+> do resumo e do vídeo.
 
 Dez seções, na ordem oficial do formulário. Copie cada uma no campo
 correspondente. Onde estiver **[CONFERIR]**, só vocês podem confirmar.
