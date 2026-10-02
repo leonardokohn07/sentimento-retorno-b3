@@ -28,11 +28,28 @@
 > - A análise adicional declarada (Google + API dos sites, 5 vezes mais dados)
 >   confirma.
 > - Ponto cego: reações de poucos minutos, dentro da própria hora da
->   publicação.
+>   publicação. O piloto com barras de 5 minutos (seção 15) não achou reação
+>   em 30 minutos, mas só enxergaria efeitos de r ≥ 0,11.
 > - Medida de sentimento: o léxico concorda só de forma razoável com rótulos
 >   de referência (kappa 0,39; acerta ~61%). É uma checagem preliminar, feita
->   com anotador automático; a rotulagem humana ainda falta (seção 13). O
->   ruído enfraquece as correlações nos dois sentidos.
+>   com anotador automático; a rotulagem humana ainda falta (seção 13).
+>
+> **ATUALIZAÇÃO — fases F, G e H (02/10/2026, seções 14 a 18):**
+> - **Medidor:** o FinBERT-PT-BR (modelo de linguagem treinado em notícias do
+>   mercado brasileiro) concorda mais com os rótulos de referência que o
+>   léxico (kappa 0,44 contra 0,30). Mas a vantagem **não passou** na regra
+>   pré-registrada (IC 95% da diferença de −0,01 a +0,28). O léxico continua
+>   como medida principal até a rotulagem humana.
+> - **A conclusão não depende do medidor.** Com o FinBERT:
+>   - a notícia continua sem prever o preço;
+>   - a notícia da noite continua refletindo o pregão que passou (p = 0,012);
+>   - a réplica de 2021-2023 continua significativa (Holm 0,005).
+> - **Dentro da hora da notícia** (barras de 5 min, 666 eventos): nenhuma
+>   reação detectável em 30 minutos, nem antes nem depois.
+> - **Small caps** (8 sorteadas do índice SMLL):
+>   - a associação do mesmo dia se repete e é mais forte (r = 0,21, Holm
+>     0,0004);
+>   - a direção não dá para separar com os dados atuais.
 >
 > **Todos os testes, nulos e erros estão documentados abaixo.**
 
@@ -326,14 +343,16 @@ A cadeia de evidências:
 - **Resolução de 60 minutos:** a hora da publicação fica fora dos testes,
   porque mistura o antes e o depois. Uma reação em poucos minutos não seria
   vista pelo P4. No perfil descritivo não há salto nessa hora no sentido do
-  sentimento (terço positivo +0,008%, negativo +0,030%), mas só dados de
-  minuto confirmariam.
+  sentimento (terço positivo +0,008%, negativo +0,030%). O piloto de 5
+  minutos (seção 15) também não achou reação, mas tem poder só para r ≥
+  0,11. A coleta prospectiva (seção 17) resolve isso.
 - **Medida de sentimento:** na checagem preliminar da Fase E (seção 13), o
   léxico acerta ~61% e tem kappa 0,39 (razoável) contra o consenso de dois
-  anotadores automáticos. A rotulagem humana ainda falta. O erro de medida
-  enfraquece as correlações nas duas direções.
-- **Amostra:** 8 ações grandes e muito líquidas. Em ações pequenas a mídia
-  pode pesar mais (Fang; Peress, 2009).
+  anotadores automáticos. A rotulagem humana ainda falta. Com o FinBERT no
+  lugar do léxico (seção 14), as conclusões se mantêm.
+- **Amostra:** 8 ações grandes e muito líquidas. Na réplica com 8 small caps
+  (seção 16), a associação do mesmo dia se repete; a direção ficou sem
+  resposta, por falta de notícias (1.160 em quase 3 anos).
 - **O efeito causal da mídia em si** (Engelberg; Parsons, 2011) exige
   experimento natural e não é testável aqui.
 
@@ -347,16 +366,18 @@ A cadeia de evidências:
 
 ## 12. Próximos passos que fariam diferença
 
-1. **Dados de minuto:** o Yahoo dá barras de 1 minuto dos últimos 7 dias e de
-   5/15 minutos dos últimos 60 dias. Coletar daqui para frente notícias com
-   hora exata e barras de minuto permite medir a reação DENTRO da hora da
-   publicação, que é o único ponto cego deste desenho.
-2. **Coleta prospectiva com hora oficial:** feeds e API dos sites, a partir de
-   agora.
+(Atualizado em 02/10/2026: o que já foi feito está nas seções 14 a 17; a
+lista de agora está na seção 18.)
+
+1. **Dados de minuto:** piloto feito (seção 15). A versão definitiva depende
+   da coleta prospectiva.
+2. **Coleta prospectiva com hora oficial:** pronta (seção 17). Falta o
+   Leonardo ligar o agendamento.
 3. **Validar o léxico com rotulagem humana** (Fase E). A checagem
-   preliminar foi feita (seção 13). Falta Leonardo e Maurício rotularem as
-   planilhas deles.
-4. **Repetir em ações de menor liquidez.**
+   preliminar foi feita (seção 13), e a comparação com o FinBERT também
+   (seção 14). Falta Leonardo e Maurício rotularem as planilhas deles.
+4. **Repetir em ações de menor liquidez:** feito com 8 small caps (seção
+   16). A direção precisa de mais notícias.
 
 ## 13. Fase E — validação do léxico (02/10/2026, resultado PRELIMINAR)
 
@@ -413,3 +434,240 @@ neutra, uma pessoa concordaria?
 Vale como checagem preliminar. A validação de verdade é a rotulagem de
 Leonardo e Maurício, que se roda com
 `python scripts/29_validacao_lexico.py --humanos`.
+
+## 14. Fase F — trocar o léxico por um modelo de linguagem? (02/10/2026)
+
+**O que é:** um modelo de linguagem (do tipo BERT) lê a frase inteira, e não
+palavra por palavra como o léxico. A pergunta era se ele mede o sentimento
+das manchetes melhor e, se medir, se as conclusões do estudo mudam.
+
+**Pré-registro** (escrito antes de rodar qualquer modelo):
+`docs/pre-registro_2026-10-02_fase-F_modelo-de-linguagem.md`.
+
+**Candidatos:**
+- **L, o léxico atual.**
+- **F, o FinBERT-PT-BR** (`lucas-leme/FinBERT-PT-BR`). Segundo o cartão
+  oficial, que está guardado em `dados/modelos/finbert/`:
+  - primeiro aprendeu português com mais de 1,4 milhão de notícias
+    financeiras;
+  - depois aprendeu sentimento com 500 textos rotulados;
+  - referência: Santos, Bianchi e Costa (2023), *Anais do II Brazilian
+    Workshop on Artificial Intelligence in Finance*, SBC, p. 144-155.
+- **D, o modelo que o `AnalisadorV2` já tentava usar**
+  (`lxyuan/distilbert-base-multilingual-cased-sentiments-student`).
+  Multilíngue e genérico, destilado de um classificador "zero-shot".
+- **H1 e H2:** a média meio a meio do léxico com D e com F.
+
+**Como foi feito:**
+- No Windows do Leonardo, o `torch` não carrega. Dá o erro `WinError 1114`
+  ao abrir `c10.dll`, típico de Visual C++ Redistributable desatualizado.
+- Por isso o Windows só **baixou** os arquivos dos modelos
+  (`scripts/30a_baixar_modelos.py`).
+- Os pesos foram copiados em partes e conferidos por md5. Os escores foram
+  calculados no Linux, com o mesmo `scripts/30_sentimento_modelos.py` (opção
+  `--pasta-modelos`).
+- Foram 29.160 manchetes únicas: estudo, 2021-2023, coleta recente e small
+  caps.
+- **Escore** = P(positivo) − P(negativo). **Classe** = a de maior
+  probabilidade.
+- Detalhe técnico: o `config.json` do FinBERT diz `multi_label`. A classe
+  (argmax) não muda com isso. O escore contínuo usa softmax.
+
+**Validação** (300 manchetes da Fase E, consenso dos dois anotadores
+automáticos, n = 285; `resultados/fase_F_validacao_modelos_preliminar_claude_2026-10-02.txt`):
+
+| | kappa reponderado (IC 95%) | acurácia reponderada | Spearman |
+|---|---|---|---|
+| L léxico | 0,30 (0,21-0,39) — razoável | 61% | 0,58 |
+| **F FinBERT-PT-BR** | **0,44 (0,33-0,54) — moderada** | 63% | 0,67 |
+| D distilbert do código | 0,12 (0,06-0,18) | 33% | 0,49 |
+| H1 léxico + D | 0,18 | 46% | 0,63 |
+| H2 léxico + F | 0,44 | 62% | 0,68 |
+
+- **Regra pré-registrada:** diferença F − L = +0,14, com IC 95% de −0,01 a
+  +0,28. O IC inclui o zero (por pouco), então **o léxico continua como
+  medida principal.** O FinBERT é melhor na estimativa, mas a diferença
+  ainda pode ser sorte com 285 manchetes.
+- **Onde o FinBERT ganha:** pega 90% das manchetes negativas (o léxico pega
+  29%) e 63% das positivas (o léxico, 45%).
+- **Onde o FinBERT perde:** chama de negativa muita manchete neutra. Das 131
+  que ele chamou de negativas, 43 eram neutras.
+- **O modelo D, que já estava no código, é PIOR que o léxico.** Ele nunca
+  responde "neutro". Ligar o modo híbrido do `AnalisadorV2` teria piorado a
+  medida (H1 < L).
+
+**Robustez** (pré-registrada, roda mesmo sem adotar o FinBERT; os dois
+medidores no mesmo computador e com os mesmos dados;
+`resultados/fase_F_robustez_comparacao_2026-10-02.txt`):
+
+| teste | léxico | FinBERT |
+|---|---|---|
+| P8 réplica 2021-2023 (D+0) | r = 0,077, Holm 0,002 | r = 0,064, Holm 0,005 |
+| A1-P3 noite ← pregão passado | r = 0,083, p = 0,001 | r = 0,064, p = 0,012 |
+| A1-P5 pregão ← hora anterior | r = 0,091, p = 0,003 | r = 0,037, p = 0,21 |
+| A1-P2 noite → abertura seguinte | r = 0,013, p = 0,59 | r = 0,019, p = 0,44 |
+| A1-P4 pregão → hora seguinte | r = 0,036, p = 0,23 | r = −0,007, p = 0,80 |
+| Resultado original, D+0 por ativo | 6 de 8, r médio 0,13 | 4 de 8, r médio 0,08 |
+| Resultado original, D−1 por ativo | 3 de 8 | 0 de 8 |
+
+- **Pela regra escrita antes, a conclusão se mantém:**
+  - P8 continua positivo e significativo;
+  - na A1, P3 tem p < 0,05;
+  - P2 e P4 seguem nulos.
+- **A previsão de que as correlações cresceriam NÃO se confirmou.** Com o
+  FinBERT elas ficaram menores.
+
+**Por quê? (EXPLORATÓRIO, decidido depois de ver R1-R3):** D+0 de 2024-2026,
+separando as manchetes.
+- **Manchetes informativas** (96,8% das manchetes): r = 0,052 com o léxico
+  e 0,051 com o FinBERT, **praticamente iguais.**
+- **Manchetes que relatam o preço** ("Vale dispara 5%", 3,2% das manchetes):
+  r = 0,49 e 0,44.
+- **A diferença está na média do dia:**
+  - o léxico dá quase zero para as manchetes informativas (escore médio em
+    módulo 0,15). Nos dias com relato, a média do dia fica dominada pela
+    manchete que conta o preço;
+  - o FinBERT dá opinião forte para todas (0,48), e isso dilui o relato.
+- **Leitura:** boa parte da correlação do mesmo dia vem de **manchetes que
+  contam o que o preço já fez.** É mais um sinal de preço → notícia.
+
+**Resposta curta:** o FinBERT parece medir melhor (sobretudo notícia ruim),
+mas ainda não foi provado pela regra. E a conclusão do estudo é a mesma com
+os dois medidores. A palavra final vem da rotulagem humana:
+`python scripts/35_validacao_modelos.py --humanos`.
+
+## 15. Fase G — dentro da hora da notícia: piloto com barras de 5 minutos
+
+**O que é:** o desenho de 60 minutos deixava de fora a própria hora da
+publicação (o ponto cego). Aqui se olham os **30 minutos antes e os 30
+minutos depois** da notícia, em barras de 5 minutos. Só a barra da
+publicação fica de fora.
+
+**Pré-registro:** `docs/pre-registro_2026-10-02_fase-G_minuto.md`, mais o
+adendo 1 (atraso do horário do Google), escrito antes dos testes.
+
+**Dados:**
+- **Barras:** 60 pregões, de 09/07 a 01/10/2026, 8 ativos.
+- **Notícias:** as do estudo mais uma coleta nova de 2.537 notícias
+  (04/08 a 02/10).
+- **Eventos válidos** (10h30-16h20, horário exato): **666.**
+- **Menor r detectável:** 0,11.
+- **Medida principal:** o léxico, porque o FinBERT não foi adotado na Fase F.
+
+**Antes dos testes, o diagnóstico do horário (G-D1):**
+- 249 notícias recentes têm as duas horas, a do Google e a do site.
+- A diferença mediana é **0 minuto**, e 77,5% batem em até 1 minuto. Só 5,6%
+  têm o Google 5 minutos ou mais atrasado.
+- Para notícia recente, a hora do Google é confiável.
+
+**Resultados** (`resultados/fase_G_piloto_minuto_lexico_2026-10-02.txt`):
+
+| | r | p | leitura |
+|---|---|---|---|
+| **M1** notícia → 30 min depois | −0,011 | 0,80 (Holm 0,96) | nulo |
+| **M2** 30 min antes → notícia | −0,029 | 0,48 (Holm 0,96) | nulo |
+| G-S1 15 min depois / antes | −0,031 / −0,044 | 0,43 / 0,25 | nulo |
+| G-S3 com FinBERT, M1 / M2 | +0,004 / +0,000 | 0,93 / 0,99 | nulo |
+| G-S4 controle positivo (relato ← antes) | +0,15 | 0,39 (n = 43) | sinal certo, sem poder |
+| G-S5 falsificação (dia errado) | −0,017 | 0,68 | ≈ 0, como devia |
+| G-S6 / G-S7 hora oficial do site | −0,03 a +0,04 | > 0,4 | nulo |
+
+**O que significa:**
+- Na escala de minutos não aparece nada, nem a notícia empurrando o preço
+  nos 30 minutos seguintes, nem o preço andando logo antes.
+- O ponto cego não esconde uma reação grande. Uma reação pequena (r < 0,11)
+  não dá para descartar.
+- No perfil descritivo, o terço mais positivo sobe 0,14% na hora antes e
+  0,08% na hora depois. É só descrição, sem teste.
+
+**Estado:** piloto. O teste definitivo é a coleta prospectiva (seção 17).
+
+## 16. Fase H — réplica em ações de menor liquidez (small caps)
+
+**O que é:** repetir os testes em ações menores, onde a imprensa poderia
+pesar mais.
+
+**Pré-registro:** `docs/pre-registro_2026-10-02_fase-H_small-caps.md`.
+
+**Seleção** (regra fixa; `dados/smallcaps/selecao_smallcaps.csv`):
+- **Universo:** a carteira do índice SMLL baixada do site da B3 no dia: 104
+  ativos, 103 candidatos depois das exclusões.
+- **Sondagem:** manchetes pelo código no Google News (jun-ago/2026). 35
+  tiveram pelo menos 30 manchetes.
+- **Sorteio** (semente 42): **ASAI3, FLRY3, MDNE3, MULT3, POMO4, TAEE11,
+  TTEN3, VAMO3.**
+- **Coleta:** 1.160 notícias de 01/01/2024 a 06/09/2026 (de 83 a 206 por
+  ativo) e 832 pregões com preço dos 8.
+
+**Resultados** (léxico, principal; `resultados/fase_H_smallcaps_lexico_2026-10-02.txt`):
+
+| | r | p | p Holm | |
+|---|---|---|---|---|
+| **H1** D+0 (mesmo dia) | **+0,213** | 0,0001 | **0,0004** | **rejeita** |
+| H2 notícia → abertura seguinte | +0,053 | 0,20 | 0,50 | nulo |
+| H3 notícia ← retorno de D−1 | +0,054 | 0,17 | 0,50 | nulo |
+| H4 fim de semana → segunda | +0,096 | 0,54 (n = 46) | 0,54 | sem poder |
+
+- **Com o FinBERT** (secundária):
+  - H1 r = 0,19 (rejeita);
+  - H2 r = 0,079, p = 0,052;
+  - H3 r = 0,068, p = 0,077.
+  Nenhum dos dois de direção passa no Holm.
+
+**O que significa:**
+- A associação do mesmo dia **se repete nas small caps e é mais forte**
+  (0,21 contra 0,10 nas grandes, no mesmo período).
+- A direção ficou sem resposta: os dois lados dão nulo, e o menor r
+  detectável é 0,11.
+- O H2 com FinBERT perto de 5% é **pista, não achado.** Faz sentido com a
+  literatura (a mídia pesaria mais nas pequenas), mas precisa de mais
+  notícias para ser testado de verdade.
+
+## 17. Coleta prospectiva: como funciona e como ligar
+
+**Por que precisa:** o Google só informa a hora real das notícias recentes.
+Na coleta de hoje, foram 1,6% em agosto, 43% em setembro e 99% em outubro. E
+o Yahoo só guarda 30 dias de barras de 1 minuto e 60 dias de 5 minutos.
+**Quem não coleta todo dia perde o dado para sempre.**
+
+**O que roda todo dia** (`scripts/34_coleta_diaria.py`):
+1. barras de 1 e 5 minutos, sempre acrescentando;
+2. notícias dos últimos 3 dias e horário do WordPress;
+3. **só a contagem** dos eventos confirmatórios. A correlação não é olhada
+   antes da regra de parada.
+
+**Regra de parada** (pré-registrada): 1.500 eventos a partir de 03/10/2026
+(menor r detectável ≈ 0,07) ou 30/06/2027. No ritmo de setembro (cerca de 18
+eventos por pregão), isso dá uns **3 a 4 meses.**
+
+**Para ligar** (uma vez só):
+- Dar dois cliques em `scripts/AGENDAR_COLETA_DIARIA.bat`. Ele cria a
+  tarefa "InvestAI coleta diaria" no Agendador do Windows, todo dia às
+  19h40. O PC precisa estar ligado nesse horário.
+- Para desligar: `scripts/REMOVER_AGENDAMENTO.bat`.
+- O log fica em `dados/prospectivo/log_coleta_diaria.txt`.
+
+## 18. Síntese atualizada e próximos passos (02/10/2026)
+
+**O que mudou com as fases F, G e H:**
+- A conclusão "o preço vem antes da notícia" **sobreviveu à troca de
+  medidor** (seção 14).
+- O ponto cego dos minutos foi olhado e **não esconde uma reação grande**
+  (seção 15).
+- A associação do mesmo dia **se repete em ações menores** (seção 16).
+- Apareceu mais uma evidência de preço → notícia: a correlação do mesmo dia
+  é puxada pelas manchetes que relatam o preço (exploratório, seção 14).
+
+**Próximos passos:**
+1. **Rotulagem humana** (Leonardo e Maurício, 300 manchetes cada, sem olhar
+   a do outro). Ela decide de vez a troca para o FinBERT:
+   `scripts/29_validacao_lexico.py --humanos` e
+   `scripts/35_validacao_modelos.py --humanos`.
+2. **Ligar a coleta diária** (seção 17) e só rodar M1/M2 na regra de
+   parada.
+3. **Small caps:** coletar notícias com mais termos (nome da empresa, além
+   do código) **em um novo pré-registro**, para ter poder no teste de
+   direção.
+4. **Se o FinBERT for confirmado:** usá-lo como medida principal da coleta
+   prospectiva e da nova rodada das small caps. Os resultados com o léxico
+   continuam valendo como os pré-registrados.
