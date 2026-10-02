@@ -11,3 +11,20 @@ dados/cache_precos/
 
 # backups locais
 *.bak_feira
+
+# dados novos de 01-02/10/2026 — texto de notícias de terceiros e séries baixadas
+dados/noticias_2021_2023.csv
+dados/horarios_manuais.xlsx
+dados/horarios_manuais_GABARITO_nao_abrir.csv
+dados/cvm/
+dados/horarios_consolidado.csv
+dados/mercado/
+dados/intradiario/
+dados/horarios_wordpress.csv
+dados/horarios_wordpress_filtrado.csv
+dados/horarios_busca.csv
+
+# Fase E: planilhas com o texto das manchetes (os rótulos id;rotulo vão para o git)
+dados/validacao_lexico/para_rotular.csv
+dados/validacao_lexico/para_rotular_ordem_inversa.csv
+dados/validacao_lexico/*.xlsx
