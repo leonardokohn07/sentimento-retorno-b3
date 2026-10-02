@@ -44,8 +44,9 @@
 >   - a notícia continua sem prever o preço;
 >   - a notícia da noite continua refletindo o pregão que passou (p = 0,012);
 >   - a réplica de 2021-2023 continua significativa (Holm 0,005).
-> - **Dentro da hora da notícia** (barras de 5 min, 666 eventos): nenhuma
->   reação detectável em 30 minutos, nem antes nem depois.
+> - **Dentro da hora da notícia:** nenhuma reação detectável, nem antes nem
+>   depois. Valeu para janelas de 30 minutos (barras de 5 min, 666 eventos)
+>   e de 1 a 5 minutos (barras de 1 min, 470 eventos; seção 19.2).
 > - **Small caps** (8 sorteadas do índice SMLL):
 >   - a associação do mesmo dia se repete e é mais forte (r = 0,21, Holm
 >     0,0004);
@@ -653,7 +654,8 @@ eventos por pregão), isso dá uns **3 a 4 meses.**
 - A conclusão "o preço vem antes da notícia" **sobreviveu à troca de
   medidor** (seção 14).
 - O ponto cego dos minutos foi olhado e **não esconde uma reação grande**
-  (seção 15).
+  (seção 15), nem com janelas de até 5 minutos e barras de 1 minuto
+  (seção 19.2).
 - A associação do mesmo dia **se repete em ações menores** (seção 16).
 - Apareceu mais uma evidência de preço → notícia: a correlação do mesmo dia
   é puxada pelas manchetes que relatam o preço (exploratório, seção 14).
@@ -671,3 +673,98 @@ eventos por pregão), isso dá uns **3 a 4 meses.**
 4. **Se o FinBERT for confirmado:** usá-lo como medida principal da coleta
    prospectiva e da nova rodada das small caps. Os resultados com o léxico
    continuam valendo como os pré-registrados.
+
+## 19. Duas perguntas do Leonardo (02/10/2026)
+
+### 19.1 "Se o modelo acertou mais, não era melhor ficar só com ele?"
+
+**Por enquanto, não.** Os motivos, um por um:
+
+1. **"Acertar mais" foi por pouco.** Nas 285 manchetes de referência:
+   - o FinBERT acertou 176 e o léxico, 169: **7 manchetes de diferença**;
+   - em 123 os dois acertaram e em 63 os dois erraram;
+   - 53 só o FinBERT acertou, e 46 só o léxico.
+   - O teste exato dessas discordâncias (McNemar) dá p = 0,55. Na
+     contagem simples de acertos, é **empate técnico.**
+2. **Cada um ganha num lugar diferente:**
+   - nas manchetes negativas, o FinBERT acerta 77 de 83 e o léxico, 55;
+   - nas positivas, o léxico acerta 55 de 79 e o FinBERT, 48;
+   - nas neutras, o léxico acerta 59 de 123 e o FinBERT, 51.
+   - O kappa reponderado (a métrica principal) favorece o FinBERT, porque
+     desconta o acaso e pesa cada classe pelo tamanho que ela tem na
+     população. Mesmo assim, a diferença ficou dentro da margem de erro
+     (IC de −0,01 a +0,28).
+3. **A referência ainda é de IA, não de gente.** Os rótulos de hoje são de
+   duas rodadas automáticas. Para decidir a troca, a referência tem que ser
+   humana.
+4. **Trocar agora seria escolher a regra depois de ver o resultado.** O
+   critério foi escrito antes: o IC tinha que ficar todo acima de zero. Se a
+   gente afrouxa a regra porque o resultado "quase" passou, perde
+   exatamente o que dá credibilidade ao estudo diante da banca.
+5. **Para a conclusão, não faz diferença:** com os dois medidores ela é a
+   mesma (seção 14).
+
+**O que faria a troca valer:** a rotulagem de Leonardo e Maurício. Se, com
+ela, o kappa do FinBERT ficar acima do léxico com o IC todo acima de zero
+(`scripts/35_validacao_modelos.py --humanos`), o FinBERT passa a ser a
+medida principal **das análises novas**: a coleta prospectiva e a próxima
+rodada das small caps.
+
+Os resultados já publicados continuam com o léxico, porque foi isso que se
+pré-registrou. E o léxico tem uma vantagem própria: dá para mostrar à banca
+**quais palavras** puxaram o escore. O FinBERT é uma caixa-preta.
+
+### 19.2 "30 minutos não é muito? A reação deve acontecer em até 5 minutos"
+
+**A intuição está certa.** Se toda a reação acontece nos primeiros 5
+minutos, somar 30 minutos junta o sinal com 25 minutos de ruído. Em teoria,
+a correlação medida cai para uns 40% da verdadeira (1/√6).
+
+**O problema técnico:** com barras de 5 minutos, a barra em que a notícia
+saiu fica fora dos testes, porque mistura antes e depois. Uma reação nos
+primeiros minutos cairia justamente nela. Para olhar "no máximo 5 minutos
+depois", foi preciso usar **barras de 1 minuto.** O Yahoo só guarda 30 dias
+dela, e havia 20 pregões (03/09 a 01/10/2026).
+
+**Pré-registro:** adendo 2 da Fase G
+(`docs/pre-registro_2026-10-02_fase-G_minuto_ADENDO-2.md`), commitado antes
+de calcular qualquer janela curta.
+
+**Resultados** (`resultados/fase_G_janelas_curtas_lexico_2026-10-02.txt`;
+470 eventos com barra de 1 min e 665 com barra de 5 min):
+
+| | Janela | r | p | p Holm |
+|---|---|---|---|---|
+| **C1** | notícia → minutos +1 a +5 | −0,023 | 0,62 | 1,00 |
+| **C2** | minutos −5 a −1 → notícia | −0,067 | 0,145 | 0,58 |
+| **C3** | notícia → barra de 5 min seguinte | −0,042 | 0,28 | 0,85 |
+| **C4** | barra de 5 min anterior → notícia | −0,021 | 0,59 | 1,00 |
+
+- **Secundárias:** janelas de 1, 2 e 3 minutos, pulando o minuto vizinho e
+  com o FinBERT. Todas nulas; a maior foi o C1 com o FinBERT, r = 0,073,
+  p = 0,12.
+- **Perfil minuto a minuto** (`resultados/perfil_minuto_noticias.png`):
+  - nos 5 minutos depois da publicação, o retorno médio é **+0,002%** no
+    terço negativo e **+0,003%** no positivo;
+  - no próprio minuto da publicação também não há salto;
+  - as faixas de incerteza (IC 95%) das duas linhas se sobrepõem o tempo
+    todo.
+  - No terço negativo, o preço sobe um pouco entre 6 e 15 minutos depois,
+    o contrário do esperado. Isso não é teste pré-registrado e é
+    compatível com ruído (muitos pontos olhados ao mesmo tempo).
+
+**O que significa:**
+- Nem em 1, 2, 3 ou 5 minutos o preço se move no sentido da notícia. Nem
+  logo antes dela.
+- O menor efeito detectável é r ≈ 0,13 (1 min) e 0,11 (5 min). Reações
+  menores que isso não dá para descartar.
+- Faz sentido com o resto do estudo: quando a matéria sai no site, a
+  informação já chegou ao mercado por canais mais rápidos (comunicado da
+  empresa, terminais profissionais). O preço já andou antes, na escala de
+  horas (seções 7 e 9).
+- **Abaixo de 1 minuto** (segundos), o Yahoo não tem dado.
+
+**Para a coleta prospectiva:** C1 e C2 (as janelas de 5 minutos com barras
+de 1 minuto) entram na família confirmatória junto com M1 e M2, com Holm
+sobre os 4. O coletor diário já guarda as barras de 1 minuto, então a
+amostra cresce sozinha.
