@@ -7,6 +7,7 @@ Holm na família principal (P1 a P9) e as análises secundárias (S1 a S7).
 Uso:
     .\\venv\\Scripts\\python scripts\\25_fase_causal.py
     .\\venv\\Scripts\\python scripts\\25_fase_causal.py --embaralhar --n-perm 300   (SÓ teste de código)
+    .\\venv\\Scripts\\python scripts\\25_fase_causal.py --medida finbert   (Fase F, robustez R1/R2)
 """
 import argparse
 import json
@@ -29,6 +30,7 @@ from modulos.analise.filtro_relato import eh_relato_de_preco
 from modulos.analise.causal import (ATIVOS, retornos_decompostos, carregar_horario,
                                     teste_parcial, teste_horario, holm, _corr)
 from modulos.analise.mercado import carregar_ibovespa, matriz_retorno_anormal
+from modulos.analise import modelos
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--embaralhar", action="store_true")
@@ -37,7 +39,10 @@ ap.add_argument("--semente-embaralhar", type=int, default=7)
 ap.add_argument("--so-principal", action="store_true")
 ap.add_argument("--adicional-wp", action="store_true",
                 help="Análise adicional A1 (adendo 1): Google + WordPress com filtro de data; só P2-P5, S4, S5, S7")
+ap.add_argument("--medida", default="lexico", choices=["lexico", "finbert", "distil"],
+                help="Fase F: troca o score_polaridade pelo escore de um modelo de linguagem")
 a = ap.parse_args()
+SUF = "" if a.medida == "lexico" else f"_{a.medida}"   # nome dos arquivos de saída
 NP = a.n_perm
 FIM_ESTUDO = pd.Timestamp("2024-01-01")
 
@@ -56,6 +61,7 @@ def carregar(arq, periodo):
 noticias = pd.concat([carregar("noticias_com_sentimento.csv", "2024-2026"),
                       carregar("noticias_2021_2023.csv", "2021-2023")], ignore_index=True)
 noticias = noticias.drop_duplicates(subset=["ticker", "titulo", "data"])
+noticias = modelos.aplicar(noticias, a.medida)
 if a.embaralhar:
     noticias["score_polaridade"] = np.random.default_rng(a.semente_embaralhar).permutation(noticias["score_polaridade"].to_numpy())
 noticias["relato"] = noticias["titulo"].map(eh_relato_de_preco)
@@ -228,10 +234,10 @@ if a.adicional_wp:
     p("=" * 86)
     if not a.embaralhar:
         hoje = date.today().isoformat(); PR = RAIZ / "resultados"; PR.mkdir(exist_ok=True)
-        (PR / f"fase_causal_A1_{hoje}.txt").write_text("\n".join(linhas), encoding="utf-8")
-        perf.to_csv(PR / f"fase_causal_A1_perfil_horario_{hoje}.csv", index=False)
-        json.dump(R, open(PR / f"fase_causal_A1_{hoje}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1, default=float)
-        print(f"\nsalvo em: resultados/fase_causal_A1_{hoje}.txt")
+        (PR / f"fase_causal_A1{SUF}_{hoje}.txt").write_text("\n".join(linhas), encoding="utf-8")
+        perf.to_csv(PR / f"fase_causal_A1{SUF}_perfil_horario_{hoje}.csv", index=False)
+        json.dump(R, open(PR / f"fase_causal_A1{SUF}_{hoje}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1, default=float)
+        print(f"\nsalvo em: resultados/fase_causal_A1{SUF}_{hoje}.txt")
     sys.exit(0)
 # ═══════════════════ FAMÍLIA PRINCIPAL ═══════════════════
 p(""); p("  ── FAMÍLIA PRINCIPAL (Holm sobre P1 a P9) ──")
@@ -394,8 +400,8 @@ p("=" * 86)
 if not a.embaralhar:
     hoje = date.today().isoformat()
     PR = RAIZ / "resultados"; PR.mkdir(exist_ok=True)
-    (PR / f"fase_causal_{hoje}.txt").write_text("\n".join(linhas), encoding="utf-8")
-    perf.to_csv(PR / f"fase_causal_perfil_horario_{hoje}.csv", index=False)
+    (PR / f"fase_causal{SUF}_{hoje}.txt").write_text("\n".join(linhas), encoding="utf-8")
+    perf.to_csv(PR / f"fase_causal{SUF}_perfil_horario_{hoje}.csv", index=False)
     json.dump({"principal": R, "holm": aj, "secundarias": S, "wordpress": wp_info},
-              open(PR / f"fase_causal_{hoje}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1, default=float)
-    print(f"\nsalvo em: resultados/fase_causal_{hoje}.txt (+ .json e perfil horário)")
+              open(PR / f"fase_causal{SUF}_{hoje}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1, default=float)
+    print(f"\nsalvo em: resultados/fase_causal{SUF}_{hoje}.txt (+ .json e perfil horário)")

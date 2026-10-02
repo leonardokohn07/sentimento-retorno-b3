@@ -25,7 +25,11 @@ Se for interrompido, rodar de novo continua de onde parou (só calcula as
 manchetes que ainda não têm escore).
 
 Uso:  .\\venv\\Scripts\\python scripts\\30_sentimento_modelos.py
+      python scripts/30_sentimento_modelos.py --pasta-modelos dados/modelos
+          (usa os arquivos já baixados pelo 30a, sem internet; foi assim que
+           rodou, no Linux, porque o torch não carrega no Windows do Leonardo)
 """
+import argparse
 import os
 import shutil
 import sys
@@ -98,7 +102,7 @@ def guardar_cartao(nome, repo):
             print(f"  [aviso] não deu para guardar {repo}/{arq}: {e}")
 
 
-def rodar_modelo(nome, repo, textos):
+def rodar_modelo(nome, repo, textos, pasta_modelos=None):
     import torch
     from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
@@ -111,10 +115,15 @@ def rodar_modelo(nome, repo, textos):
     if not faltam:
         return
 
-    guardar_cartao(nome, repo)
+    fonte = repo
+    if pasta_modelos:
+        fonte = str(Path(pasta_modelos) / nome / "arquivos")
+        print(f"[{nome}] usando os arquivos locais em {fonte}")
+    else:
+        guardar_cartao(nome, repo)
     torch.set_num_threads(max(1, os.cpu_count() or 1))
-    tok = AutoTokenizer.from_pretrained(repo)
-    modelo = AutoModelForSequenceClassification.from_pretrained(repo)
+    tok = AutoTokenizer.from_pretrained(fonte)
+    modelo = AutoModelForSequenceClassification.from_pretrained(fonte)
     modelo.eval()
     rotulos = [str(modelo.config.id2label[i]).strip().lower().replace(" ", "_")
                for i in range(modelo.config.num_labels)]
@@ -142,12 +151,15 @@ def rodar_modelo(nome, repo, textos):
 
 
 def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--pasta-modelos", default=None)
+    a = ap.parse_args()
     print(f"Início: {datetime.now():%d/%m/%Y %H:%M}")
     textos = todas_as_manchetes()
     print(f"Total de manchetes únicas: {len(textos)}")
     for nome, repo in MODELOS.items():
         try:
-            rodar_modelo(nome, repo, textos)
+            rodar_modelo(nome, repo, textos, a.pasta_modelos)
         except Exception as e:
             print(f"[{nome}] ERRO: {type(e).__name__}: {e}")
     print(f"Fim: {datetime.now():%d/%m/%Y %H:%M}")
