@@ -1,9 +1,10 @@
 PASTA: dados/
 =============
 
-Entradas do estudo. NADA aqui vai para o repositório público: são dados de
-terceiros (texto das notícias e séries de preço), e o .gitignore os mantém
-fora do git.
+Entradas do estudo. Quase nada aqui vai para o repositório público: são
+dados de terceiros (texto das notícias e séries de preço), e o .gitignore os
+mantém fora do git. A exceção são os rótulos de sentimento da Fase E
+(validacao_lexico/**/rotulos_*.csv): são nossos e só têm id e rótulo.
 
     noticias_com_sentimento.csv   Notícias coletadas + escore de sentimento.
                                   19.410 registros, 10 ativos, 2024-2026.
@@ -16,6 +17,45 @@ fora do git.
                                   Escrito automaticamente por
                                   modulos/coleta/precos.py a cada coleta
                                   bem-sucedida.
+
+    noticias_2021_2023.csv        Notícias de out/2021 a dez/2023 (7.291),
+                                  mesmo coletor e mesmo léxico.
+                                  Gerado por scripts/18_coletar_periodo_anterior.py.
+
+    horarios_manuais.xlsx         As 1.540 notícias para buscar o horário
+                                  exato de publicação à mão.
+    horarios_manuais_GABARITO_nao_abrir.csv
+                                  Gabarito dos 40 itens de controle. Não abrir
+                                  antes de terminar a busca.
+    horarios_busca.csv            Horários achados na busca, com a evidência.
+    horarios_consolidado.csv      Resultado consolidado das linhas 1-165.
+    horarios_wordpress.csv        Tentativas na API WordPress dos sites (as
+                                  achadas têm wp_date).
+                                  Gerado por scripts/24_horarios_wordpress.py.
+    horarios_wordpress_filtrado.csv
+                                  Só os horários do WordPress com data
+                                  coerente (4.127). Usado na análise A1.
+
+    intradiario/                  Barras de 60 min dos 8 ativos e do Ibovespa,
+                                  de 30/10/2023 a 01/10/2026.
+                                  Gerado por scripts/23_baixar_intradiario.py.
+                                  ATENÇÃO: o Yahoo só guarda ~730 dias. Baixar
+                                  de novo depois perde o começo: guarde esta
+                                  cópia.
+    mercado/                      Ibovespa diário (fechamento e OHLC).
+    cvm/                          Arquivos da CVM (scripts/15_diagnostico_cvm.py).
+
+    validacao_lexico/             Fase E, validação do léxico:
+        para_rotular.csv          as 300 manchetes, sem o escore
+                                  (scripts/28_amostra_validacao_lexico.py);
+        para_rotular_ordem_inversa.csv
+                                  as mesmas, de trás para frente;
+        rotulagem_sentimento_<nome>.xlsx
+                                  a planilha de cada um (Leonardo, Maurício);
+        claude_NAO_ABRIR_antes_de_rotular/
+                                  rótulos dos dois anotadores automáticos;
+        rotulos_<nome>.csv        rótulos humanos exportados pelo
+                                  scripts/29_validacao_lexico.py --humanos.
 
 Perdi estes arquivos, e agora?
     Rode scripts/2_coletar_e_analisar.py com USAR_CACHE = False. A coleta

@@ -1,8 +1,8 @@
 PASTA: resultados/
 ==================
 
-Saídas do estudo. Todas são DERIVADAS de dados/noticias_com_sentimento.csv
-e do cache de preços — pode apagar qualquer uma e gerar de novo.
+Saídas do estudo. Todas são DERIVADAS dos dados locais (pasta dados/) —
+pode apagar qualquer uma e gerar de novo.
 
     congelado_<data>.csv/.txt      Referência congelada: r, R², p e n de cada
     .                              ativo em D+0 e D+1.
@@ -23,3 +23,31 @@ e do cache de preços — pode apagar qualquer uma e gerar de novo.
     permutacao_<ATIVO>.png         Distribuição sob embaralhamento.
     banner_permutacao_<ATIVO>.png  A mesma figura no formato do banner.
     dispersao_<ATIVO>.png          Sentimento x retorno, por ativo.
+
+    impacto_fuso_<data>.txt        Efeito do bug de fuso horário no resultado.
+    .                              (scripts/16_impacto_fuso.py)
+
+    fim_de_semana_agrupado_*.txt   Teste do fim de semana com os 8 ativos
+    .                              juntos: principal, sensibilidade e período
+    .                              estendido. (scripts/17_fim_de_semana_agrupado.py)
+
+    teste1_* a teste5_*.txt        Testes de direção do pré-registro de 02/10:
+    .                              sem manchetes de preço, placebo, retorno
+    .                              anormal e Granger. (scripts/19 a 22)
+
+    fase_causal_<data>.txt/.json   Fase causal, análise principal (horas do
+    .                              Google). (scripts/25_fase_causal.py)
+    fase_causal_A1_<data>.*        Análise adicional A1 (Google + WordPress).
+    *_perfil_horario_<data>.csv    Retorno em volta da hora da notícia.
+    perfil_horario_noticias.png    O mesmo, em gráfico.
+    .                              (scripts/26_grafico_perfil_horario.py)
+
+    exploratorio_pos_resultado.txt Análises exploratórias, decididas depois
+    .                              dos resultados (não confirmatórias).
+    .                              (scripts/27_exploratorio_pos_resultado.py)
+
+    validacao_lexico_<quem>_<data>.txt/.json
+    .                              Fase E: léxico x rótulos dos anotadores.
+    .                              "preliminar_claude" = anotadores
+    .                              automáticos; "humanos" = Leonardo e
+    .                              Maurício. (scripts/29_validacao_lexico.py)

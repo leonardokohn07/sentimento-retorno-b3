@@ -188,6 +188,23 @@ Scripts do estudo, a partir da pasta `InvestAI/`:
 | `scripts/7_curvas_de_deteccao.py` | Curvas de poder estatístico por tamanho de amostra |
 | `scripts/9_teste_fim_de_semana.py` | Tentativa de contornar a limitação de horário |
 | `scripts/12_teste_permutacao.py` | Controle negativo: 10.000 permutações por ativo |
+| `scripts/13_defasagem_negativa.py` | Controle de causalidade reversa: sentimento x retorno de D−1 |
+| `scripts/14_curva_de_defasagem.py` | Curva de defasagem de D−5 a D+5 |
+| `scripts/15_diagnostico_cvm.py` | Verifica se os fatos relevantes da CVM têm horário e amostra suficiente |
+| `scripts/16_impacto_fuso.py` | Mede o efeito do bug de fuso horário no resultado |
+| `scripts/17_fim_de_semana_agrupado.py` | Teste de causalidade pelo calendário, com os ativos agrupados |
+| `scripts/18_coletar_periodo_anterior.py` | Coleta as notícias de out/2021 a dez/2023 |
+| `scripts/19_sem_manchetes_de_preco.py` | Teste de direção 1: refaz o D+0 sem as manchetes que relatam a cotação |
+| `scripts/20_placebo_entre_empresas.py` | Teste de direção 2: sentimento de uma empresa contra o retorno de outra |
+| `scripts/21_retorno_anormal.py` | Teste de direção 3: retorno descontado do Ibovespa |
+| `scripts/22_granger.py` | Teste de direção 5: Granger nos dois sentidos |
+| `scripts/23_baixar_intradiario.py` | Baixa as barras de 60 minutos do Yahoo |
+| `scripts/24_horarios_wordpress.py` | Busca o horário oficial de publicação na API WordPress dos sites |
+| `scripts/25_fase_causal.py` | Fase causal: abertura x pregão e hora a hora, com horários exatos |
+| `scripts/26_grafico_perfil_horario.py` | Gráfico do retorno em volta da hora da notícia |
+| `scripts/27_exploratorio_pos_resultado.py` | Análises exploratórias, decididas depois dos resultados |
+| `scripts/28_amostra_validacao_lexico.py` | Sorteia (ou confere) as 300 manchetes da validação do léxico |
+| `scripts/29_validacao_lexico.py` | Compara o léxico com os rótulos dos anotadores |
 | `scripts/congelar_resultados.py` | Recalcula o resultado a partir dos dados locais — teste de regressão do estudo |
 | `scripts/diagnostico_ativos.py` | Mostra por que um ativo entrou ou ficou fora da análise |
 
@@ -201,8 +218,15 @@ InvestAI/
 │   └── analise/
 │       ├── sentimento.py     léxico de 300 termos, com negação e intensificadores
 │       ├── hipotese.py       testes estatísticos do estudo
-│       └── avaliacao.py      retorno acumulado, drawdown e Sharpe (para o backtest)
+│       ├── avaliacao.py      retorno acumulado, drawdown e Sharpe (para o backtest)
+│       ├── fuso.py           horário das notícias convertido para Brasília
+│       ├── filtro_relato.py  marca manchetes que só relatam a cotação
+│       ├── painel.py         teste agrupado (8 ativos), permutação em blocos de data
+│       ├── mercado.py        Ibovespa e retorno anormal
+│       ├── causal.py         fase causal: abertura x pregão e barras horárias
+│       └── validacao_lexico.py  léxico x rótulos dos anotadores (Fase E)
 ├── scripts/                  os experimentos, numerados
+├── docs/                     pré-registros, literatura e diário da causalidade
 ├── resultados/               figuras e tabelas geradas
 └── dados/                    dados locais (não versionados)
 ```
@@ -211,7 +235,8 @@ InvestAI/
 
 O repositório **não** inclui o texto das notícias coletadas (conteúdo de
 terceiros) nem as séries de preços do Yahoo Finance. O que fica versionado são
-o código, as figuras e as tabelas de resultado. Rodando os scripts de coleta,
+o código, as figuras, as tabelas de resultado e os rótulos de sentimento da
+validação do léxico (só id e rótulo, sem o texto). Rodando os scripts de coleta,
 os dados são reconstruídos.
 
 ## Histórico
