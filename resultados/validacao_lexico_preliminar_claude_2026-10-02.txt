@@ -1,0 +1,58 @@
+FASE E — VALIDAÇÃO DO LÉXICO DE SENTIMENTO
+Gerado em 02/10/2026 05:35 | pré-registro de 02/10/2026
+Anotadores: Claude A e Claude B  (AUTOMÁTICOS: checagem preliminar, não substitui humanos)
+Amostra: 300 manchetes, estratificada pela classe do léxico ({'neutro': 100, 'positivo': 100, 'negativo': 100})
+Pesos da população: negativo 11,3%, neutro 70,4%, positivo 18,3%
+
+1) CONCORDÂNCIA ENTRE OS ANOTADORES
+  Concordaram em 285 de 300 (95,0%)
+  Kappa de Cohen = 0,923  (quase perfeita)
+  Distribuição Claude A: negativo 85, neutro 130, positivo 85
+  Distribuição Claude B: negativo 83, neutro 131, positivo 86
+  Discordâncias: 15 (Claude A x Claude B: neutro x positivo 7, positivo x neutro 6, negativo x neutro 2)
+
+2) PRINCIPAL — LÉXICO x CONSENSO DOS ANOTADORES
+
+Léxico x consenso  (n = 285)
+  Acurácia na amostra .............. 0,593  IC95% [0,537; 0,649]
+  Acurácia reponderada (população) . 0,610  IC95% [0,537; 0,680]
+  Precisão de cada classe do léxico (quando o léxico diz X, os anotadores também dizem X):
+     negativo  0,561  (n = 98)  IC95% [0,469; 0,653]
+     neutro    0,621  (n = 95)  IC95% [0,526; 0,716]
+     positivo  0,598  (n = 92)  IC95% [0,500; 0,696]
+  Kappa léxico x referência ........ 0,389  (razoável)  IC95% [0,305; 0,473]
+  Spearman escore x rótulo (-1,0,+1)  0,581  (p permutação = 0,0001)
+  Matriz de confusão (linhas = léxico, colunas = referência):
+                 negativo    neutro  positivo
+     negativo         55        36         7
+     neutro           19        59        17
+     positivo          9        28        55
+
+3) SENSIBILIDADE — discordâncias contadas como 'neutro'
+
+Léxico x referência (discordância = neutro)  (n = 300)
+  Acurácia na amostra .............. 0,580  IC95% [0,523; 0,637]
+  Acurácia reponderada (população) . 0,613  IC95% [0,543; 0,682]
+  Precisão de cada classe do léxico (quando o léxico diz X, os anotadores também dizem X):
+     negativo  0,550  (n = 100)  IC95% [0,450; 0,650]
+     neutro    0,640  (n = 100)  IC95% [0,550; 0,730]
+     positivo  0,550  (n = 100)  IC95% [0,450; 0,650]
+  Kappa léxico x referência ........ 0,370  (razoável)  IC95% [0,285; 0,455]
+  Spearman escore x rótulo (-1,0,+1)  0,563  (p permutação = 0,0001)
+  Matriz de confusão (linhas = léxico, colunas = referência):
+                 negativo    neutro  positivo
+     negativo         55        38         7
+     neutro           19        64        17
+     positivo          9        36        55
+
+4) COMPLEMENTAR (não pré-registrado)
+  Léxico x Claude A  sozinho: acurácia 0,580, kappa 0,370
+  Léxico x Claude B  sozinho: acurácia 0,597, kappa 0,395
+  Matriz REPONDERADA para a população (léxico x consenso, em % do total):
+                 negativo    neutro  positivo
+     negativo        6,3       4,2       0,8
+     neutro         14,1      43,7      12,6
+     positivo        1,8       5,6      10,9
+  Das manchetes que os anotadores julgam X, quanto o léxico também chama de X
+  (sensibilidade/recall estimado na população):  negativo 0,286, neutro 0,818, positivo 0,449
+  Kappa reponderado para a população: 0,296
