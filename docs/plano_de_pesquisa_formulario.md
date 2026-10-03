@@ -67,6 +67,20 @@ Objetivos específicos:
 
 ---
 
+## 5b. OBJETOS (1281 de 2000 caracteres)
+
+Objeto: a associação estatística entre o sentimento (tom positivo ou negativo) das notícias da imprensa econômica e o retorno de ações da B3, e a direção temporal dessa associação, isto é, se a notícia antecede o movimento do preço ou se o preço se move antes da notícia.
+
+O que será feito: coletar notícias e cotações diárias e intradiárias de oito ações de sete setores (2024 a 2026), medir o sentimento de cada notícia com um léxico financeiro em português, alinhar cada notícia ao seu horário exato de publicação e testar, com métodos estatísticos e regras registradas antes de cada teste, a correlação entre o sentimento e o retorno antes e depois da publicação.
+
+Classificação: pesquisa científica, quantitativa e observacional. O trabalho busca responder a uma pergunta sobre um fenômeno (quem vem primeiro, a notícia ou o preço), e não desenvolver um produto. O sistema de coleta e análise construído pelos autores é o instrumento de medida, não o objeto do estudo.
+
+Área: Ciências da Computação, com aplicação em finanças: coleta automatizada de dados, processamento de linguagem natural (análise de sentimento) e análise estatística de séries temporais.
+
+Fora do objeto: mercados estrangeiros, redes sociais como fonte de sentimento e qualquer estratégia de investimento.
+
+---
+
 ## 6. REVISÃO BIBLIOGRÁFICA (1632 de 2000 caracteres)
 
 Marco teórico. A hipótese de eficiência de mercado, na forma semiforte, afirma que o preço de um ativo incorpora toda a informação publicamente disponível (Fama, 1970). Para este problema, a previsão é que o sentimento de uma notícia já publicada não preveja o retorno seguinte. Em direção contrária, a literatura de sentimento do investidor sustenta que fatores psicológicos afetam preços no curto prazo, com efeito maior em ativos difíceis de avaliar (Baker; Wurgler, 2007), e Barber e Odean (2008) mostraram que a pessoa física compra principalmente as ações que chamam atenção, como as que estão no noticiário.
