@@ -99,14 +99,14 @@ Confirmação prospectiva: coleta diária desde 02/10/2026, com regra de parada 
 
 ---
 
-## 8. CRONOGRAMA (998 de 2000 caracteres)
+## 8. CRONOGRAMA (1063 de 2000 caracteres)
 
-- Revisão bibliográfica e definição do problema: [PREENCHER]
-- Construção do sistema de coleta de notícias e cotações: [PREENCHER]
-- Construção e calibração do léxico de sentimento: [PREENCHER]
-- Implementação do módulo estatístico: [PREENCHER]
-- Validação com dados sintéticos e análise de poder: [PREENCHER]
-- Coleta final e testes de hipótese do estudo original: [PREENCHER]
+- Revisão bibliográfica e definição do problema: primeiro semestre de 2026
+- Construção do sistema de coleta de notícias e cotações: primeiro semestre de 2026
+- Construção e calibração do léxico de sentimento: primeiro semestre de 2026
+- Implementação do módulo estatístico: julho a setembro de 2026
+- Validação com dados sintéticos e análise de poder: setembro de 2026
+- Coleta final e testes de hipótese do estudo original: setembro de 2026
 - Auditoria do alinhamento temporal, controle D−1 e curva de defasagem: setembro de 2026
 - Auditoria de fuso horário, testes de robustez e réplica 2021-2023: outubro de 2026
 - Revisão da literatura sobre direção e testes com horário exato: outubro de 2026
@@ -164,4 +164,4 @@ HOLM, S. A simple sequentially rejective multiple test procedure. Scandinavian J
 
 - O limite de 2.000 caracteres das referências comporta 8 obras com link. Por isso o texto cita só essas 8; as outras 23 continuam no plano completo (v3).
 - Google Notícias, Yahoo Finance, WordPress e FinBERT-PT-BR aparecem como nomes de ferramentas e fontes de dados, sem citação, porque as referências deles não cabem no limite.
-- Cronograma: os meses das seis primeiras etapas são [PREENCHER].
+- Cronograma: as seis primeiras etapas foram datadas pelo Caderno de Campo (assinado em julho de 2026, que descreve a coleta, o léxico e o Seminário I com "3 meses de trabalho") e pelas datas dos arquivos (notícias do estudo original até 06/09/2026; scripts de validação sintética e análise de poder de 06/09/2026). O módulo estatístico não aparece no caderno de julho e já existia em 06/09, por isso "julho a setembro".

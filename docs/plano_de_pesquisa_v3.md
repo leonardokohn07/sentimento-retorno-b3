@@ -2,8 +2,7 @@
 
 Pronto para copiar: cada seção vai no seu campo, na ordem do formulário.
 As tabelas da versão 2 viraram listas, porque tabela não cola bem em campo
-de formulário. A única coisa que só vocês podem preencher são os meses das
-seis primeiras etapas do cronograma (marcadas com [PREENCHER]).
+de formulário.
 
 ---
 
@@ -169,12 +168,12 @@ Como a fonte só guarda 30 dias de barras de 1 minuto e só informa o horário r
 
 ## 8. CRONOGRAMA
 
-- Revisão bibliográfica e definição do problema: [PREENCHER]
-- Construção do sistema de coleta de notícias e cotações: [PREENCHER]
-- Construção e calibração do léxico de sentimento: [PREENCHER]
-- Implementação do módulo estatístico: [PREENCHER]
-- Validação com dados sintéticos e análise de poder: [PREENCHER]
-- Coleta final e testes de hipótese do estudo original: [PREENCHER]
+- Revisão bibliográfica e definição do problema: primeiro semestre de 2026
+- Construção do sistema de coleta de notícias e cotações: primeiro semestre de 2026
+- Construção e calibração do léxico de sentimento: primeiro semestre de 2026
+- Implementação do módulo estatístico: julho a setembro de 2026
+- Validação com dados sintéticos e análise de poder: setembro de 2026
+- Coleta final e testes de hipótese do estudo original: setembro de 2026
 - Auditoria do alinhamento temporal, controle D−1 e curva de defasagem: setembro de 2026
 - Auditoria de fuso horário, testes de robustez e réplica 2021-2023: outubro de 2026
 - Revisão da literatura sobre direção e testes com horário exato: outubro de 2026
@@ -312,6 +311,7 @@ YAHOO. **Yahoo Finance**. 2026. Disponível em: https://finance.yahoo.com. Acess
   verificado por outras pessoas", pelo mesmo motivo do 7.9.
 - Tabelas viraram listas, para colar em campo de formulário.
 
-**Falta só vocês:** os meses das seis primeiras etapas do cronograma
-([PREENCHER]). O histórico do git começa em 28/09/2026, então essas datas
-não estão registradas no repositório.
+**Cronograma:** as seis primeiras etapas foram datadas pelo Caderno de Campo
+(assinado em julho de 2026) e pelas datas dos arquivos do projeto (notícias do
+estudo original até 06/09/2026; validação sintética e análise de poder em
+06/09/2026).
