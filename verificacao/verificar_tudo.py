@@ -92,7 +92,7 @@ ETAPAS = [
     ("E23", "scripts/35_validacao_modelos.py", [], "Fase F: léxico x FinBERT x distilbert", []),
     ("E24", "scripts/36_resultado_original_medida.py", [], "Fase F, R3: resultado original por medida", []),
     ("E25", "scripts/39_resumo_fase_F.py", ["--data", "2026-10-02"], "Fase F: robustez lado a lado + exploratório",
-     ["E16", "E17", "E18", "E19"]),
+     ["E16", "E17", "E18", "E19", "E24"]),  # E24: lê o CSV do R3 (faltava; corrida achada em 10/10/2026)
     ("E26", "scripts/37_piloto_minuto.py", [], "Fase G: piloto de 30 minutos (barras de 5 min)", []),
     ("E27", "scripts/40_janelas_curtas.py", [], "Fase G, adendo 2: janelas de até 5 minutos", []),
     ("E28", "scripts/38_smallcaps_testes.py", [], "Fase H: small caps (léxico)", []),
