@@ -44,4 +44,7 @@ verificacao/dados_congelados_*.zip
 verificacao/_execucao/
 verificacao/status_verificacao.txt
 verificacao/relatorio_verificacao.txt
-docs/video/*.zip
+docs/mostratec/video/*.zip
+
+# relatório: só o PDF final vai para o repositório
+docs/mostratec/*.docx
