@@ -145,6 +145,27 @@ pip install -r requirements.txt
 streamlit run dashboard.py
 ```
 
+O painel abre no navegador e mostra **todos os resultados** do estudo, na
+ordem das perguntas da pesquisa, em 8 páginas:
+
+| Página | O que mostra |
+|---|---|
+| Início | a pergunta, a resposta em uma frase e os números principais |
+| Como medimos o sentimento | o léxico ao vivo: digite uma manchete e veja a conta, termo a termo |
+| O método foi testado antes | validação com dados sintéticos, poder do teste e um simulador de permutação |
+| 1 · Existe relação? | resultado por ação (D−1, D+0, D+1), curva de defasagem e permutação |
+| 2 · A relação é real? | retorno anormal, placebo entre empresas, réplicas e os testes nulos |
+| 3 · Quem vem primeiro? | os testes de direção, o perfil hora a hora e o minuto a minuto |
+| Explorar os dados | as notícias e os preços de cada ação, com a correlação calculada na hora |
+| Verificação e transparência | impressões digitais, verificador, registro de testes e pré-registros |
+
+Os números vêm da referência do verificador (`verificacao/referencia/`), a
+mesma do relatório: nenhum é digitado à mão. Com o pacote de dados congelados
+em `verificacao/`, o painel também **refaz as contas ao vivo** (resultado por
+ação, 80.000 embaralhamentos, impressões digitais e o próprio verificador) e
+mostra que elas dão os mesmos números. Sem o pacote, as páginas de resultados
+continuam funcionando.
+
 Os scripts do estudo ficam em [`scripts/`](scripts/), numerados na ordem em
 que os experimentos foram feitos; o cabeçalho de cada um explica o que ele faz
 e qual pré-registro segue.
@@ -153,7 +174,8 @@ e qual pré-registro segue.
 
 ```
 InvestAI/
-├── dashboard.py              aplicação Streamlit do estudo
+├── dashboard.py              painel do estudo (Streamlit)
+├── paginas/                  as 8 páginas do painel
 ├── modulos/
 │   ├── coleta/               notícias (RSS) e preços (yfinance, com cache local)
 │   └── analise/              léxico, testes, retorno anormal, horários e minuto a minuto

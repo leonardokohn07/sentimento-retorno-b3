@@ -18,6 +18,10 @@ fileWatcherType = "none"
 [browser]
 gatherUsageStats = false
 
+# Esconde o botão "Deploy" e o menu de desenvolvedor: na feira, o painel é só para ver.
+[client]
+toolbarMode = "viewer"
+
 
 # ─────────────────────────────────────────────────────────
 # TEMA
