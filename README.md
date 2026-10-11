@@ -138,9 +138,16 @@ congelados, entregue pelos autores a quem pedir.
 
 ## Como rodar
 
+**Windows: dois cliques em `ABRIR_PAINEL.bat`.** Na primeira vez num computador
+novo, ele cria o ambiente e instala as bibliotecas (precisa de internet e de
+Python 3.11 ou mais novo); depois, só abre o painel no navegador. Para
+desligar, feche a janela preta.
+
+No Mac ou no Linux: `bash abrir_painel.sh`. Ou, à mão:
+
 ```bash
 python -m venv venv
-venv\Scripts\activate        # Windows
+venv\Scripts\activate        # Windows (no Mac/Linux: source venv/bin/activate)
 pip install -r requirements.txt
 streamlit run dashboard.py
 ```
