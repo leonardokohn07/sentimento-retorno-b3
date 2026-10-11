@@ -100,24 +100,36 @@ with col1:
                "esta manchete faz parte do estudo; escore = P(positivo) − P(negativo)")
 with col2:
     if st.toggle("Rodar o FinBERT-PT-BR ao vivo (opcional)",
-                 help="Precisa de torch e transformers funcionando neste computador."):
-        @st.cache_resource(show_spinner="Carregando o FinBERT-PT-BR…")
-        def _modelo():
-            from modulos import finbert_vivo
-            try:
-                return finbert_vivo.carregar(), None
-            except Exception as e:  # noqa: BLE001 — mostrar qualquer motivo na tela
-                return None, f"{type(e).__name__}: {e}"
+                 help="Usa o ambiente separado venv_finbert, se existir (criado pelo TESTAR_FINBERT.bat); "
+                      "senão, tenta o torch do próprio painel."):
+        from modulos import finbert_vivo
 
-        mod, erro = _modelo()
+        @st.cache_resource(show_spinner="Carregando o FinBERT-PT-BR (na primeira vez pode levar até 1 minuto)…")
+        def _modelo():
+            return finbert_vivo.carregar()      # se falhar, o erro não fica guardado: dá para tentar de novo
+
+        try:
+            mod, erro = _modelo(), None
+        except Exception as e:  # noqa: BLE001 — mostrar qualquer motivo na tela
+            mod, erro = None, f"{type(e).__name__}: {e}"
         if erro:
-            st.warning("O modelo não carregou neste computador, então a página segue só com o léxico. "
-                       f"Motivo: `{erro[:220]}`", icon=":material/warning:")
+            dica = ("" if finbert_vivo.python_do_ambiente_separado() else
+                    " Para usar no Windows, rode uma vez o arquivo TESTAR_FINBERT.bat, na pasta do projeto: "
+                    "ele cria um ambiente separado só para o FinBERT. Depois, ligue esta opção de novo.")
+            st.warning("O modelo não carregou neste computador, então a página segue com o léxico e com os "
+                       f"escores do FinBERT já calculados no estudo. Motivo: `{erro[:300]}`.{dica}",
+                       icon=":material/warning:")
         else:
-            from modulos import finbert_vivo
-            r = finbert_vivo.pontuar(mod, texto)
-            cartao("FinBERT-PT-BR ao vivo", br(r["escore"], 2, sinal=True),
-                   f"positivo {br(r['positivo'], 2)} · neutro {br(r['neutro'], 2)} · negativo {br(r['negativo'], 2)}")
+            try:
+                r = finbert_vivo.pontuar(mod, texto)
+                cartao("FinBERT-PT-BR ao vivo", br(r["escore"], 2, sinal=True),
+                       f"positivo {br(r['positivo'], 2)} · neutro {br(r['neutro'], 2)} · "
+                       f"negativo {br(r['negativo'], 2)}")
+                st.caption(finbert_vivo.descricao(mod))
+            except Exception as e:  # noqa: BLE001
+                _modelo.clear()
+                st.warning(f"O FinBERT parou de responder: `{str(e)[:300]}`. Desligue e ligue a opção de novo.",
+                           icon=":material/warning:")
 
 # ── 2. O dicionário ─────────────────────────────────────
 st.markdown("## O dicionário")

@@ -1,5 +1,7 @@
 # ambiente
 venv/
+# ambiente separado do FinBERT (criado pelo TESTAR_FINBERT.bat)
+venv_finbert/
 __pycache__/
 *.pyc
 .streamlit/secrets.toml

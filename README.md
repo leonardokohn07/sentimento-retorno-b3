@@ -166,6 +166,12 @@ ação, 80.000 embaralhamentos, impressões digitais e o próprio verificador) e
 mostra que elas dão os mesmos números. Sem o pacote, as páginas de resultados
 continuam funcionando.
 
+**FinBERT ao vivo (opcional).** Na página do sentimento dá para comparar o léxico com o
+FinBERT-PT-BR em qualquer manchete digitada. No Windows, rode uma vez o
+`TESTAR_FINBERT.bat`: ele cria um ambiente separado (`venv_finbert`, com Python 3.12
+e o torch CPU), testa o modelo contra os escores do estudo e não mexe no `venv`
+principal. Depois, reinicie o painel.
+
 Os scripts do estudo ficam em [`scripts/`](scripts/), numerados na ordem em
 que os experimentos foram feitos; o cabeçalho de cada um explica o que ele faz
 e qual pré-registro segue.
