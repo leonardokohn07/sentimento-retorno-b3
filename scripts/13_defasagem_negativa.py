@@ -9,7 +9,7 @@ ONTEM? Se sim, parte da associacao encontrada em D+0 pode ser o jornal
 escrevendo sobre um movimento de preco que ja aconteceu.
 
 Pre-registrado em docs/pre-registro_2026-09-28_defasagem-negativa.md, antes
-de rodar. Ideia do professor orientador, na FEICIT 2026.
+de rodar. Ideia do professor Sauer, na FEICIT 2026.
 
 Alem das correlacoes, o script responde a pergunta que separa os cenarios:
 a correlacao em D+0 e MAIOR que a de D-1, de forma estatisticamente

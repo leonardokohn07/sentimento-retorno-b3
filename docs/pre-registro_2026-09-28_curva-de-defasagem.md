@@ -16,7 +16,7 @@ explicações que o dado diário não separa:
 
 1. **Antecipação da informação.** O conteúdo já circulava — rumor, dado
    parcial, expectativa — e o preço reagiu antes de a notícia ser publicada.
-   É a hipótese levantada pelo professor orientador: quando a notícia sai, o
+   É a hipótese levantada pelo professor Sauer: quando a notícia sai, o
    efeito já está "saturado" no preço.
 2. **Cobertura reativa.** O preço se moveu e o veículo escreveu depois, a
    respeito do próprio movimento.
@@ -62,3 +62,7 @@ nesses termos.
 | Mínimo por ativo | 60 observações |
 | Correção para múltiplas comparações | nenhuma no teste por ativo; a leitura é do FORMATO da curva, não de significância isolada em cada k |
 | Critério de parada | rodada única |
+
+## Correção (11/10/2026)
+
+A primeira versão deste documento atribuía a ideia ao professor orientador. Quem a sugeriu, na FEICIT 2026, foi o professor Sauer. Só a atribuição mudou: o plano do teste, as hipóteses e as regras de decisão são os mesmos da versão original, que continua no histórico do git.

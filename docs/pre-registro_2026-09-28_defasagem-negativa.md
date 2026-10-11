@@ -11,7 +11,7 @@ resultados — é essa ordem que torna o pré-registro verificável por terceiro
 
 ## Origem da ideia
 
-O teste foi sugerido pelo professor orientador do TCC durante a FEICIT 2026,
+O teste foi sugerido pelo professor Sauer durante a FEICIT 2026,
 com o seguinte raciocínio: se a informação pública já está no preço no momento
 em que se torna pública, vale olhar a notícia do dia contra o retorno do dia
 anterior.
@@ -64,3 +64,7 @@ Mesmo o cenário 1 não estabelece causalidade. Ele afasta uma explicação
 alternativa (a de ordem inversa), mas continua sem descartar fatores comuns
 que afetem notícia e preço ao mesmo tempo. A limitação de horário permanece:
 95,7% das notícias têm horário normalizado pela fonte.
+
+## Correção (11/10/2026)
+
+A primeira versão deste documento atribuía a ideia ao professor orientador. Quem a sugeriu, na FEICIT 2026, foi o professor Sauer. Só a atribuição mudou: o plano do teste, as hipóteses e as regras de decisão são os mesmos da versão original, que continua no histórico do git.

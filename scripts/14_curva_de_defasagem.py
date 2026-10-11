@@ -7,7 +7,7 @@ CURVA DE DEFASAGEM: de D-5 a D+5
 Mede a correlacao entre o sentimento do dia D e o retorno em D+k, para varios
 k, e desenha a curva. O FORMATO da curva e o resultado, nao cada ponto isolado.
 
-Pergunta de origem (professor orientador): se a informacao ja estava no preco
+Pergunta de origem (professor Sauer): se a informacao ja estava no preco
 quando a noticia saiu, o efeito deve aparecer ANTES da publicacao — e decair
 para tras de forma gradual, nao como um pico isolado em D-1.
 
