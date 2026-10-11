@@ -125,6 +125,10 @@ tabela(v[["etapa", "tipo", "teste", "pergunta", "medida", "r", "p", "p_holm", "n
                       "tipo": st.column_config.TextColumn(width="medium"),
                       "pergunta": st.column_config.TextColumn(width="large")})
 fonte("verificacao/registro_de_testes.csv.")
+if R.COMPLEMENTO_D4.exists():
+    st.caption("Depois do relatório, foi calculado o ponto D+4 que faltava na curva de defasagem (9 correlações, "
+               "todas não significativas). Ele não entra no registro acima, que é o da referência congelada; "
+               "está em resultados/curva_defasagem_complemento_D+4.csv, marcado como complemento descritivo.")
 
 # ── 4. Pré-registros ────────────────────────────────────
 st.markdown("## 4. As regras foram escritas antes")

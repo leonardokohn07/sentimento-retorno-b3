@@ -187,12 +187,25 @@ def por_ativo() -> pd.DataFrame:
               "r_d1", "p_d1"]].reset_index(drop=True)
 
 
+COMPLEMENTO_D4 = RAIZ / "resultados" / "curva_defasagem_complemento_D+4.csv"
+
+
 @lru_cache(maxsize=None)
 def curva_defasagem() -> pd.DataFrame:
-    """E06: correlação do sentimento do dia D com o retorno de D−5 a D+5."""
+    """E06: correlação do sentimento do dia D com o retorno de D−5 a D+5.
+
+    O D+4 não estava na lista do script 14. Ele foi calculado depois, com o mesmo
+    método e os mesmos dados, por scripts/42_defasagem_d4.py (que confere as outras
+    90 correlações contra a E06 antes de gravar). Vem marcado como complemento.
+    """
     d = pd.read_csv(_arq("E06", "curva_defasagem_{data}.csv"))
+    d["complemento"] = False
+    if COMPLEMENTO_D4.exists():
+        c = pd.read_csv(COMPLEMENTO_D4)
+        c["complemento"] = True
+        d = pd.concat([d, c], ignore_index=True).sort_values(["ativo", "lag"], kind="stable")
     d["sig"] = d["sig"].astype(str) == "True"
-    return d
+    return d.reset_index(drop=True)
 
 
 @lru_cache(maxsize=None)
@@ -206,7 +219,7 @@ def agrupado_d0() -> dict:
     """E06: os 8 ativos agrupados (todos os pares ativo-dia empilhados), no mesmo pregão.
     É o pico da curva de defasagem (Figura 14 do relatório)."""
     d = curva_defasagem()
-    x = d[(d["ativo"] == "AGRUPADO") & (d["lag"] == 0)].iloc[0]
+    x = d[(d["ativo"] == "AGRUPADO") & (d["lag"] == 0) & ~d["complemento"]].iloc[0]
     return {"r": float(x["r"]), "p": float(x["p"]), "n": int(x["n"])}
 
 
@@ -303,6 +316,7 @@ def testes_direcao() -> list:
     notícia; "noticia_antes" quando pergunta se a notícia antecipou o preço.
     """
     a1 = _json("E17", "fase_causal_A1_{data}.json")
+    e18 = _json("E18", "fase_causal_finbert_{data}.json")
     a1f = _json("E19", "fase_causal_A1_finbert_{data}.json")
     c = _json("E27", "fase_G_janelas_curtas_lexico_{data}.json")
     e16 = _json("E16", "fase_causal_{data}.json")
@@ -329,7 +343,7 @@ def testes_direcao() -> list:
         t("C1", "Notícia → minutos +1 a +5", "barras de 1 minuto",
           "noticia_antes", c["C1"], c["holm"]["C1"], c.get("CS3_C1_finbert"), "E27"),
         t("P1", "Notícias do dia → abertura do dia seguinte (todas, diário)", "diário",
-          "noticia_antes", e16["principal"]["P1"], e16["holm"]["P1"], None, "E16"),
+          "noticia_antes", e16["principal"]["P1"], e16["holm"]["P1"], e18["principal"]["P1"], "E16"),
     ]
 
 

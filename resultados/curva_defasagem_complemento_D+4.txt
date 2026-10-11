@@ -1,0 +1,22 @@
+==============================================================================
+  COMPLEMENTO DA CURVA DE DEFASAGEM — o ponto D+4
+==============================================================================
+  Calculado em 11/10/2026, depois dos resultados e fora do pré-registro
+  de 28/09/2026: é descritivo. Mesmo método e mesmos dados da etapa E06.
+  Dados: pacote de dados congelados de 02/10/2026 (o mesmo do verificador)
+  Conferência: as outras 90 correlações da curva batem com a E06.
+==============================================================================
+  ativo          n     r D+4         p  significativo a 5%?
+  ------------------------------------------------------------
+  ABEV3        462   -0.0813    0.0810  não
+  BBDC4        657   -0.0090    0.8176  não
+  ITUB4        551    0.0530    0.2142  não
+  MGLU3        512    0.0378    0.3928  não
+  PETR4        650    0.0427    0.2765  não
+  SUZB3        349    0.0099    0.8531  não
+  VALE3        583   -0.0058    0.8893  não
+  WEGE3        367    0.0429    0.4126  não
+  AGRUPADO    4131    0.0174    0.2649  não
+  ------------------------------------------------------------
+  D+4 significativo em 0 de 8 ativos.
+==============================================================================

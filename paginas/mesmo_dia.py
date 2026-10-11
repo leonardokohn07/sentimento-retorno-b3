@@ -63,8 +63,9 @@ sel = st.segmented_control("Ativo", opcoes, default="AGRUPADO",
                            format_func=lambda a: "8 agrupados" if a == "AGRUPADO" else a)
 sel = sel or "AGRUPADO"
 mostrar(G.curva_defasagem(cd, sel), "curva")
-fonte("etapa E06 do verificador (pré-registro de 28/09/2026). D+4 não está na lista de defasagens "
-      "do script (scripts/14_curva_de_defasagem.py).")
+fonte("etapa E06 do verificador (pré-registro de 28/09/2026). A barra listrada (D+4) faltava na lista do "
+      "script original e foi calculada depois, com o mesmo método e os mesmos dados "
+      "(scripts/42_defasagem_d4.py): é descritiva, fora do pré-registro.")
 st.markdown(
     "A correlação tem um pico no mesmo dia, um valor menor no dia anterior e nenhum efeito positivo nos "
     "dias seguintes. Se a notícia antecipasse o preço, as barras de D+1 em diante seriam azuis.")

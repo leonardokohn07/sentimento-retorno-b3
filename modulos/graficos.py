@@ -108,12 +108,15 @@ def curva_defasagem(df, ativo="AGRUPADO"):
     r = [d.loc[k, "r"] if k in d.index else None for k in lags]
     p = [d.loc[k, "p"] if k in d.index else None for k in lags]
     s = [bool(d.loc[k, "sig"]) if k in d.index else False for k in lags]
+    comp = [bool(d.loc[k, "complemento"]) if (k in d.index and "complemento" in d) else False for k in lags]
+    nota = ["<br><i>calculado depois, fora do pré-registro</i>" if c else "" for c in comp]
     fig = go.Figure(go.Bar(
         x=rot, y=[v if v is not None else 0 for v in r],
-        marker=dict(color=[AZUL if x else CINZA for x in s], line=dict(width=0)),
+        marker=dict(color=[AZUL if x else CINZA for x in s], line=dict(width=[1.5 if c else 0 for c in comp], color=TINTA2),
+                    pattern=dict(shape=["/" if c else "" for c in comp], fgcolor=TINTA2, size=6, solidity=0.25)),
         text=[br(v) if (v is not None and sig) else "" for v, sig in zip(r, s)],
         textposition="outside", textfont=dict(color=TINTA, size=12),
-        customdata=[p_txt(x) if x is not None else "não calculado" for x in p],
+        customdata=[(p_txt(x) if x is not None else "não calculado") + n for x, n in zip(p, nota)],
         hovertemplate="<b>%{x}</b><br>r = %{y:.3f}<br>%{customdata}<extra></extra>"))
     for i, v in enumerate(r):
         if v is None:
